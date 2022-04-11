@@ -1,1 +1,3 @@
-This is aeryilma's 42 adventure
+# **FT_PRINTF 125%**
+
+This printf has _SEGFAULT_ immune + Libft
