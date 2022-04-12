@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 09:50:40 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/04/07 08:25:05 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/04/12 23:46:52 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,13 @@ typedef struct s_sprites
 	char	*zemin;
 	char	*karakter;
 	char	*havlu;
+	char	*dusman;
 	char	*gemi;
 }	t_sprites;
 
 int		girdial(int keycode, t_game *oyun);
 void	git(t_game *oyun, int x, int y);
-void	mapciz(const t_game *oyun);
+void	mapciz(t_game *oyun);
+int		windowlen(char **map, char mod);
 
 #endif

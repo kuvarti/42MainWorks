@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moveevents.c                                       :+:      :+:    :+:   */
+/*   bonusmoveevents.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/29 10:08:26 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/04/12 03:34:41 by aeryilma         ###   ########.fr       */
+/*   Created: 2022/04/12 02:30:44 by aeryilma          #+#    #+#             */
+/*   Updated: 2022/04/12 23:48:56 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	girdial(int keycode, t_game *oyun)
 		else if (keycode == KEY_A || keycode == KEY_LEFT)
 			git(oyun, -1, 0);
 		ft_printf("\r");
-		mapciz(oyun);
 		ft_printf("Haraket Sayısı: %d", oyun->haraket_sayisi);
 	}
 	return (keycode);
@@ -54,8 +53,16 @@ static void	swapmod(char *e, char *n, t_game *oyun, char mod)
 
 void	oyunubitir(t_game *oyun)
 {
-	oyun->durum = !1;
-	ft_printf("\nTebrikler\n");
+	oyun->durum = 2;
+	mlx_clear_window(oyun->mlx, oyun->win);
+	mlx_string_put(oyun->mlx, oyun->win, 20, 20, 0xFFFFFF, "TEBRIKLER");
+	mlx_string_put(oyun->mlx, oyun->win, 20, 40, 0xFFFFFF,
+		ft_strjoin("Haraket Sayisi: ", ft_itoa(oyun->haraket_sayisi)));
+}
+
+static void	gameover(t_game *oyun)
+{
+	ft_printf("\nDusmana dokunmamalısın!!\n");
 	exit(mlx_destroy_window(oyun->mlx, oyun->win));
 }
 
@@ -75,6 +82,8 @@ void	git(t_game *oyun, int x, int y)
 			oyunubitir(oyun);
 		return ;
 	}
+	else if ('D' == *n)
+		return (gameover(oyun));
 	else if ('C' == *n && (oyun->coincount)--)
 		*n = '0';
 	swapmod(e, n, oyun, 'S');

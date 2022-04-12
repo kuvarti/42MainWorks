@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 15:03:06 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/04/07 08:24:34 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/04/12 03:13:08 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,6 @@
 # ifndef MLX_H
 #  include "mlx.h"
 # endif
-
-/* !!KULLANILMAYABİLİR
-typedef enum e_mapinfo{
-	bosluk = '0',
-	duvar = '1',
-	havlu = 'C',
-	gemi = 'E',
-	oyuncu = 'P'
-}	t_mapinfo;
-*/
 
 typedef struct s_konum
 {
@@ -53,15 +43,16 @@ typedef struct s_data
 
 typedef struct s_game
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	int		haraket_sayisi;
-	int		coincount;
-	char	**map;
-	t_konum	pos;
-	char	yon;
-	char	durum;
+	void			*mlx;
+	void			*win;
+	void			*img;
+	int				haraket_sayisi;
+	int				coincount;
+	char			**map;
+	t_konum			pos;
+	char			yon;
+	char			durum;
+	unsigned char	animtime;
 }	t_game;
 
 void	baslat(t_game *oyun);

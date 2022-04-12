@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   oyunubaslat.c                                      :+:      :+:    :+:   */
+/*   bonusoyunubaslat.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/25 16:09:11 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/04/12 23:50:47 by aeryilma         ###   ########.fr       */
+/*   Created: 2022/04/12 02:35:38 by aeryilma          #+#    #+#             */
+/*   Updated: 2022/04/12 23:49:11 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,26 @@ int	bitir(t_game *oyun)
 	return (1);
 }
 
+int	deneme(t_game *oyun)
+{
+	(oyun->animtime)++;
+	if (oyun->durum != 2)
+		mapciz(oyun);
+	return (1);
+}
+
 void	baslat(t_game *oyun)
 {
+	oyun -> animtime = 0;
 	oyun -> yon = SAG;
 	oyun -> haraket_sayisi = 0;
 	oyun -> durum = 1;
 	oyun->mlx = mlx_init();
 	ft_printf("Oyun Basliyor, \n\n");
 	oyun->win = mlx_new_window(oyun->mlx, windowlen(oyun->map, 'x'),
-			windowlen(oyun->map, 'y'), "so_long");
+			windowlen(oyun->map, 'y') + 12, "so_long");
 	mapciz(oyun);
+	mlx_loop_hook(oyun->mlx, deneme, oyun);
 	mlx_hook(oyun->win, ON_KEYDOWN, 1L << 0, girdial, oyun);
 	mlx_hook(oyun->win, ON_DESTROY, 1L << 0, bitir, oyun);
 	ft_printf("Haraket Sayısı: %d", oyun->haraket_sayisi);

@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 17:14:29 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/03/30 14:18:12 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/04/12 01:12:45 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,17 @@ static void	kapat(int *fd, char *a, char *b)
 	close(*fd);
 	free(a);
 	free(b);
+}
+
+static void	freemap(t_game *oyun)
+{
+	int	i;
+
+	i = 0;
+	while (oyun->map[i])
+		free(oyun->map[i++]);
+	oyun->map = NULL;
+	free(oyun);
 }
 
 void	getmap(t_game *oyun, char *file)
@@ -42,5 +53,5 @@ void	getmap(t_game *oyun, char *file)
 	kapat(&fd, str, deneme);
 	fd = mapcontrol(oyun);
 	if (fd == 0)
-		free(oyun);
+		freemap(oyun);
 }
