@@ -5,10 +5,11 @@
 This project is a 2d game with [minilibx](https://github.com/42Paris/minilibx-linux).
 
 Video:
-[Youtube Link](https://youtu.be/B7zO2g5JcYI)
+[Youtube Link](https://youtu.be/mtf2UV0kqT0)
 
 ### **so_long**:
-![solong](./img/solong.png)
+<!--![solong](./img/solong.png)-->
+<img src="./img/solong.png" alt="drawing" width="600"/>
 
 ### **so_long-bonus**
 ![solongbonus](./img/solong-bonus.gif)
