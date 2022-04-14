@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 15:03:06 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/04/12 03:13:08 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/04/14 23:38:32 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,21 @@ typedef struct s_data
 # define YUKARI 2
 # define ASAGI -2
 
+typedef struct s_sprites
+{
+	int		sprlen;
+	void	*duvar;
+	void	*zemin;
+	void	*karakter;
+	void	*rkarakter;
+	void	*dusman;
+	void	*gemi;
+	void	*havlu;
+	void	*havlu1;
+	void	*havlu2;
+	void	*havlu3;
+}	t_sprites;
+
 typedef struct s_game
 {
 	void			*mlx;
@@ -52,9 +67,12 @@ typedef struct s_game
 	t_konum			pos;
 	char			yon;
 	char			durum;
+	t_sprites		sprite;
 	unsigned char	animtime;
 }	t_game;
 
 void	baslat(t_game *oyun);
+void	spritedoldur(t_game *oyun);
+int	bitir(t_game *oyun, char *msg);
 
 #endif

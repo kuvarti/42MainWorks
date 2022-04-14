@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 10:08:26 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/04/12 03:34:41 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/04/15 00:47:34 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,7 @@
 int	girdial(int keycode, t_game *oyun)
 {
 	if (keycode == KEY_ESC)
-	{
-		mlx_destroy_window(oyun->mlx, oyun->win);
-		exit(ft_printf("\nByee..\n"));
-		return (0);
-	}
+		bitir(oyun, "\nbyee\n");
 	if (oyun->durum == 1)
 	{
 		if (keycode == KEY_W || keycode == KEY_UP)
@@ -38,25 +34,19 @@ int	girdial(int keycode, t_game *oyun)
 	return (keycode);
 }
 
-static void	swapmod(char *e, char *n, t_game *oyun, char mod)
+void	swapmod(char *e, char *n, t_game *oyun, char mod)
 {
 	if (mod == 'S')
 	{
 		*e ^= *n;
 		*n ^= *e;
 		*e ^= *n;
+		return ;
 	}
 	if (mod == SAG)
 		oyun->yon = SAG;
-	if (mod == SOL)
+	else if (mod == SOL)
 		oyun->yon = SOL;
-}
-
-void	oyunubitir(t_game *oyun)
-{
-	oyun->durum = !1;
-	ft_printf("\nTebrikler\n");
-	exit(mlx_destroy_window(oyun->mlx, oyun->win));
 }
 
 void	git(t_game *oyun, int x, int y)
@@ -72,7 +62,7 @@ void	git(t_game *oyun, int x, int y)
 	else if ('E' == *n)
 	{
 		if (oyun->coincount == 0)
-			oyunubitir(oyun);
+			bitir(oyun, "\nTebrikler\n");
 		return ;
 	}
 	else if ('C' == *n && (oyun->coincount)--)

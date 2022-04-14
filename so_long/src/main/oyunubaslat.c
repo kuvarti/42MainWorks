@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 16:09:11 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/04/12 23:50:47 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/04/15 01:35:55 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,21 @@ int	windowlen(char **map, char mod)
 	return (0);
 }
 
-int	bitir(t_game *oyun)
+int	bitir(t_game *oyun, char *msg)
 {
+	int	x;
+
+	x = 0;
+	while (oyun->map[x])
+		free(oyun->map[x++]);
+	free(oyun->sprite.zemin);
+	free(oyun->sprite.karakter);
+	free(oyun->sprite.rkarakter);
+	free(oyun->sprite.dusman);
+	free(oyun->sprite.gemi);
+	free(oyun->sprite.havlu);
+	free(oyun->sprite.duvar);
+	ft_printf("%s", msg);
 	exit(mlx_destroy_window(oyun->mlx, oyun->win));
 	return (1);
 }
@@ -46,7 +59,10 @@ void	baslat(t_game *oyun)
 	oyun -> haraket_sayisi = 0;
 	oyun -> durum = 1;
 	oyun->mlx = mlx_init();
-	ft_printf("Oyun Basliyor, \n\n");
+	ft_printf("Oyun Basliyor, \n");
+	spritedoldur(oyun);
+	if (oyun->sprite.duvar)
+		ft_printf("Done\n\n");
 	oyun->win = mlx_new_window(oyun->mlx, windowlen(oyun->map, 'x'),
 			windowlen(oyun->map, 'y'), "so_long");
 	mapciz(oyun);

@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 09:50:40 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/04/12 23:46:52 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/04/14 12:59:21 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,15 @@
 # define KEY_DOWN 125
 # define KEY_UP 126
 
-typedef struct s_sprites
-{
-	int		sprlen;
-	char	*duvar;
-	char	*zemin;
-	char	*karakter;
-	char	*havlu;
-	char	*dusman;
-	char	*gemi;
-}	t_sprites;
-
 int		girdial(int keycode, t_game *oyun);
 void	git(t_game *oyun, int x, int y);
 void	mapciz(t_game *oyun);
 int		windowlen(char **map, char mod);
+// for bonuses
+void	devriye(t_game *oyun);
+void	havluanim(t_game *oyun, int x, int y);
+void	spriteciz(void *img, const t_game *oyun, int x, int y);
+void	swapmod(char *e, char *n, t_game *oyun, char mod);
+void	gameover(t_game *oyun);
 
 #endif
