@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 22:33:30 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/04/14 23:39:19 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/04/15 13:43:17 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	devriye(t_game *oyun)
 
 void	havluanim(t_game *oyun, int x, int y)
 {
-	int sprlen;
+	int	sprlen;
 
 	sprlen = 45;
 	if (oyun->animtime / 4 == 0)

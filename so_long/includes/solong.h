@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 15:03:06 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/04/14 23:38:32 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/04/15 13:45:57 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,6 @@ typedef struct s_game
 
 void	baslat(t_game *oyun);
 void	spritedoldur(t_game *oyun);
-int	bitir(t_game *oyun, char *msg);
+int		bitir(t_game *oyun, char *msg);
 
 #endif

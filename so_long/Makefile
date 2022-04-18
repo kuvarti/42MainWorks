@@ -27,7 +27,7 @@ $(NAME): ftprintf $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) $(FTPRINTF) $(MLXFLAGS) $(MINILIBX) -o $(NAME)
 	@echo "Program Linked"
 
-bonus: $(BONUS)
+bonus: $(MINILIBX) $(BONUS)
 
 $(BONUS): ftprintf $(BOBJS)
 	@echo "Bonus Linking Started"

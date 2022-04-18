@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 23:52:08 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/04/15 01:34:39 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/04/15 13:47:32 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,27 @@ void	spritedoldur(t_game *oyun)
 	ft_printf("prites loading..");
 	sprlen = 45;
 	oyun->sprite.gemi = mlx_xpm_file_to_image(oyun->mlx,
-		"./sprites/gemi1.xpm", &sprlen, &sprlen);
+			"./sprites/gemi1.xpm", &sprlen, &sprlen);
 	oyun->sprite.zemin = mlx_xpm_file_to_image(oyun->mlx,
-		"./sprites/template.xpm", &sprlen, &sprlen);
+			"./sprites/template.xpm", &sprlen, &sprlen);
 	oyun->sprite.duvar = mlx_xpm_file_to_image(oyun->mlx,
-		"./sprites/wall.xpm", &sprlen, &sprlen);
+			"./sprites/wall.xpm", &sprlen, &sprlen);
 	oyun->sprite.havlu = mlx_xpm_file_to_image(oyun->mlx,
-		"./sprites/havlu1.xpm", &sprlen, &sprlen);
+			"./sprites/havlu1.xpm", &sprlen, &sprlen);
 	oyun->sprite.dusman = mlx_xpm_file_to_image(oyun->mlx,
-		"./sprites/dusman.xpm", &sprlen, &sprlen);
+			"./sprites/dusman.xpm", &sprlen, &sprlen);
 	oyun->sprite.karakter = mlx_xpm_file_to_image(oyun->mlx,
-		"./sprites/character1.xpm", &sprlen, &sprlen);
+			"./sprites/character1.xpm", &sprlen, &sprlen);
 	oyun->sprite.rkarakter = mlx_xpm_file_to_image(oyun->mlx,
-		"./sprites/rcharacter1.xpm", &sprlen, &sprlen);
+			"./sprites/rcharacter1.xpm", &sprlen, &sprlen);
+}
+
+static void	karakterciz(t_game *oyun, int x, int y)
+{
+	if (oyun->yon == SAG)
+		spriteciz(oyun->sprite.karakter, oyun, x, y);
+	else
+		spriteciz(oyun->sprite.rkarakter, oyun, x, y);
 }
 
 void	mapciz(t_game *oyun)
@@ -59,12 +67,7 @@ void	mapciz(t_game *oyun)
 			else if (oyun->map[y][x] == 'E')
 				spriteciz(oyun->sprite.gemi, oyun, x, y);
 			else if (oyun->map[y][x] == 'P')
-			{
-				if (oyun->yon == SAG)
-					spriteciz(oyun->sprite.karakter, oyun, x, y);
-				else
-					spriteciz(oyun->sprite.rkarakter, oyun, x, y);
-			}
+				karakterciz(oyun, x, y);
 		}
 	}
 }
