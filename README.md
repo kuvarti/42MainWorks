@@ -5,8 +5,7 @@
 
 [![aeryilma's 42 stats](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/stats?cursusId=21&coalitionId=undefined)](https://github.com/kuvarti/42MainWorks)
 
-<table>
-<tr><th> Project </th><th> Tables </th></tr>
+<table style="padding:0; width:100%; align:center">
 <tr><td>
 
 | Proje | Durum |
