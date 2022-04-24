@@ -1,1 +1,3 @@
-This is aeryilma's 42 adventure
+# **Minitalk**
+
+Minitalk is a communication program in the form of a client and a server.
