@@ -2,49 +2,19 @@
 > #### Do down for [Repository Guide](#how-to-see-projetcs)
 <br />
 <!-- https://badge42.vercel.app/ -->
-<div style = "padding-top:0; width:100%; display:flex; justify-content : space-around; ">
 
-<div style = "width : 40%;">
-	<div style ="display : flex; justify-content : space-around; border-style : none none solid none; border-width : 2px; border-color: purple;border-radius : 10px; margin-bottom: 5px;">
-	<div style="font-weight:bold;">Libft</div>
-	<a href="https://github.com/kuvarti/42MainWorks/tree/libft"><img style = "border-radius : 10px;" src="https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2473081"></a>
-	</div>
-	<div style ="display : flex; justify-content : space-around; border-style : none none solid none; border-width : 2px; border-color: purple;border-radius : 10px; margin-bottom: 5px;">
-	<div>Libft</div>
-	<a href="https://github.com/kuvarti/42MainWorks/tree/libft"><img style = "border-radius : 10px;" src="https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2473081"></a>
-	</div>
-		<div style ="display : flex; justify-content : space-around; border-style : none none solid none; border-width : 2px; border-color: purple;border-radius : 10px; margin-bottom: 5px;">
-	<div>Libft</div>
-	<a href="https://github.com/kuvarti/42MainWorks/tree/libft"><img  src="https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2473081"></a>
-	</div>
-		<div style ="display : flex; justify-content : space-around; border-style : none none solid none; border-width : 2px; border-color: purple;border-radius : 10px; margin-bottom: 5px;">
-	<div>Libft</div>
-	<a href="https://github.com/kuvarti/42MainWorks/tree/libft"><img src="https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2473081"></a>
-	</div>
-		<div style ="display : flex; justify-content : space-around; border-style : none none solid none; border-width : 2px; border-color: purple;border-radius : 10px; margin-bottom: 5px;">
-	<div>Libft</div>
-	<a href="https://github.com/kuvarti/42MainWorks/tree/libft"><img src="https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2473081"></a>
-	</div>
-		<div style ="display : flex; justify-content : space-around; border-style : none none solid none; border-width : 2px; border-color: purple;border-radius : 10px; margin-bottom: 5px;">
-	<div>Libft</div>
-	<a href="https://github.com/kuvarti/42MainWorks/tree/libft"><img src="https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2473081"></a>
-	</div>
-		<div style ="display : flex; justify-content : space-around; border-style : none none solid none; border-width : 2px; border-color: purple;border-radius : 10px; margin-bottom: 5px;">
-	<div>Libft</div>
-	<a href="https://github.com/kuvarti/42MainWorks/tree/libft"><img src="https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2473081"></a>
-	</div>
-		<div style ="display : flex; justify-content : space-around; border-style : none none solid none; border-width : 2px; border-color: purple;border-radius : 10px; margin-bottom: 5px;">
-	<div>Libft</div>
-	<a href="https://github.com/kuvarti/42MainWorks/tree/libft"><img src="https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2473081"></a>
-	</div>
+[![aeryilma's 42 stats](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/stats?cursusId=21&coalitionId=undefined)](https://github.com/kuvarti/42MainWorks)
 
-</div>
+| Proje | Durum |
+| :-	|	-:	|
+| Libft | [![Libft](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2473081)](https://github.com/kuvarti/42MainWorks/tree/libft)|
+| Born2Beroot| ![Born2Beroot](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2511701)|
+| GetNextLine| [![GetNextLine](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2510999)](https://github.com/kuvarti/42MainWorks/tree/getnextline)|
+| Printf| [![Printf](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2511000)](https://github.com/kuvarti/42MainWorks/tree/ft_prinf)|
+| Minitalk| [![Minitalk](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2556287)](https://github.com/kuvarti/42MainWorks/tree/minitalk)|
+| So_long| [![So_long](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2538270)](https://github.com/kuvarti/42MainWorks/tree/so_long)|
+| Push_Swap| [![Push_Swap](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2538179)]()|
 
-<div style="width:50%;">
-<img style ="width: 100%;" position="absolute" src="https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/stats?cursusId=21&coalitionId=undefined"/>
-</div>
-
-</div>
 
 
 ### **How to see projetcs**
