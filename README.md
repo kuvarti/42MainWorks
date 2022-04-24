@@ -1,4 +1,4 @@
-# **SO_LONG 125%**
+# **SO_LONg [![aeryilma's 42 so_long Score](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2538270)](https://github.com/JaeSeoKim/badge42)**
 
 >**!!If you want the compile on linux, look at the Makefile and change minilibx folder _(in this minilibx for macos)_.**
 
