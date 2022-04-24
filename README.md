@@ -18,9 +18,10 @@
 
 
 ### **How to see projetcs**
-<br />
-<img width="400" src="./img/howto.png" />
-<br />
+There is 2 way to explore projects;
+
+|![](./img/howto.png)|![](./img/howto2.png)|
+|:-|-:|
 
 > **!!Do not switch branch in folder.**
 ![notto](./img/example.png)
