@@ -5,7 +5,7 @@ LIBFT		= libft
 CC			= gcc
 CFLAGS		= -Wall -Werror -Wextra
 RM			= rm -f
-AR			= ar rcs
+AR			= ar -rcs
 
 SRC	= $(shell find printf -name '*.c')
 OBJ = $(SRC:.c=.o)

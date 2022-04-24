@@ -1,45 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/10 13:18:39 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/04/24 02:48:25 by aeryilma         ###   ########.fr       */
+/*   Created: 2022/04/21 05:29:10 by aeryilma          #+#    #+#             */
+/*   Updated: 2022/04/24 02:47:52 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "signal.h"
 
-unsigned char	g_gelen = 0;
-
-void	birsinyal(int sig)
+int	main(int argc, char **argv)
 {
-	static int	bit = 0;
+	int		index;
+	int		pid;
+	int		a;
 
-	if (bit == 0)
-		g_gelen = 0;
-	g_gelen <<= 1;
-	if (sig == 31)
-		g_gelen += 1;
-	bit++;
-	if (bit == 8)
+	if (argc != 3)
+		return (ft_printf("Dogru format './client pid message' seklindedir\n"));
+	pid = ft_atoi(argv[1]);
+	index = -1;
+	while (argv[2][++index])
 	{
-		ft_printf("%c", g_gelen);
-		bit = 0;
+		a = 8;
+		while (a--)
+		{
+			usleep(150);
+			if (argv[2][index] >> a & 1)
+				kill(pid, 31);
+			else
+				kill(pid, 30);
+		}
 	}
-}
-
-int	main(void)
-{
-	int	pid;
-
-	pid = getpid();
-	signal(SIGUSR1, birsinyal);
-	signal(SIGUSR2, birsinyal);
-	ft_printf("pid : %d\n", pid);
-	while (1)
-		;
 }
