@@ -1,11 +1,10 @@
 # **This is aeryilma's 42 adventure**
 > #### Do down for [Repository Guide](#how-to-see-projetcs)
-<br />
-<!-- https://badge42.vercel.app/ -->
+<p align="center">
+<a href="https://github.com/kuvarti/42MainWorks"><img src="https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/stats?cursusId=21&coalitionId=undefined" alt="42ProfileCard"/></a>
+</p>
 
-[![aeryilma's 42 stats](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/stats?cursusId=21&coalitionId=undefined)](https://github.com/kuvarti/42MainWorks)
-
-<table width="100%">
+<table width="100%" align="center">
 <tr style="display:flex; justify-content:space-around;"><td style="padding:0;">
 
 | Proje | Durum |
