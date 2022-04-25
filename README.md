@@ -5,8 +5,8 @@
 
 [![aeryilma's 42 stats](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/stats?cursusId=21&coalitionId=undefined)](https://github.com/kuvarti/42MainWorks)
 
-<table style="padding:0; width:100%; align:center">
-<tr><td>
+<table width="100%">
+<tr style="display:flex; justify-content:space-around;"><td style="padding:0;">
 
 | Proje | Durum |
 | :-	|	-:	|
@@ -15,7 +15,7 @@
 | GetNextLine| [![GetNextLine](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2510999)](https://github.com/kuvarti/42MainWorks/tree/getnextline)|
 | Printf| [![Printf](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2511000)](https://github.com/kuvarti/42MainWorks/tree/ft_prinf)|
 
-</td><td>
+</td><td style="padding:0;">
 
 | Proje | Durum |
 | :-	|	-:	|
