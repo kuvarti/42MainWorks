@@ -1,7 +1,7 @@
 
 NAME		= libftprintf.a
 INCLUDE		= include
-LIBFT		= libft
+LIBFT		= libft/libft
 CC			= gcc
 CFLAGS		= -Wall -Werror -Wextra
 RM			= rm -f
@@ -14,8 +14,8 @@ all:		$(NAME)
 
 $(NAME):	$(OBJ)
 			make -C $(LIBFT)
-			cp libft/libft.a .
-			mv libft.a $(NAME)
+			cp $(LIBFT)/libft.a .
+			mv $(LIBFT)/libft.a $(NAME)
 			$(AR) $(NAME) $(OBJ)
 
 %.o: %.c
@@ -23,6 +23,7 @@ $(NAME):	$(OBJ)
 
 clean:
 			rm -f */*.o
+			rm libft.a
 			make clean -C $(LIBFT)
 
 fclean:		clean

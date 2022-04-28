@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:52:37 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/03/07 21:01:08 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/04/28 13:13:26 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "stdarg.h"
 # include "unistd.h"
 # include "stdlib.h"
-# include "../libft/libft.h"
+# include "../libft/libft/libft.h"
 
 int	ft_printf(const char *ref, ...);
 int	ft_putptr(unsigned long hex, char *base);
