@@ -10,7 +10,7 @@
 | Proje | Durum |
 | :-	|	-:	|
 | Libft | [![Libft](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2473081)](https://github.com/kuvarti/42MainWorks/tree/libft)|
-| Born2Beroot| ![Born2Beroot](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2511701)|
+| Born2Beroot| [![Born2Beroot](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2511701)](https://github.com/kuvarti/42MainWorks/tree/born2beroot)|
 | GetNextLine| [![GetNextLine](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2510999)](https://github.com/kuvarti/42MainWorks/tree/getnextline)|
 | Printf| [![Printf](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2511000)](https://github.com/kuvarti/42MainWorks/tree/ft_prinf)|
 
