@@ -36,9 +36,9 @@ static int	ft_isaret(char c, int *index)
 
 int	ft_atoi(const char *nptr)
 {
-	unsigned long	ret_val;
-	int				index;
-	int				isaret;
+	int	ret_val;
+	int	index;
+	int	isaret;
 
 	index = 0;
 	ret_val = 0;
@@ -47,16 +47,18 @@ int	ft_atoi(const char *nptr)
 	while (ft_isspace(nptr[index]))
 		index++;
 	isaret = ft_isaret(nptr[index], &index);
+	while (nptr[index] == '0')
+		index++;
 	while (nptr[index] >= '0' && nptr[index] <= '9')
 	{
 		ret_val = (ret_val * 10) + (nptr[index] - '0');
+		if (ret_val <= 0)
+		{
+			if (isaret == -1)
+				return (0);
+			return (-1);
+		}
 		index++;
-	}
-	if (ret_val > LONG_MAX)
-	{
-		if (isaret == -1)
-			return (0);
-		return (-1);
 	}
 	return (ret_val * isaret);
 }
