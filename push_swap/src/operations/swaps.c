@@ -6,21 +6,23 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 15:03:17 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/05/12 06:31:15 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/05/21 23:17:06 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*sx(t_stack *a)
+static t_stack	*sx(t_stack *x)
 {
 	t_stack	*tmp;
 	t_stack	*cup;
 
-	tmp = a->next;
+	if (!x || !(x->next))
+		return (x);
+	tmp = x->next;
 	cup = tmp->next;
-	tmp->next = a;
-	a->next = cup;
+	tmp->next = x;
+	x->next = cup;
 	return (tmp);
 }
 
@@ -36,9 +38,9 @@ void	sb(t_stack **b)
 	ft_printf("sb\n");
 }
 
-void	ss(t_stack **a)
+void	ss(t_stack **a, t_stack **b)
 {
 	*a = sx(*a);
-	*a = sx(*a);
+	*b = sx(*b);
 	ft_printf("ss\n");
 }
