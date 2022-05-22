@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:05:46 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/05/12 06:31:35 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/05/22 18:21:52 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,13 @@ int	kontrol(t_stack *a, int sayi)
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
-	//t_stack	*b;
+	t_stack	*b;
 	int		gez;
 	int		arg;
 
 	gez = 0;
 	a = 0;
+	b = 0;
 	if (argc == 1)
 		return (0);
 	while (argv[++gez])
@@ -69,13 +70,29 @@ int	main(int argc, char **argv)
 		if (kontrol(a, arg))
 			a = ekle(a, arg);
 	}
-
-	ss(&a);
+	b = ekle(b, 5);
+	b = ekle(b, 10);
+	b = ekle(b, 15);
+	b = ekle(b, 20);
+//
+//	Here IS Operations
+//
+	ft_printf("a : ");
 	while (a)
 	{
 		ft_printf("%d", a->sayi);
 		a = a->next;
 		if (a)
+			ft_printf(" - ");
+		else
+			ft_printf("\n");
+	}
+	ft_printf("b : ");
+	while (b)
+	{
+		ft_printf("%d", b->sayi);
+		b = b->next;
+		if (b)
 			ft_printf(" - ");
 		else
 			ft_printf("\n");
