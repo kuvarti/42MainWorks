@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:36:49 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/05/21 14:37:26 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/05/26 11:47:52 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 typedef struct s_stack
 {
 	int				sayi;
+	unsigned int	index;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -38,6 +39,10 @@ void	rrr(t_stack **a, t_stack **b);
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
 
+//INPUTFUNCTIONS
 int	inputkontrol(char *input, int *arg);
+int	kontrol(t_stack *a, int sayi);
+t_stack *ekle(char **argv);
+
 
 #endif
