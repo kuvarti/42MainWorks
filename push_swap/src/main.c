@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:05:46 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/05/26 11:55:30 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/06/01 19:45:12 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
+	int		*index;
 
+	index = 0;
 	b = 0;
 	if (argc == 1)
 		return (0);
-	a = ekle(argv);
-
+	a = ekle(argv, &index);
+	quicksort();
 /*	b = ekle(b, 5);
 	b = ekle(b, 10);
 	b = ekle(b, 15);

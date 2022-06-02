@@ -6,14 +6,14 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:36:49 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/05/26 11:47:52 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/06/01 19:12:15 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "ft_printf.h"
+# include "ft_printf.h"
 
 typedef struct s_stack
 {
@@ -40,9 +40,8 @@ void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
 
 //INPUTFUNCTIONS
-int	inputkontrol(char *input, int *arg);
-int	kontrol(t_stack *a, int sayi);
-t_stack *ekle(char **argv);
-
+int		inputkontrol(char *input, int *arg);
+int		kontrol(t_stack *a, int sayi);
+t_stack *ekle(char **argv, int **index);
 
 #endif

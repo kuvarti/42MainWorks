@@ -8,12 +8,12 @@ SRC = $(shell find src -name '*.c' | grep -v "printf")
 OBJ = $(SRC:.c=.o)
 
 %.o: %.c
-	gcc $(CFLAGS) -c $< -o $@ -I Include -I $(INCLUDE)
+	gcc $(CFLAGS) -c $< -o $@ -I include -I $(INCLUDE)
 
 all: $(NAME)
 
-$(NAME): $(PRINTF) $(OBJ)
-	gcc $(CFLAGS) $(PRINTF) $(OBJ) -o $(NAME)
+$(NAME): $(OBJ) $(PRINTF)
+	gcc $(CFLAGS) $(OBJ) $(PRINTF) -I include -I $(INCLUDE) -o $(NAME)
 
 $(PRINTF):
 	make -C src/printf

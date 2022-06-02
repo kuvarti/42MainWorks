@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 21:25:46 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/03/07 23:03:22 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/05/30 13:21:23 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,6 @@ int	ft_putunbr(unsigned int n)
 
 	if (n == 0)
 		return (write(1, "0", 1));
-	else if (n < 0)
-	{
-		if ((int)n == -1)
-			n = 4294967295;
-		else
-			n = 4294967295 + n;
-	}
 	num = ft_uitoa(n);
 	len = ft_putstr(num);
 	free(num);

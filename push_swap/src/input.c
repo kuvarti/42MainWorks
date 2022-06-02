@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:59:15 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/05/26 11:55:18 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/06/01 19:42:26 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static t_stack	*newstack(int content)
 		return (NULL);
 	new->sayi = content;
 	new->next = NULL;
+	new->index = 0;
 	return (new);
 }
 
@@ -37,9 +38,10 @@ static t_stack	*nodekle(t_stack *a, int sayi)
 	return (a);
 }
 
-t_stack *ekle(char **argv)
+t_stack *ekle(char **argv, int **index)
 {
 	t_stack	*a;
+	t_stack *tmp;
 	int		gez;
 	int		arg;
 
@@ -51,6 +53,14 @@ t_stack *ekle(char **argv)
 			exit(ft_printf("Error\n"));
 		if (kontrol(a, arg))
 			a = nodekle(a, arg);
+	}
+	*index = (int *)malloc(sizeof(int) * gez);
+	gez = 0;
+	tmp = a;
+	while (tmp)
+	{
+		*(*index + gez++) = tmp->sayi;
+		tmp = tmp->next;
 	}
 	return (a);
 }
