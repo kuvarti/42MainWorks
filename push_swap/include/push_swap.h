@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:36:49 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/01 19:12:15 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/06/13 17:51:35 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,12 @@ void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
 
 //INPUTFUNCTIONS
-int		inputkontrol(char *input, int *arg);
-int		kontrol(t_stack *a, int sayi);
-t_stack *ekle(char **argv, int **index);
+t_stack	*nodekle(t_stack *a, int sayi);
+int	kontrol(t_stack *a, int sayi);
+int	arginputkontrol(char *input, int *arg);
+int	strinputkontrol(char *input, int *arg, int *index);
+
+//PREPARE
+t_stack	*minisort(t_stack *a);
 
 #endif

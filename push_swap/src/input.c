@@ -6,69 +6,34 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:59:15 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/01 19:42:26 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/06/13 20:24:56 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_stack	*newstack(int content)
+t_stack	*nodekle(t_stack *a, int sayi)
 {
+	t_stack	*tmp;
 	t_stack	*new;
 
 	new = malloc(sizeof(t_stack));
 	if (!new)
 		return (NULL);
-	new->sayi = content;
+	new->sayi = sayi;
 	new->next = NULL;
 	new->index = 0;
-	return (new);
-}
-
-static t_stack	*nodekle(t_stack *a, int sayi)
-{
-	t_stack	*tmp;
-
 	if (!a)
-		return (newstack(sayi));
+		return (new);
 	tmp = a;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
-	tmp->next = newstack(sayi);
+	tmp->next = new;
 	return (a);
 }
 
-t_stack *ekle(char **argv, int **index)
+int	arginputkontrol(char *input, int *arg)
 {
-	t_stack	*a;
-	t_stack *tmp;
-	int		gez;
-	int		arg;
-
-	a = 0;
-	gez = 0;
-	while (argv[++gez])
-	{
-		if (!inputkontrol(argv[gez], &arg))
-			exit(ft_printf("Error\n"));
-		if (kontrol(a, arg))
-			a = nodekle(a, arg);
-	}
-	*index = (int *)malloc(sizeof(int) * gez);
-	gez = 0;
-	tmp = a;
-	while (tmp)
-	{
-		*(*index + gez++) = tmp->sayi;
-		tmp = tmp->next;
-	}
-	return (a);
-}
-
-int	inputkontrol(char *input, int *arg)
-{
-	int	i;
-
 	if (input[0] == '0' && !input[1])
 	{
 		*arg = 0;
@@ -79,18 +44,49 @@ int	inputkontrol(char *input, int *arg)
 		*arg = -1;
 		return (1);
 	}
+	*arg = ft_atoi(input);
+	if (*arg == 0 || *arg == -1)
+		return (0);
+	return (*arg);
+}
+
+static int	ft_isspace(char chr)
+{
+	if (chr)
+		if ((chr >= 9 && chr <= 13) || chr == ' ')
+			return (1);
+	return (0);
+}
+
+// LINE EKSILTT!!!
+//FT_İSSPACEEEEEEEEE!!
+int	strinputkontrol(char *input, int *arg, int *index)
+{
+	int	i;
+
 	i = 0;
-	if (input[i] == '-')
+	while (ft_isspace(input[i]) && input[i])
 		i++;
-	while (input[i])
+	if (input[i] == '0' && ft_isspace(input[i + 1]))
 	{
-		if (!(input[i] >= '0' && input[i] <= '9'))
-			return (0);
-		i++;
+		*arg = 0;
+		(*index) += i + 1;
+		return (1);
+	}
+	if (input[i] == '-' && input[i + 1] == '1' && ft_isspace(input[i + 2]))
+	{
+		*arg = -1;
+		(*index) += i + 2;
+		return (1);
 	}
 	*arg = ft_atoi(input);
 	if (*arg == 0 || *arg == -1)
 		return (0);
+	if (input[i] == '-' || input[i] == '+')
+		i++;
+	while (input[i] >= '0' && input[i] <= '9')
+		i++;
+	(*index) += i;
 	return (*arg);
 }
 
