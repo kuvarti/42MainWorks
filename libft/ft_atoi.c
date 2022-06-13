@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 16:26:38 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/13 12:28:56 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/06/13 12:33:36 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static int	ft_isaret(char c, int *index)
 	return (isaret);
 }
 
+//have 3 more lines for other projects
 int	ft_atoi(const char *nptr)
 {
 	int	ret_val;
