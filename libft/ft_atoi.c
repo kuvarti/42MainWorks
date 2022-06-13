@@ -6,18 +6,17 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 16:26:38 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/13 12:33:36 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/06/13 14:29:58 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "limits.h"
 
-static int	ft_isspace(const char *chr, int *index)
+static void	ft_isspace(const char *chr, int *index)
 {
 	*index = 0;
-	while ((chr[index] >= 9 && chr[index] <= 13) || chr[index] == ' ')
-		index++;
+	while ((chr[*index] >= 9 && chr[*index] <= 13) || chr[*index] == ' ')
+		(*index)++;
 }
 
 static int	ft_isaret(char c, int *index)
