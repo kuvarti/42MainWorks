@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/06/14 15:44:31 by aeryilma          #+#    #+#              #
+#    Updated: 2022/06/14 15:44:32 by aeryilma         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = push_swap
 PRINTF = src/printf/libftprintf.a
 
@@ -12,7 +24,7 @@ OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(PRINTF)
+$(NAME): $(PRINTF) $(OBJ)
 	gcc $(CFLAGS) $(OBJ) $(PRINTF) -I include -I $(INCLUDE) -o $(NAME)
 
 $(PRINTF):
@@ -25,5 +37,9 @@ clean:
 fclean: clean
 	make fclean -C src/printf
 	rm push_swap
+
+norm:
+	@norminette $(SRC)
+	norminette */*.h
 
 re: fclean all

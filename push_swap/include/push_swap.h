@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:36:49 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/13 17:51:35 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/06/14 19:10:09 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 typedef struct s_stack
 {
 	int				sayi;
-	unsigned int	index;
+	int				index;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -27,25 +27,29 @@ typedef struct s_stack
 void	sa(t_stack **a);
 void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
-//ROTATE
+//ROTATE (0) -> (-1)
 void	ra(t_stack **a);
 void	rb(t_stack **b);
 void	rr(t_stack **a, t_stack **b);
-//REVERSEROTATE
+//REVERSEROTATE (-1) -> (0)
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
-//PUSH
+//PUSH	pa = B(0) --> A(0)
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
 
 //INPUTFUNCTIONS
 t_stack	*nodekle(t_stack *a, int sayi);
-int	kontrol(t_stack *a, int sayi);
-int	arginputkontrol(char *input, int *arg);
-int	strinputkontrol(char *input, int *arg, int *index);
+int		kontrol(t_stack *a, int sayi, int mod);
+int		arginputkontrol(char *input, int *arg);
+int		strinputkontrol(char *input, int *arg, int *index);
 
 //PREPARE
 t_stack	*minisort(t_stack *a);
+
+void	printstack(t_stack *a, t_stack *b);
+
+void	sort(t_stack **a, t_stack **b);
 
 #endif

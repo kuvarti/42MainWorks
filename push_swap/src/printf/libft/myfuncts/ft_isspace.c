@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushs.c                                            :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 11:41:49 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/14 15:35:46 by aeryilma         ###   ########.fr       */
+/*   Created: 2022/06/14 13:02:36 by aeryilma          #+#    #+#             */
+/*   Updated: 2022/06/14 13:16:50 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../libft.h"
 
-static void	pp(t_stack **x, t_stack **y)
+int	ft_isspace(int c)
 {
-	t_stack	*tmp;
-
-	if (!(*y))
-		return ;
-	tmp = *y;
-	*y = (*y)->next;
-	(*tmp).next = *x;
-	*x = tmp;
-}
-
-void	pa(t_stack **a, t_stack **b)
-{
-	pp(a, b);
-	ft_printf("pa\n");
-}
-
-void	pb(t_stack **a, t_stack **b)
-{
-	pp(b, a);
-	ft_printf("pb\n");
+	if (c)
+		if ((c >= 9 && c <= 13) || c == ' ')
+			return (c);
+	return (0);
 }

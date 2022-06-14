@@ -6,13 +6,13 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 16:26:38 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/13 20:12:01 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/06/14 13:12:35 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_isspace(const char *chr, int *index)
+static void	ft_isspace_a(const char *chr, int *index)
 {
 	*index = 0;
 	while ((chr[*index] >= 9 && chr[*index] <= 13) || chr[*index] == ' ')
@@ -43,7 +43,7 @@ int	ft_atoi(const char *nptr)
 	ret_val = 0;
 	if (*nptr == '\0')
 		return (0);
-	ft_isspace(nptr, &index);
+	ft_isspace_a(nptr, &index);
 	isaret = ft_isaret(nptr[index], &index);
 	while (nptr[index] == '0')
 		index++;

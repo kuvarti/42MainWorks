@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:59:15 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/13 20:24:56 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/06/14 18:54:06 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,14 @@ int	arginputkontrol(char *input, int *arg)
 	return (*arg);
 }
 
-static int	ft_isspace(char chr)
+static void	ilerle(char *input, int *i)
 {
-	if (chr)
-		if ((chr >= 9 && chr <= 13) || chr == ' ')
-			return (1);
-	return (0);
+	if (input[*i] == '-' || input[*i] == '+')
+		(*i)++;
+	while (ft_isdigit(input[*i]))
+		(*i)++;
 }
 
-// LINE EKSILTT!!!
-//FT_İSSPACEEEEEEEEE!!
 int	strinputkontrol(char *input, int *arg, int *index)
 {
 	int	i;
@@ -82,24 +80,26 @@ int	strinputkontrol(char *input, int *arg, int *index)
 	*arg = ft_atoi(input);
 	if (*arg == 0 || *arg == -1)
 		return (0);
-	if (input[i] == '-' || input[i] == '+')
-		i++;
-	while (input[i] >= '0' && input[i] <= '9')
-		i++;
+	ilerle(input, &i);
 	(*index) += i;
 	return (*arg);
 }
 
-int	kontrol(t_stack *a, int sayi)
+int	kontrol(t_stack *a, int sayi, int mod)
 {
 	t_stack	*tmp;
+	int		i;
 
+	i = mod;
 	tmp = a;
 	while (tmp)
 	{
+		if (tmp->index == sayi && mod == 0)
+			return (i);
 		if (tmp->sayi == sayi)
 			return (0);
 		tmp = tmp->next;
+		i++;
 	}
-	return (1);
+	return (i);
 }
