@@ -6,16 +6,16 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 13:02:36 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/14 13:02:47 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/06/14 13:11:09 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_isspace(char chr)
+int	ft_isspace(int c)
 {
-	if (chr)
-		if ((chr >= 9 && chr <= 13) || chr == ' ')
-			return (1);
+	if (c)
+		if ((c >= 9 && c <= 13) || c == ' ')
+			return (c);
 	return (0);
 }
