@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:59:15 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/14 18:54:06 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/06/17 01:45:51 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,14 @@ int	strinputkontrol(char *input, int *arg, int *index)
 	i = 0;
 	while (ft_isspace(input[i]) && input[i])
 		i++;
-	if (input[i] == '0' && ft_isspace(input[i + 1]))
+	if (input[i] == '0' && (ft_isspace(input[i + 1]) || !input[i + 1]))
 	{
 		*arg = 0;
 		(*index) += i + 1;
 		return (1);
 	}
-	if (input[i] == '-' && input[i + 1] == '1' && ft_isspace(input[i + 2]))
+	if (input[i] == '-' && input[i + 1] == '1'
+		&& (ft_isspace(input[i + 2]) || !input[i + 2]))
 	{
 		*arg = -1;
 		(*index) += i + 2;

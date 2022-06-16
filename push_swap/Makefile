@@ -6,9 +6,13 @@
 #    By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/14 15:44:31 by aeryilma          #+#    #+#              #
-#    Updated: 2022/06/14 15:44:32 by aeryilma         ###   ########.fr        #
+#    Updated: 2022/06/17 01:40:28 by aeryilma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+#	rnd.rb is only for generate random numbers
+#	usage : ruby rnd.rb [number]
+#	with push_swap usage : TMS=[number]; ARG=$(ruby rnd.rb $TMS); ./push_swap $ARG ...
 
 NAME = push_swap
 PRINTF = src/printf/libftprintf.a
@@ -24,7 +28,7 @@ OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(PRINTF) $(OBJ)
+$(NAME): $(OBJ) $(PRINTF)
 	gcc $(CFLAGS) $(OBJ) $(PRINTF) -I include -I $(INCLUDE) -o $(NAME)
 
 $(PRINTF):
