@@ -6,7 +6,7 @@
 #    By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/14 15:44:31 by aeryilma          #+#    #+#              #
-#    Updated: 2022/06/17 01:40:28 by aeryilma         ###   ########.fr        #
+#    Updated: 2022/06/21 15:02:20 by aeryilma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,8 @@ OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(PRINTF)
-	gcc $(CFLAGS) $(OBJ) $(PRINTF) -I include -I $(INCLUDE) -o $(NAME)
+$(NAME): $(PRINTF) $(OBJ)
+	gcc $(CFLAGS) $(PRINTF)  $(OBJ) -I include -I $(INCLUDE) -o $(NAME)
 
 $(PRINTF):
 	make -C src/printf

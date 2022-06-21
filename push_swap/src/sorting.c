@@ -6,26 +6,13 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 16:24:33 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/17 21:42:36 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/06/21 18:58:55 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	stacklen(t_stack *a)
-{
-	t_stack	*tmp;
-	int		ret;
-
-	ret = 0;
-	tmp = a;
-	while (tmp)
-	{
-		ret++;
-		tmp = tmp->next;
-	}
-	return (ret);
-}
+//ITS A WORSTEST SORTING
 
 static void	go(t_stack **a, t_stack **b, int unit, int *index)
 {
@@ -53,6 +40,7 @@ static void	go(t_stack **a, t_stack **b, int unit, int *index)
 			{
 				pb(a, b);
 				i++;
+				continue ;
 			}
 			ra(a);
 		}

@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:36:49 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/14 19:10:09 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/06/21 18:56:37 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,13 @@ int		kontrol(t_stack *a, int sayi, int mod);
 int		arginputkontrol(char *input, int *arg);
 int		strinputkontrol(char *input, int *arg, int *index);
 
-//PREPARE
+//GENERAL
 t_stack	*minisort(t_stack *a);
-
 void	printstack(t_stack *a, t_stack *b);
 
+//SORTING ALGORITHMS
+int		stacklen(t_stack *a);
 void	sort(t_stack **a, t_stack **b);
+void	sortradix(t_stack **a, t_stack **b);
 
 #endif
