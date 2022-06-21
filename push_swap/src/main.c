@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:05:46 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/17 01:50:08 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/06/17 13:16:32 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ t_stack	*ekle(char **argv, int argc, t_stack *a)
 	}
 	else
 	{
-		ft_printf("%s\n", argv[1]);
 		while (argv[1][gez])
 		{
 			if (!strinputkontrol(&argv[1][gez], &arg, &gez))
@@ -75,5 +74,5 @@ int	main(int argc, char **argv)
 	a = ekle(argv, argc, a);
 	a = minisort(a);
 	sort(&a, &b);
-//	printstack(a, b);
+	printstack(a, b);
 }

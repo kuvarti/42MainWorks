@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:59:15 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/17 01:45:51 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/06/17 11:30:46 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,13 @@ int	arginputkontrol(char *input, int *arg)
 	return (*arg);
 }
 
-static void	ilerle(char *input, int *i)
+static void	ilerle(char *input, int *i, int *index)
 {
 	if (input[*i] == '-' || input[*i] == '+')
 		(*i)++;
 	while (ft_isdigit(input[*i]))
 		(*i)++;
+	(*index) += *i;
 }
 
 int	strinputkontrol(char *input, int *arg, int *index)
@@ -65,6 +66,8 @@ int	strinputkontrol(char *input, int *arg, int *index)
 	i = 0;
 	while (ft_isspace(input[i]) && input[i])
 		i++;
+	if (!input[i] && (*index)++)
+		return (1);
 	if (input[i] == '0' && (ft_isspace(input[i + 1]) || !input[i + 1]))
 	{
 		*arg = 0;
@@ -81,8 +84,7 @@ int	strinputkontrol(char *input, int *arg, int *index)
 	*arg = ft_atoi(input);
 	if (*arg == 0 || *arg == -1)
 		return (0);
-	ilerle(input, &i);
-	(*index) += i;
+	ilerle(input, &i, index);
 	return (*arg);
 }
 
