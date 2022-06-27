@@ -6,15 +6,22 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 01:12:58 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/26 02:28:37 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/06/27 14:17:40 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	besorted()
+static void	besorted(t_stack **b, int uzaklik)
+{
+	while (--uzaklik)
+	{
+		rb(b);
+	}
+	sb(b);
+}
 
-int	nerede(t_stack **b)
+static void	nerede(t_stack **b)
 {
 	int		status;
 	int		uzaklik;
@@ -31,7 +38,8 @@ int	nerede(t_stack **b)
 			uzaklik++;
 			if (tmp->index > tmp->next->index)
 			{
-				// * Kalan yereküçük yeri sıralamadak kaldı
+				besorted(b, uzaklik);
+				break ;
 				status = 1;
 			}
 			tmp = tmp->next;
@@ -69,5 +77,4 @@ void	deneme(t_stack **a, t_stack **b)
 		times++;
 		pivot = (stacklen(*a) / 4) * times;
 	}
-	printstack(*a, *b);
 }
