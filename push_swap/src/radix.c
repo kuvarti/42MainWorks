@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:32:35 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/27 19:10:55 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/06/28 15:56:16 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,46 @@ static int	bits(t_stack *a, int otele)
 		tmp = tmp->next;
 	}
 	return (0);
-}
+} // * this is non return 0
+
+//? Bu iki fonksiyon birlestirilebilinir.
+static int	swipe(t_stack **a, t_stack **b)
+{
+	int	i;
+
+	i = stacklen(*b);
+	if (!(i))
+		return (0);
+	while (i--)
+	{
+		pa(a, b);
+	}
+	return (1);
+} // * This is non return 0
 */
-static void	terscevir(t_stack **a, t_stack **b)
+static int	swipe_and_control(t_stack **a, t_stack **b, int swipe)
+{
+	t_stack	*tmp;
+	int		i;
+
+	i = stacklen(*b);
+	if (!(i))
+		return (0);
+	while (i--)
+	{
+		pa(a, b);
+	}
+	tmp = *a;
+	while (tmp)
+	{
+		if ((tmp->index) >> swipe & 1)
+			return (1);
+		tmp = tmp->next;
+	}
+	return (0);
+}
+
+static void	reverse(t_stack **a, t_stack **b)
 {
 	int	i;
 
@@ -44,28 +81,12 @@ static void	terscevir(t_stack **a, t_stack **b)
 	}
 }
 
-static int	swipe(t_stack **a, t_stack **b)
-{
-	int	i;
-
-	i = stacklen(*b);
-	if (!i)
-		return (0);
-	while (i--)
-	{
-		pa(a, b);
-	}
-	return (1);
-}
-
 void	sortradix(t_stack **a, t_stack **b)
 {
-	t_stack	*tmp;
 	int		i;
 	int		otele;
 
 	otele = 0;
-	tmp = *a;
 	while (otele <= 9)
 	{
 		i = stacklen(*a);
@@ -76,13 +97,11 @@ void	sortradix(t_stack **a, t_stack **b)
 				pb(a, b);
 				continue ;
 			}
-//			if (!bits(*a, otele))
-//				break ;
 			ra(a);
 		}
 		otele++;
-		if (!swipe(a, b))
+		if (!bits(*a, otele) || !swipe(a, b))
 			break ;
 	}
-	terscevir(a, b);
+	reverse(a, b);
 }
