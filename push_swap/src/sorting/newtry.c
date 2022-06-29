@@ -6,75 +6,44 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 01:12:58 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/27 14:17:40 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/06/29 13:04:38 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	besorted(t_stack **b, int uzaklik)
+void	firstpush(t_stack **a, t_stack **b, int stage)
 {
-	while (--uzaklik)
-	{
-		rb(b);
-	}
-	sb(b);
-}
-
-static void	nerede(t_stack **b)
-{
-	int		status;
-	int		uzaklik;
 	t_stack	*tmp;
+	int		i;
 
-	status = 1;
-	while (status)
+	b--;
+	i = 0;
+	tmp = *a;
+	while (1)
 	{
-		status = 0;
-		tmp = *b;
-		uzaklik = 0;
-		while (tmp->next)
+		while (tmp)
 		{
-			uzaklik++;
-			if (tmp->index > tmp->next->index)
-			{
-				besorted(b, uzaklik);
-				break ;
-				status = 1;
-			}
+			i++;
+			if (tmp->index < stage)
+				break;
 			tmp = tmp->next;
 		}
+		if (i == stacklen(*a))
+			break ;
 	}
 }
 
-void	deneme(t_stack **a, t_stack **b)
+void	equal100(t_stack **a, t_stack **b)
 {
 	int	pivot;
-	int	i;
 	int	times;
 
-	times = 1;
-	i = stacklen(*a);
-	pivot = i / 4;
-	while (pivot <= stacklen(*a))
+	pivot = stacklen(*a);
+	times = 5;
+	while (times > 0)
 	{
-		i = stacklen(*a);
-		while (i)
-		{
-			if ((*a)->index < pivot)
-				pb(a, b);
-			else
-				ra(a);
-			i--;
-		}
-		nerede(b);
-		i = stacklen(*b);
-		while (i)
-		{
-			pa(a, b);
-			i--;
-		}
-		times++;
-		pivot = (stacklen(*a) / 4) * times;
+		b--;
+		times--;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:05:46 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/28 14:09:40 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/06/29 14:18:27 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,6 @@ int	main(int argc, char **argv)
 		return (0);
 	a = ekle(argv, argc, a);
 	a = minisort(a);
-	sortradix(&a, &b);
-//	printstack(a, b);
+	sort(&a, &b);
+	printstack(a, b);
 }

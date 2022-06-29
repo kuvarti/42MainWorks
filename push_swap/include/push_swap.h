@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:36:49 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/27 13:58:18 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/06/29 12:50:59 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_stack	*minisort(t_stack *a);
 void	printstack(t_stack *a, t_stack *b);
 
 //SORTING ALGORITHMS
-void	deneme(t_stack **a, t_stack **b);
+void	equal100(t_stack **a, t_stack **b);
 int		stacklen(t_stack *a);
 void	sort(t_stack **a, t_stack **b);
 void	sortradix(t_stack **a, t_stack **b);
