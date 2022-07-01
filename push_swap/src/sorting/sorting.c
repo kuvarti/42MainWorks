@@ -6,38 +6,86 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 16:24:33 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/29 14:17:38 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/07/01 17:18:08 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// ? ITS A WORSTEST SORTING
+// ! ITS NOT WORKING NOW
 
-void	pushpart(t_stack **a, t_stack **b, int max, int len)
+void	stage_sorter(t_stack **a, t_stack **b, int min, int max)
 {
-	while (len)
+	int	i;
+
+	min = 0;
+	while (kontrol(*b, max, 0))
 	{
-		if ((*a)->index <= max)
+		i = kontrol(*b, max, 0);
+		while (i--)
 		{
-			pb(a, b);
-			continue ;
+			rb(b);
 		}
-		ra(a);
-		len--;
+		pa(a, b);
+		max--;
+		if (min == max)
+			break ;
 	}
+
+
+
+
+
+	// ? Onemsiz
+	min = !max;
+	a = b;
+}
+
+static void	stage_pusher(t_stack **a, t_stack **b, int max)
+{
+	while (haspush(*a, &max))
+	{
+		while ((*a)->index != max)
+		{
+			if((*a)->index <= max)
+			{
+				pb(a, b);
+				continue ;
+			}
+			if ((*a)->index > (*a)->next->index)
+			{
+				sa(a);
+				continue ;
+			}
+			ra(a);
+		}
+		pb(a, b);
+		max--;
+	}
+}
+
+static void	stage_handler(t_stack **a, t_stack **b, int min, int max)
+{
+	int	len;
+
+	len = stacklen(*a);
+	stage_pusher(a, b, max);
+	stage_sorter(a, b, min, max);
 }
 
 void	sort(t_stack **a, t_stack **b)
 {
+	int	stage;
 	int	index;
-	int	i;
+	int	max;
 
-	i = stacklen(*a);
-	index = i / 5;
-	while (index < i)
+	max = stacklen(*a);
+	stage = 1;
+	while (stage < 6)
 	{
-		pushpart(a, b, index, i);
-		break;
+		index = (max / 5) * stage;
+		stage_handler(a, b, (max / 5) * (stage - 1), index - 1);
+		stage++;
+		break ; // !BURASI SILINECEK
 	}
 }

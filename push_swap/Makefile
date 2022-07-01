@@ -6,7 +6,7 @@
 #    By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/14 15:44:31 by aeryilma          #+#    #+#              #
-#    Updated: 2022/06/27 17:44:09 by aeryilma         ###   ########.fr        #
+#    Updated: 2022/07/01 10:47:45 by aeryilma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ $(PRINTF):
 	make -C src/printf
 
 clean:
-	rm -f $(OBJ)
+	find . -name '*.o' -delete
 	make clean -C src/printf
 
 fclean: clean

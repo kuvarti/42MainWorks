@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:36:49 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/29 12:50:59 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/07/01 16:07:31 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,15 @@ int		strinputkontrol(char *input, int *arg, int *index);
 t_stack	*minisort(t_stack *a);
 void	printstack(t_stack *a, t_stack *b);
 
+//SORTING UTILITIES
+int	stacklen(t_stack *a);
+int	*get_stackindexes(t_stack *a);
+int	haspush(t_stack *a, int *pivot);
+
 //SORTING ALGORITHMS
-void	equal100(t_stack **a, t_stack **b);
-int		stacklen(t_stack *a);
 void	sort(t_stack **a, t_stack **b);
+void	shortsort(t_stack **a, t_stack **b);
 void	sortradix(t_stack **a, t_stack **b);
+
 
 #endif
