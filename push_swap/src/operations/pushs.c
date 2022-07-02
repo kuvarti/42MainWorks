@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 11:41:49 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/27 19:11:58 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/07/02 13:40:03 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,18 @@ void	pb(t_stack **a, t_stack **b)
 {
 	pp(b, a);
 	ft_printf("pb\n");
+}
+
+void	p_n(t_stack **a, t_stack **b, int repeat, char mod)
+{
+	if (mod == 'a' || mod == 'A')
+	{
+		while (repeat--)
+			pa(a, b);
+	}
+	else if (mod == 'b' || mod == 'B')
+	{
+		while (repeat--)
+			pb(a, b);
+	}
 }

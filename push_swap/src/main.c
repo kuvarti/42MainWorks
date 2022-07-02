@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:05:46 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/07/01 16:50:05 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/07/02 13:34:57 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
+	int		len;
 
 	a = 0;
 	b = 0;
@@ -73,9 +74,11 @@ int	main(int argc, char **argv)
 		return (0);
 	a = ekle(argv, argc, a);
 	a = minisort(a);
-	if (stacklen(a) < 7)
+	len = stacklen(a);
+	if (len < 7)
 		shortsort(&a, &b);
+	else if (len <= 200)
+		stagesort(&a, &b);
 	else
-		sort(&a, &b);
-//	printstack(a, b);
+		sortradix(&a, &b);
 }

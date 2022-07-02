@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:32:35 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/07/01 11:16:09 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/07/02 13:49:03 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ static int	!swipe(t_stack **a, t_stack **b)
 	return (1);
 } // * This is non return 0
 */
-// ! bunu kullaninca fazladan 256 islem yapiyor. eger 500 azaltilabilinirse bunu kullanma
+// ! bunu kullaninca fazladan 256 islem yapiyor.
+// ! eger 500 azaltilabilinirse bunu kullanma
 static int	swipe_and_control(t_stack **a, t_stack **b, int swipe)
 {
 	t_stack	*tmp;
@@ -53,10 +54,7 @@ static int	swipe_and_control(t_stack **a, t_stack **b, int swipe)
 	{
 		if ((tmp->index) >> swipe & 1)
 		{
-			while (i--)
-			{
-				pa(a, b);
-			}
+			p_n(a, b, i, 'a');
 			return (1);
 		}
 		tmp = tmp->next;

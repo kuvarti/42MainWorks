@@ -6,13 +6,14 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:33:07 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/07/01 16:06:53 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/07/02 12:50:07 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// TODO Not working yet
+// ! Not working yet
+/*
 void	quicksort(t_stack **a, t_stack **b, int min, int max)
 {
 	int	i;
@@ -36,7 +37,7 @@ void	quicksort(t_stack **a, t_stack **b, int min, int max)
 	{
 		while ((*a)->index != pivot)
 		{
-			if((*a)->index <= pivot)
+			if ((*a)->index <= pivot)
 			{
 				pb(a, b);
 				continue ;
@@ -60,5 +61,6 @@ void	quicksort(t_stack **a, t_stack **b, int min, int max)
 		array--;
 	}
 	quicksort(a, b, min, (max / 2) - 1);
-	quicksort(a, b, max/ 2, max);
+	quicksort(a, b, max / 2, max);
 }
+*/
