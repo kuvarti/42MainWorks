@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:59:15 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/21 15:03:09 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/07/04 17:29:41 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,11 @@ int	strinputkontrol(char *input, int *arg, int *index)
 	return (*arg);
 }
 
+/*
+?	sayi A stack'inin icinde var mi diye bakar.
+?	mod 0 ise sayinin stack icerisindeki sirasini return eder.
+?	mod 0 degilse ve sayi stack icerisinde varsa 0 return eder.
+*/
 int	kontrol(t_stack *a, int sayi, int mod)
 {
 	t_stack	*tmp;
@@ -100,7 +105,7 @@ int	kontrol(t_stack *a, int sayi, int mod)
 		if (tmp->index == sayi && mod == 0)
 			return (i);
 		if (tmp->sayi == sayi)
-			return (0);
+			exit(ft_printf("Error\n"));
 		tmp = tmp->next;
 		i++;
 	}

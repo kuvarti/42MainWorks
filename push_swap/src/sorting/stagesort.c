@@ -6,60 +6,15 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 16:24:33 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/07/02 14:57:08 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/07/04 17:35:49 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// ! ITS NOT WORKING NOW
+//! DIDNT WORK EXCELENT
 
-static int	smart_pusher(t_stack **a, t_stack **b, int min, int pivot)
-{
-	int	ret;
-	int	i;
-
-	ret = 1;
-	i = kontrol(*b, pivot, 0);
-	if (i < (pivot - min) + 1)
-	{
-		while (i--)
-		{
-			if ((*b)->index == pivot - 1 && ret++)
-				pa(a, b);
-			rb(b);
-		}
-	}
-	else
-	{
-		i = stacklen(*b) - i;
-		while (i--)
-		{
-			if ((*b)->index == pivot - 1 && ret++)
-				pa(a, b);
-			rrb(b);
-		}
-	}
-	return (ret - 1);
-}
-
-static void	stage_sorter(t_stack **a, t_stack **b, int min, int max)
-{
-	int	i;
-	int	j;
-
-	j = 0;
-	while (max >= min)
-	{
-		i = smart_pusher(a, b, min, max);
-		pa(a, b);
-		if (i)
-			sa(a);
-		max -= i + 1;
-	}
-}
-
-static int	smart_swap(t_stack **a, t_stack **b, int max)
+int	smart_swap(t_stack **a, t_stack **b, int max)
 {
 	int	alen;
 	int	blen;
@@ -74,13 +29,18 @@ static int	smart_swap(t_stack **a, t_stack **b, int max)
 			return (1);
 		}
 	}
-	if (alen >= 2)
+	else if (alen >= 2)
 	{
 		if ((*a)->index > (*a)->next->index)
+		{
 			sa(a);
-		if ((*a)->index > max && (*a)->next->index)
+			return (1);
+		}
+		if ((*a)->index > max && (*a)->next->index > max)
+		{
 			r_n(a, b, 2, 'a');
-		return (1);
+			return (1);
+		}
 	}
 	return (0);
 }
@@ -96,12 +56,11 @@ static void	stage_pusher(t_stack **a, t_stack **b, int max)
 				pb(a, b);
 				continue ;
 			}
-			if (smart_swap(a, b, max) == 1)
+			if (smart_swap(a, b, max))
 				continue ;
 			ra(a);
 		}
 		pb(a, b);
-		max--;
 	}
 }
 

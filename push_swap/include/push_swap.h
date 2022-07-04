@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:36:49 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/07/02 13:39:56 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/07/04 16:42:00 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_stack
 }	t_stack;
 
 //OPERATIONS
-//SWAP
+//SWAP (0) <-> (1)
 void	sa(t_stack **a);
 void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
@@ -53,8 +53,11 @@ void	printstack(t_stack *a, t_stack *b);
 
 //SORTING UTILITIES
 int		stacklen(t_stack *a);
+int		get_minindex(t_stack *a);
 int		*get_stackindexes(t_stack *a);
 int		haspush(t_stack *a, int *pivot);
+int		smart_swap(t_stack **a, t_stack **b, int max);
+void	stage_sorter(t_stack **a, t_stack **b, int min, int max);
 
 //SORTING ALGORITHMS
 void	stagesort(t_stack **a, t_stack **b);

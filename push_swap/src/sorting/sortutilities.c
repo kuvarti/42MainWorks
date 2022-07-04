@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:54:31 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/07/02 11:50:11 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/07/04 15:18:04 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,24 @@ int	*get_stackindexes(t_stack *a)
 	return (ret);
 }
 
+int	get_minindex(t_stack *a)
+{
+	int		ret;
+	t_stack	*tmp;
+
+	tmp = a;
+	ret = a->index;
+	while (tmp)
+	{
+		if (tmp->index < ret)
+			ret = tmp->index;
+		tmp = tmp->next;
+	}
+	return (ret);
+}
+
+//?	Butun stackde gezip pivottan kucuk veya esit en buyuk indexi pivota esitler
+//?	bu sayi 0 degilse 1 return eder.
 int	haspush(t_stack *a, int *pivot)
 {
 	t_stack	*tmp;

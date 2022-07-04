@@ -6,14 +6,14 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:32:35 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/07/02 13:49:03 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/07/04 15:55:14 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
-static int	!bits(t_stack *a, int otele)
+
+static int	control(t_stack *a, int otele)
 {
 	t_stack	*tmp;
 
@@ -25,9 +25,9 @@ static int	!bits(t_stack *a, int otele)
 		tmp = tmp->next;
 	}
 	return (0);
-} // * this is non return 0
+}
 
-static int	!swipe(t_stack **a, t_stack **b)
+static int	swipe(t_stack **a, t_stack **b, int swipe)
 {
 	int	i;
 
@@ -36,32 +36,11 @@ static int	!swipe(t_stack **a, t_stack **b)
 		return (0);
 	while (i--)
 	{
-		pa(a, b);
+		if ((*b)->index >> (swipe) & 1)
+			rb(b);
+		else
+			pa(a, b);
 	}
-	return (1);
-} // * This is non return 0
-*/
-// ! bunu kullaninca fazladan 256 islem yapiyor.
-// ! eger 500 azaltilabilinirse bunu kullanma
-static int	swipe_and_control(t_stack **a, t_stack **b, int swipe)
-{
-	t_stack	*tmp;
-	int		i;
-
-	tmp = *a;
-	i = stacklen(*b);
-	while (tmp)
-	{
-		if ((tmp->index) >> swipe & 1)
-		{
-			p_n(a, b, i, 'a');
-			return (1);
-		}
-		tmp = tmp->next;
-	}
-	i = stacklen(*b);
-	if (!(i))
-		return (0);
 	return (1);
 }
 
@@ -89,7 +68,7 @@ void	sortradix(t_stack **a, t_stack **b)
 	int		otele;
 
 	otele = 0;
-	while (otele <= 9)
+	while (1)
 	{
 		i = stacklen(*a);
 		while (i--)
@@ -102,7 +81,7 @@ void	sortradix(t_stack **a, t_stack **b)
 			ra(a);
 		}
 		otele++;
-		if (!swipe_and_control(a, b, otele))
+		if (!control(*a, otele) || !swipe(a, b, otele))
 			break ;
 	}
 	reverse(a, b);
