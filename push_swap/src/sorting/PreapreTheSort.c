@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 14:11:18 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/13 20:14:16 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/07/05 12:10:56 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,6 @@ t_stack	*minisort(t_stack *a)
 		tmp->index = i;
 		tmp = tmp->next;
 	}
+	free(index);
 	return (a);
 }

@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:59:15 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/07/04 17:29:41 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/07/05 12:05:05 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int	kontrol(t_stack *a, int sayi, int mod)
 		if (tmp->index == sayi && mod == 0)
 			return (i);
 		if (tmp->sayi == sayi)
-			exit(ft_printf("Error\n"));
+			return (0);
 		tmp = tmp->next;
 		i++;
 	}

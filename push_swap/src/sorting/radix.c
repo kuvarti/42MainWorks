@@ -6,14 +6,14 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:32:35 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/07/04 15:55:14 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/07/05 15:40:55 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-static int	control(t_stack *a, int otele)
+int	control(t_stack *a, int otele)
 {
 	t_stack	*tmp;
 
@@ -37,31 +37,13 @@ static int	swipe(t_stack **a, t_stack **b, int swipe)
 	while (i--)
 	{
 		if ((*b)->index >> (swipe) & 1)
-			rb(b);
-		else
 			pa(a, b);
+		else
+			rb(b);
 	}
 	return (1);
 }
 
-static void	reverse(t_stack **a, t_stack **b)
-{
-	int	i;
-
-	i = stacklen(*a);
-	while (i--)
-	{
-		pb(a, b);
-	}
-	i = stacklen(*b);
-	while (i--)
-	{
-		rrb(b);
-		pa(a, b);
-	}
-}
-
-// TODO ters siralamayi cozersen 4 puan alinabilir
 void	sortradix(t_stack **a, t_stack **b)
 {
 	int		i;
@@ -73,16 +55,18 @@ void	sortradix(t_stack **a, t_stack **b)
 		i = stacklen(*a);
 		while (i--)
 		{
-			if (((*a)->index) >> otele & 1)
+			if (((*a)->index) >> otele & 1)	//TODO Fazladan aramasına engel olunabilinir
+				ra(a);
+			else
 			{
 				pb(a, b);
 				continue ;
 			}
-			ra(a);
 		}
 		otele++;
 		if (!control(*a, otele) || !swipe(a, b, otele))
 			break ;
 	}
-	reverse(a, b);
+	while ((*b))
+		pa(a, b);
 }

@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:05:46 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/07/04 17:21:32 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/07/05 12:20:44 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_stack	*ekle(char **argv, int argc, t_stack *a)
 		{
 			if (!arginputkontrol(argv[gez], &arg))
 				exit(ft_printf("Error\n"));
-			if (kontrol(a, arg, 1) != -1)
+			if (kontrol(a, arg, 1))
 				a = nodekle(a, arg);
 		}
 	}
@@ -34,7 +34,7 @@ t_stack	*ekle(char **argv, int argc, t_stack *a)
 		{
 			if (!strinputkontrol(&argv[1][gez], &arg, &gez))
 				exit(ft_printf("Error\n"));
-			if (kontrol(a, arg, 1) != -1)
+			if (kontrol(a, arg, 1))
 				a = nodekle(a, arg);
 		}
 	}
@@ -62,6 +62,20 @@ void	printstack(t_stack *a, t_stack *b)
 	ft_printf("\n");
 }
 
+static void	freestack(t_stack *a)
+{
+	t_stack	*tmp;
+	t_stack	*sil;
+
+	tmp = a;
+	while (tmp)
+	{
+		sil = tmp;
+		tmp = tmp->next;
+		free(sil);
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
@@ -77,10 +91,8 @@ int	main(int argc, char **argv)
 	len = stacklen(a);
 	if (len < 7)
 		shortsort(&a, &b);
-	else if (len < 10)
-		;
-	else if (len <= 200)
-		stagesort(&a, &b);
 	else
 		sortradix(&a, &b);
+	freestack(a);
+	freestack(b);
 }
