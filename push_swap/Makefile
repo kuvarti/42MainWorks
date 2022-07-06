@@ -6,7 +6,7 @@
 #    By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/14 15:44:31 by aeryilma          #+#    #+#              #
-#    Updated: 2022/07/01 10:47:45 by aeryilma         ###   ########.fr        #
+#    Updated: 2022/07/06 12:38:25 by aeryilma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ fclean: clean
 	rm push_swap
 
 norm:
-	@norminette $(SRC)
+	norminette $(SRC)
 	norminette */*.h
 
 re: fclean all

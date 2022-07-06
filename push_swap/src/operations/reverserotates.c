@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 02:11:14 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/05/26 11:36:25 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/07/06 12:34:38 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,23 @@ void	rrr(t_stack **a, t_stack **b)
 	rrx(a);
 	rrx(b);
 	ft_printf("rrr\n");
+}
+
+void	rr_n(t_stack **a, t_stack **b, int repeat, char mod)
+{
+	if (mod == 'a' || mod == 'A')
+	{
+		while (repeat--)
+			rra(a);
+	}
+	else if (mod == 'b' || mod == 'B')
+	{
+		while (repeat--)
+			rrb(b);
+	}
+	else if (mod == 'r' || mod == 'R')
+	{
+		while (repeat--)
+			rrr(a, b);
+	}
 }

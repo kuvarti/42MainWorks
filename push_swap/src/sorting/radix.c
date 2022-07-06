@@ -6,12 +6,11 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:32:35 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/07/05 15:40:55 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/07/06 12:37:42 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 int	control(t_stack *a, int otele)
 {
@@ -44,6 +43,31 @@ static int	swipe(t_stack **a, t_stack **b, int swipe)
 	return (1);
 }
 
+static int	issorted(t_stack *a, t_stack *b)
+{
+	int		index;
+	t_stack	*tmp;
+
+	tmp = a;
+	index = a->index;
+	while (tmp)
+	{
+		if (index > tmp->index)
+			return (1);
+		index = tmp->index;
+		tmp = tmp->next;
+	}
+	tmp = b;
+	index = b->index;
+	while (tmp)
+	{
+		if (index < tmp->index)
+			return (1);
+		tmp = tmp->next;
+	}
+	return (0);
+}
+
 void	sortradix(t_stack **a, t_stack **b)
 {
 	int		i;
@@ -55,16 +79,18 @@ void	sortradix(t_stack **a, t_stack **b)
 		i = stacklen(*a);
 		while (i--)
 		{
-			if (((*a)->index) >> otele & 1)	//TODO Fazladan aramasına engel olunabilinir
+			if (((*a)->index) >> otele & 1)
 				ra(a);
 			else
 			{
 				pb(a, b);
 				continue ;
 			}
+			if (!issorted(*a, *b))
+				break ;
 		}
 		otele++;
-		if (!control(*a, otele) || !swipe(a, b, otele))
+		if (!issorted(*a, *b) || !control(*a, otele) || !swipe(a, b, otele))
 			break ;
 	}
 	while ((*b))
