@@ -6,7 +6,7 @@
 #    By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/14 15:44:31 by aeryilma          #+#    #+#              #
-#    Updated: 2022/07/06 12:38:25 by aeryilma         ###   ########.fr        #
+#    Updated: 2022/07/20 12:33:52 by aeryilma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,12 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(PRINTF) $(OBJ)
+ifeq ($(shell uname), Linux)
+	gcc $(CFLAGS) $(OBJ) $(PRINTF) -I include -I $(INCLUDE) -o $(NAME)
+endif
+ifeq ($(shell uname), Darwin)	# Maybe here is wants change idk
 	gcc $(CFLAGS) $(PRINTF) $(OBJ) -I include -I $(INCLUDE) -o $(NAME)
+endif
 
 $(PRINTF):
 	make -C src/printf
