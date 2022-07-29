@@ -6,33 +6,48 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 13:05:50 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/07/26 16:34:48 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/07/29 17:29:03 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-static t_sim	*fillsim(char **argv)
+void	*say(void *barrel)
 {
-	t_sim	*sim;
+	usleep(10000);
+	printf("%ld", total_time(((t_barrel *)barrel)->sim));
+	return (barrel);
+}
 
-	sim = malloc(sizeof(t_sim));
-	sim->d_timeout = ft_atoi(argv[2]);
-	sim->e_timeout = ft_atoi(argv[3]);
-	sim->s_timeout = ft_atoi(argv[4]);
-	if (argv[5])
-		sim->eat_times = ft_atoi(argv[5]);
-	else
-		sim->eat_times = 0;
-	return (sim);
+void	start_sim(t_philo *philos, t_sim *sim)
+{
+	t_barrel	*barrel;
+	int			i;
+
+	barrel = malloc(sizeof(t_barrel));
+	barrel->sim = sim;
+	barrel->philo = philos;
+	i = 1;
+	while (philos[i - 1].id)
+	{
+		pthread_create(&philos[i - 1].thread, NULL, say, (void *)barrel);
+		i++;
+	}
+	sim++;
 }
 
 int	main(int argc, char **argv)
 {
 	t_sim	*sim;
+	t_philo	*philos;
+	t_barrel	*barrel;
 
 	if (argc != 5 && argc != 6)
 		return (0 * printf("Yanlıs sayıda arguman girdiniz\n"));
-	sim = fillsim(argv);
-	printf("%d", sim->d_timeout);
+	prepare_sim(argv, &philos, &sim);
+	barrel = malloc(sizeof(t_barrel));
+	barrel->sim = sim;
+	barrel->philo = philos;
+	start_sim(philos, sim);
+	pthread_join(philos[0].thread, (void *)barrel);
 }
