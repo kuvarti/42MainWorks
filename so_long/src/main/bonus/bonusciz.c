@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 01:37:05 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/04/15 13:44:53 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/07/31 12:19:56 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,14 @@ static void	mapciz1(t_game *oyun)
 
 void	mapciz(t_game *oyun)
 {
+	char	*message;
+	char	*m_count;
+
+	m_count = ft_itoa(oyun->haraket_sayisi);
+	message = ft_strjoin("Haraket Sayisi: ", m_count);
 	mapciz1(oyun);
 	mlx_string_put(oyun->mlx, oyun->win, 5, 10 + windowlen(oyun->map, 'y'),
-		0xFFFFFF, ft_strjoin("Haraket Sayisi: ",
-			ft_itoa(oyun->haraket_sayisi)));
+		0xFFFFFF, message);
+	free(message);
+	free(m_count);
 }

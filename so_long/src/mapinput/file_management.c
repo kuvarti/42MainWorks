@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 17:14:29 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/04/12 01:12:45 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/07/31 13:09:50 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 #include "fl_mngmnt.h"
 #include "ft_printf.h"
 
-static void	kapat(int *fd, char *a, char *b)
+static void	kapat(int *fd, char **a, char **b)
 {
 	close(*fd);
-	free(a);
-	free(b);
+	free(*a);
+	free(*b);
 }
 
 static void	freemap(t_game *oyun)
@@ -48,9 +48,10 @@ void	getmap(t_game *oyun, char *file)
 		if (!deneme)
 			break ;
 		str = ft_gnl_strjoin(str, deneme);
+		free(deneme);
 	}
 	oyun->map = ft_split(str, '\n');
-	kapat(&fd, str, deneme);
+	kapat(&fd, &str, &deneme);
 	fd = mapcontrol(oyun);
 	if (fd == 0)
 		freemap(oyun);
