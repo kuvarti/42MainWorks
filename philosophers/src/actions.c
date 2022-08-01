@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 12:42:20 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/07/29 13:09:35 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/01 11:34:12 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ void	sleeping(t_philo *philo, t_sim *sim, int phil)
 {
 	if (philo[phil].diecd + sim->s_timeout < sim->d_timeout)
 	{
-		usleep(sim->s_timeout);
+		usleep(sim->s_timeout * 1000);
 		thinking(philo, sim, phil);
 	}
 	else
 	{
-		usleep(philo[phil].diecd - sim->s_timeout);
+		usleep((philo[phil].diecd - sim->s_timeout) * 1000);
 		print_status(philo, sim, phil);
 		pthread_detach(philo[phil].thread);
 		return ;
@@ -50,7 +50,7 @@ void	thinking(t_philo *philo, t_sim *sim, int phil)
 	{
 		if (philo[phil].fork == 1 && philo[look_lfork(philo, phil)].fork == 1)
 			eating(philo, sim, phil);
-		usleep(5);
+		usleep(5 * 1000);
 		philo[phil].diecd += 5;
 		if (philo[phil].diecd > sim->d_timeout)
 		{

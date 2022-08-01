@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 13:31:21 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/07/29 17:24:15 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/01 17:34:07 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,30 +22,27 @@
 // STRUCTURES
 typedef struct s_simulation
 {
-	struct timeval	start_time;
-	int				p_count;
-	int				d_timeout;
-	int				e_timeout;
-	int				s_timeout;
-	int				eat_times;
+	struct timeval			start_time;
+	struct s_philosophers	*philos;
+	int						p_count;
+	int						d_timeout;
+	int						e_timeout;
+	int						s_timeout;
+	int						eat_times;
 }	t_sim;
 
 typedef struct s_philosophers
 {
-	int			id;
-	int			eat;
-	char		fork;
-	char		state;
-	int			diecd;
-	pthread_t	thread;
+	int						id;
+	int						eat;
+	char					fork;
+	char					state;
+	int						diecd;
+	pthread_t				thread;
+	struct s_philosophers	*next;
 }	t_philo;
 
-typedef struct s_barrel
-{
-	t_sim	*sim;
-	t_philo	*philo;
-}	t_barrel;
-
+# define TO_UP 1000
 
 // STATES
 # define DEAD 'd'
@@ -61,7 +58,8 @@ void	thinking(t_philo *philo, t_sim *sim, int phil);
 // UTILS
 long	total_time(t_sim *sim);
 int		ft_atoi(const char *nptr);
+int		sim_status(t_philo *philo);
 void	print_status(t_philo *philo, t_sim *sim, int phil);
-void	prepare_sim(char **argv, t_philo **philo, t_sim **sim);
+void	prepare_sim(char **argv, t_sim **sim);
 
 #endif

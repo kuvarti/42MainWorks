@@ -6,48 +6,42 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 13:05:50 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/07/29 17:29:03 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/01 18:04:13 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-void	*say(void *barrel)
+void	*born_philo(void *sim)
 {
-	usleep(10000);
-	printf("%ld", total_time(((t_barrel *)barrel)->sim));
-	return (barrel);
+	printf("%d. thread olustu\n", ((t_sim *)sim)->philos->id);
+	return (sim);
 }
 
-void	start_sim(t_philo *philos, t_sim *sim)
+void	create_threads(t_sim *sim)
 {
-	t_barrel	*barrel;
-	int			i;
+	int		i;
 
-	barrel = malloc(sizeof(t_barrel));
-	barrel->sim = sim;
-	barrel->philo = philos;
-	i = 1;
-	while (philos[i - 1].id)
+	i = 0;
+	while (i++ < sim->p_count)
 	{
-		pthread_create(&philos[i - 1].thread, NULL, say, (void *)barrel);
-		i++;
+		pthread_create(&(sim->philos->thread), NULL, born_philo, (void *)sim);
+		sim->philos = sim->philos->next;
 	}
-	sim++;
+}
+
+void	start_sim(t_sim *sim)
+{
+	create_threads(sim);
 }
 
 int	main(int argc, char **argv)
 {
-	t_sim	*sim;
-	t_philo	*philos;
-	t_barrel	*barrel;
+	t_sim		*sim;
 
 	if (argc != 5 && argc != 6)
 		return (0 * printf("Yanlıs sayıda arguman girdiniz\n"));
-	prepare_sim(argv, &philos, &sim);
-	barrel = malloc(sizeof(t_barrel));
-	barrel->sim = sim;
-	barrel->philo = philos;
-	start_sim(philos, sim);
-	pthread_join(philos[0].thread, (void *)barrel);
+	prepare_sim(argv, &sim);
+	start_sim(sim);
+	usleep(10 * TO_UP);
 }

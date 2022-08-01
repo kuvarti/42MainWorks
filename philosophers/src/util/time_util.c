@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 11:58:27 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/07/29 17:27:30 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/01 11:24:15 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 long	total_time(t_sim *sim)
 {
-	time_t	sec;
-	time_t	ms;
+	long long	sec;
+	long long	ms;
 	struct timeval	current_time;
 
 	gettimeofday(&current_time, NULL);
 	sec = (current_time.tv_sec - sim->start_time.tv_sec) * 1000;
-	ms = current_time.tv_usec - sim->start_time.tv_usec;
+	ms = (current_time.tv_usec - sim->start_time.tv_usec) / 1000;
 	return (sec + ms);
 }
 
