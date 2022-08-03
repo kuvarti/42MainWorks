@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 01:35:20 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/07/02 12:10:06 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/02 13:33:53 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 static void	rx(t_stack **x)
 {
-	t_stack	*gez;
+	t_stack	*travel;
 	t_stack	*tmp;
 
 	if (!x)
 		return ;
-	gez = *x;
+	travel = *x;
 	tmp = *x;
-	while (gez->next)
-		gez = gez->next;
-	gez->next = tmp;
+	while (travel->next)
+		travel = travel->next;
+	travel->next = tmp;
 	*x = (*x)->next;
 	tmp ->next = NULL;
 }

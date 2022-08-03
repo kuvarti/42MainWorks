@@ -6,27 +6,29 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:32:35 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/07/06 12:37:42 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/02 13:28:03 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	control(t_stack *a, int otele)
+//! bit control
+int	b_control(t_stack *a, int swipe)
 {
 	t_stack	*tmp;
 
 	tmp = a;
 	while (tmp)
 	{
-		if ((tmp->index) >> otele & 1)
+		if ((tmp->index) >> swipe & 1)
 			return (1);
 		tmp = tmp->next;
 	}
 	return (0);
 }
 
-static int	swipe(t_stack **a, t_stack **b, int swipe)
+//! reverse push
+static int	r_push(t_stack **a, t_stack **b, int swipe)
 {
 	int	i;
 
@@ -43,7 +45,7 @@ static int	swipe(t_stack **a, t_stack **b, int swipe)
 	return (1);
 }
 
-static int	issorted(t_stack *a, t_stack *b)
+int	issorted(t_stack *a, t_stack *b)
 {
 	int		index;
 	t_stack	*tmp;
@@ -57,6 +59,8 @@ static int	issorted(t_stack *a, t_stack *b)
 		index = tmp->index;
 		tmp = tmp->next;
 	}
+	if (!b)
+		return (0);
 	tmp = b;
 	index = b->index;
 	while (tmp)
@@ -71,15 +75,15 @@ static int	issorted(t_stack *a, t_stack *b)
 void	sortradix(t_stack **a, t_stack **b)
 {
 	int		i;
-	int		otele;
+	int		swipe;
 
-	otele = 0;
+	swipe = 0;
 	while (1)
 	{
 		i = stacklen(*a);
 		while (i--)
 		{
-			if (((*a)->index) >> otele & 1)
+			if (((*a)->index) >> swipe & 1)
 				ra(a);
 			else
 			{
@@ -89,8 +93,8 @@ void	sortradix(t_stack **a, t_stack **b)
 			if (!issorted(*a, *b))
 				break ;
 		}
-		otele++;
-		if (!issorted(*a, *b) || !control(*a, otele) || !swipe(a, b, otele))
+		swipe++;
+		if (!issorted(*a, *b) || !b_control(*a, swipe) || !r_push(a, b, swipe))
 			break ;
 	}
 	while ((*b))

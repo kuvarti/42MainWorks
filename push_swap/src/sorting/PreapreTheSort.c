@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 14:11:18 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/07/05 12:10:56 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/02 13:32:56 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,28 +47,28 @@ static void	quicksort(int number[], int first, int last)
 	}
 }
 
-static int	*sirala(t_stack *a)
+static int	*sortby(t_stack *a)
 {
-	int		gez;
+	int		travel;
 	int		*index;
 	t_stack	*tmp;
 
-	gez = 0;
+	travel = 0;
 	tmp = a;
 	while (tmp)
 	{
-		gez++;
+		travel++;
 		tmp = tmp->next;
 	}
-	index = ft_calloc(sizeof(int), gez + 1);
-	gez = 0;
+	index = ft_calloc(sizeof(int), travel + 1);
+	travel = 0;
 	tmp = a;
 	while (tmp)
 	{
-		index[gez++] = tmp->sayi;
+		index[travel++] = tmp->number;
 		tmp = tmp->next;
 	}
-	quicksort(index, 0, gez - 1);
+	quicksort(index, 0, travel - 1);
 	return (index);
 }
 
@@ -78,12 +78,12 @@ t_stack	*minisort(t_stack *a)
 	int		*index;
 	t_stack	*tmp;
 
-	index = sirala(a);
+	index = sortby(a);
 	tmp = a;
 	while (tmp)
 	{
 		i = 0;
-		while (tmp->sayi != index[i])
+		while (tmp->number != index[i])
 			i++;
 		tmp->index = i;
 		tmp = tmp->next;

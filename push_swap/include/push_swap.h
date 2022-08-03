@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:36:49 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/07/06 12:34:47 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/03 17:35:39 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 typedef struct s_stack
 {
-	int				sayi;
+	int				number;
 	int				index;
 	struct s_stack	*next;
 }	t_stack;
@@ -43,10 +43,9 @@ void	pb(t_stack **a, t_stack **b);
 void	p_n(t_stack **a, t_stack **b, int repeat, char mod);
 
 //INPUTFUNCTIONS
-t_stack	*nodekle(t_stack *a, int sayi);
-int		kontrol(t_stack *a, int sayi, int mod);
-int		arginputkontrol(char *input, int *arg);
-int		strinputkontrol(char *input, int *arg, int *index);
+t_stack	*addnode(t_stack *a, int sayi);
+int		control(t_stack *a, int sayi, int mod);
+int		arginputcontrol(char *input, int *arg);
 
 //GENERAL
 t_stack	*minisort(t_stack *a);
@@ -57,6 +56,7 @@ int		stacklen(t_stack *a);
 int		get_minindex(t_stack *a);
 int		*get_stackindexes(t_stack *a);
 int		haspush(t_stack *a, int *pivot);
+int		issorted(t_stack *a, t_stack *b);
 int		smart_swap(t_stack **a, t_stack **b, int max);
 void	stage_sorter(t_stack **a, t_stack **b, int min, int max);
 

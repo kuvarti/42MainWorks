@@ -6,13 +6,13 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 12:13:11 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/07/01 15:26:05 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/03 17:37:31 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ucluolsun_gucluolsun(t_stack **a)
+static void	triple_sort(t_stack **a)
 {
 	int	*i;
 
@@ -35,20 +35,20 @@ static void	ucluolsun_gucluolsun(t_stack **a)
 	}
 }
 
-static void	ayir(t_stack **a, t_stack **b, int max, int i)
+static void	to_seperate(t_stack **a, t_stack **b, int max, int len)
 {
-	while (i)
+	while (len)
 	{
 		if ((*a)->index == max)
 		{
 			pb(a, b);
 			max--;
-			i--;
+			len--;
 			continue ;
 		}
 		if ((*a)->index > (*a)->next->index)
 			sa(a);
-		if ((stacklen(*a) / 2) < kontrol(*a, max, 0))
+		if ((stacklen(*a) / 2) < control(*a, max, 0))
 			rra(a);
 		else
 			ra(a);
@@ -59,13 +59,13 @@ static void	undersix(t_stack **a, t_stack **b, int len)
 {
 	int	i;
 
-	ayir(a, b, len - 1, len - 3);
+	to_seperate(a, b, len - 1, len - 3);
 	if (len == 4 || len == 5)
-		ucluolsun_gucluolsun(a);
+		triple_sort(a);
 	else if (len == 6)
 	{
-		ucluolsun_gucluolsun(a);
-		ucluolsun_gucluolsun(b);
+		triple_sort(a);
+		triple_sort(b);
 	}
 	i = stacklen(*b);
 	while (i--)
@@ -77,16 +77,16 @@ static void	undersix(t_stack **a, t_stack **b, int len)
 
 void	shortsort(t_stack **a, t_stack **b)
 {
-	int	i;
+	int	len;
 
-	i = stacklen(*a);
-	if (i == 2)
+	len = stacklen(*a);
+	if (len == 2)
 	{
 		if ((*a)->index == 1)
 			sa(a);
 	}
-	if (i == 3)
-		ucluolsun_gucluolsun(a);
+	if (len == 3)
+		triple_sort(a);
 	else
-		undersix(a, b, i);
+		undersix(a, b, len);
 }

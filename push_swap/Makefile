@@ -6,7 +6,7 @@
 #    By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/14 15:44:31 by aeryilma          #+#    #+#              #
-#    Updated: 2022/07/20 12:33:52 by aeryilma         ###   ########.fr        #
+#    Updated: 2022/08/02 11:47:00 by aeryilma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ PRINTF = src/printf/libftprintf.a
 INCLUDE = src/printf/Includes
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = $(shell find src -name '*.c' | grep -v "printf") #$(shell find src/sorting -name '*.c')
+SRC = $(shell find src -name '*.c' | grep -v "printf")
 OBJ = $(SRC:.c=.o)
 
 %.o: %.c
@@ -33,7 +33,7 @@ $(NAME): $(PRINTF) $(OBJ)
 ifeq ($(shell uname), Linux)
 	gcc $(CFLAGS) $(OBJ) $(PRINTF) -I include -I $(INCLUDE) -o $(NAME)
 endif
-ifeq ($(shell uname), Darwin)	# Maybe here is wants change idk
+ifeq ($(shell uname), Darwin)
 	gcc $(CFLAGS) $(PRINTF) $(OBJ) -I include -I $(INCLUDE) -o $(NAME)
 endif
 

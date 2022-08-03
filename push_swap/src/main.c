@@ -6,49 +6,28 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 22:05:46 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/07/20 12:06:50 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/03 17:35:46 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	onlyspace(char *arg)
+static t_stack	*getstack(char **argv, int argc, t_stack *a)
 {
-	int	gez;
+	int	arg;
+	int	travel;
 
-	gez = 0;
-	while (arg[gez] == ' ')
-		gez++;
-	if (!arg[gez])
-		return (1);
-	return (0);
-}
-
-// * Gez'i dışarıdan alma sebebim satır azaltmak
-t_stack	*ekle(char **argv, int argc, t_stack *a, int gez)
-{
-	int		arg;
-
-	if (argc > 2)
+	travel = 0;
+	if (!(argc > 2))
 	{
-		while (argv[++gez])
-		{
-			if (!arginputkontrol(argv[gez], &arg) || !kontrol(a, arg, 1))
-				exit(ft_printf("Error\n"));
-			a = nodekle(a, arg);
-		}
+		argv = ft_split(argv[1], ' ');
+		travel--;
 	}
-	else
+	while (argv[++travel])
 	{
-		while (argv[1][gez])
-		{
-			if (onlyspace(&argv[1][gez]))
-				break ;
-			if (!strinputkontrol(&argv[1][gez], &arg, &gez)
-				|| !kontrol(a, arg, 1))
-				exit(ft_printf("Error\n"));
-			a = nodekle(a, arg);
-		}
+		if (!arginputcontrol(argv[travel], &arg) || !control(a, arg, 1))
+			exit(ft_printf("Error\n"));
+		a = addnode(a, arg);
 	}
 	return (a);
 }
@@ -58,7 +37,7 @@ void	printstack(t_stack *a, t_stack *b)
 	ft_printf("a : ");
 	while (a)
 	{
-		ft_printf("%d(%d)", a->sayi, a->index);
+		ft_printf("%d(%d)", a->number, a->index);
 		a = a->next;
 		if (a)
 			ft_printf(" - ");
@@ -66,7 +45,7 @@ void	printstack(t_stack *a, t_stack *b)
 	ft_printf("\nb : ");
 	while (b)
 	{
-		ft_printf("%d(%d)", b->sayi, b->index);
+		ft_printf("%d(%d)", b->number, b->index);
 		b = b->next;
 		if (b)
 			ft_printf(" - ");
@@ -77,14 +56,14 @@ void	printstack(t_stack *a, t_stack *b)
 static void	freestack(t_stack *a)
 {
 	t_stack	*tmp;
-	t_stack	*sil;
+	t_stack	*delete;
 
 	tmp = a;
 	while (tmp)
 	{
-		sil = tmp;
+		delete = tmp;
 		tmp = tmp->next;
-		free(sil);
+		free(delete);
 	}
 }
 
@@ -98,10 +77,14 @@ int	main(int argc, char **argv)
 	b = 0;
 	if (argc == 1)
 		return (0);
-	a = ekle(argv, argc, a, 0);
+	a = getstack(argv, argc, a);
 	a = minisort(a);
 	len = stacklen(a);
-	if (len < 7)
+	if (!issorted(a, b))
+		return (0);
+	if (len == 1)
+		return (0);
+	else if (len < 6)
 		shortsort(&a, &b);
 	else
 		sortradix(&a, &b);
