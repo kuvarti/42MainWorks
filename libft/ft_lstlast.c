@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 20:15:02 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/02/18 15:29:48 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/03 17:57:57 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*gez;
+	t_list	*travel;
 
 	if (!lst)
 		return (NULL);
-	gez = lst;
-	while (gez -> next != NULL)
+	travel = lst;
+	while (travel -> next != NULL)
 	{
-		gez = gez -> next;
+		travel = travel -> next;
 	}
-	return (gez);
+	return (travel);
 }
 /*
 #include <stdio.h>

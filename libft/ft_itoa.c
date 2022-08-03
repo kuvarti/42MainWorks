@@ -6,13 +6,13 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 11:53:21 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/03/07 21:23:04 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/03 17:55:03 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	uzunluk(int n)
+static int	ft_arraylen(int n)
 {
 	int	i;
 
@@ -32,7 +32,7 @@ static int	uzunluk(int n)
 	return (i);
 }
 
-static int	usal(int us)
+static int	ft_10base(int us)
 {
 	int	ret;
 
@@ -58,7 +58,7 @@ char	*ft_itoa(int n)
 	int		lenght;
 	int		index;
 
-	lenght = uzunluk(n);
+	lenght = ft_arraylen(n);
 	index = 0;
 	if (n == 0 || n == -2147483648)
 		return (maxmin(n));
@@ -72,8 +72,8 @@ char	*ft_itoa(int n)
 	}
 	while (lenght > 0)
 	{
-		ret[index++] = (n / (usal(lenght - 1))) + '0';
-		n %= usal(lenght - 1);
+		ret[index++] = (n / (ft_10base(lenght - 1))) + '0';
+		n %= ft_10base(lenght - 1);
 		lenght--;
 	}
 	ret[index] = '\0';

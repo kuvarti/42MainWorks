@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 10:23:27 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/02/18 18:03:23 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/03 17:56:25 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*bas;
-	t_list	*tut;
+	t_list	*tmp;
+	t_list	*cup;
 
-	bas = *lst;
-	while (bas)
+	tmp = *lst;
+	while (tmp)
 	{
-		tut = bas -> next;
-		(*del)(bas -> content);
-		free(bas);
-		bas = tut;
+		cup = tmp -> next;
+		(*del)(tmp -> content);
+		free(tmp);
+		tmp = cup;
 	}
 	*lst = NULL;
 }
