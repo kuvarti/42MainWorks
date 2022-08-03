@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 12:07:16 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/01 17:34:09 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/03 17:33:26 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static t_sim	*fillsim(char **argv)
 {
+	int		i;
 	t_sim	*sim;
 
 	sim = malloc(sizeof(t_sim));
@@ -25,10 +26,16 @@ static t_sim	*fillsim(char **argv)
 		sim->eat_times = ft_atoi(argv[5]);
 	else
 		sim->eat_times = 0;
+	sim->forks = malloc(sizeof(t_forks) * (sim->p_count + 1));
+	i = 0;
+	while (i < sim->p_count)
+	{
+		sim->forks[i++].fork_status = 1;
+	}
+
 	return (sim);
 }
 
-/*
 static t_philo	*createphilo(int pcount, const t_sim *sim)
 {
 	t_philo *philo;
@@ -53,9 +60,8 @@ static t_philo	*createphilo(int pcount, const t_sim *sim)
 	philo[i].eat = -1;
 	return (philo);
 }
-*/
 
-static t_philo	*createphilo(int pcount, const t_sim *sim)
+/* static t_philo	*createphilo(int pcount, const t_sim *sim)
 {
 	t_philo	*ret;
 
@@ -90,12 +96,11 @@ static t_philo	*createphilosophers(const t_sim *sim)
 		i++;
 	}
 	return (ret);
-}
+} */
 
-void	prepare_sim(char **argv, t_sim **sim)
+void	prepare_sim(char **argv, t_sim **sim, t_philo **philo)
 {
 	*sim = fillsim(argv);
-	(*sim)->philos = createphilosophers(*sim);
-//	((*sim)->start_time) = malloc(sizeof(struct timeval));
+	*philo = createphilo((*sim)->p_count, *sim);
 	gettimeofday(&((*sim)->start_time), NULL);
 }
