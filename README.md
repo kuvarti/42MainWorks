@@ -19,22 +19,22 @@
 
 | Proje | Durum |
 | :-	|	-:	|
+| ExamRank02| ![Exam02](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2587909)|
 | Minitalk| [![Minitalk](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2556287)](https://github.com/kuvarti/42MainWorks/tree/minitalk)|
 | So_long| [![So_long](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2538270)](https://github.com/kuvarti/42MainWorks/tree/so_long)|
 | Push_Swap| [![Push_Swap](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2538179)](https://github.com/kuvarti/42MainWorks/tree/push_swap)|
-| ExamRank02| ![Exam02](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2587909)|
 
 </td>
 </tr>
 <tr>
+
 <td style="padding:0;" align="center">
-ExamRank03
-</td>
-<td style="padding:0; padding-top: 10px;" align="center">
 
-![ExamRank03](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2706749)
+|||
+|:-|-:|
+|Examrank03|![ExamRank03](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2706749)|
 
-</td></tr>
+</tr>
 </table>
 
 
