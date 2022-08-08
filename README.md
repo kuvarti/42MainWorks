@@ -27,11 +27,13 @@
 </td>
 </tr>
 <tr>
-<td style="padding:0; margin:0;" align="center">
+<td style="padding:0;" align="center">
 ExamRank03
 </td>
-<td style="padding:0; margin:0;" align="center">
+<td style="padding:0; padding-top: 10px;" align="center">
+
 ![ExamRank03](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2706749)
+
 </td></tr>
 </table>
 
