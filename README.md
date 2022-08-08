@@ -5,8 +5,8 @@
 </p>
 
 <table width="100%" align="center">
-<tr style="display:flex; justify-content:space-around;">
-<td style="padding:0;">
+<tr style="display:flex; justify-content:space-around; paddind:0;">
+<td style="padding:0; margin:0;">
 
 | Proje | Durum |
 | :-	|	-:	|
@@ -15,7 +15,7 @@
 | GetNextLine| [![GetNextLine](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2510999)](https://github.com/kuvarti/42MainWorks/tree/getnextline)|
 | Printf| [![Printf](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2511000)](https://github.com/kuvarti/42MainWorks/tree/ft_prinf)|
 
-</td><td style="padding:0;">
+</td><td style="padding:0; margin:0;">
 
 | Proje | Durum |
 | :-	|	-:	|
@@ -25,7 +25,7 @@
 | Push_Swap| [![Push_Swap](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2538179)](https://github.com/kuvarti/42MainWorks/tree/push_swap)|
 
 </td>
-<td style="padding:0;" align="center">
+<td style="padding:0; margin:0;">
 
 |Proje| Durum|
 |:-|-:|
