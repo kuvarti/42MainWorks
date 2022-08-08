@@ -25,12 +25,12 @@
 | Push_Swap| [![Push_Swap](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2538179)](https://github.com/kuvarti/42MainWorks/tree/push_swap)|
 
 </td>
-</tr>
-<tr style="display:flex; justify-content:space-around;"><td style="padding:0;" align="center">
+<td style="padding:0;" align="center">
 
-|Examrank03|![ExamRank03](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2706749)|
+|Proje| Durum|
 |:-|-:|
-|||
+|Examrank03|![ExamRank03](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2706749)|
+| Philosophers | [![Philosophers](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2706478)](https://github.com/kuvarti/42MainWorks/tree/philosophers)|
 
 </td></tr>
 </table>
