@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 12:07:16 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/03 17:33:26 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/08 14:35:24 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static t_sim	*fillsim(char **argv)
 	return (sim);
 }
 
-static t_philo	*createphilo(int pcount, const t_sim *sim)
+static t_philo	*createphilo(int pcount, t_sim *sim)
 {
 	t_philo *philo;
 	int	i;
@@ -48,6 +48,7 @@ static t_philo	*createphilo(int pcount, const t_sim *sim)
 		philo[i].id = i + 1;
 		philo[i].fork = 1;
 		philo[i].state = THINKING;
+		philo[i].sim = sim;
 		if (sim->eat_times)
 			philo[i].eat = sim->eat_times;
 		else
@@ -61,46 +62,8 @@ static t_philo	*createphilo(int pcount, const t_sim *sim)
 	return (philo);
 }
 
-/* static t_philo	*createphilo(int pcount, const t_sim *sim)
-{
-	t_philo	*ret;
-
-	ret = malloc(sizeof(t_philo));
-	ret->id = pcount;
-	ret->fork = 1;
-	ret->state = THINKING;
-	if (sim->eat_times)
-		ret->eat = sim->eat_times;
-	else
-		ret->eat = -1;
-	ret->next = NULL;
-	return (ret);
-}
-
-static t_philo	*createphilosophers(const t_sim *sim)
-{
-	t_philo	*ret;
-	t_philo	*tmp;
-	t_philo	*last;
-	int		i;
-
-	i = 1;
-	ret = createphilo(1, sim);
-	last = ret;
-	while (i < sim->p_count)
-	{
-		tmp = createphilo(i + 1, sim);
-		last->next = tmp;
-		tmp->next = ret;
-		last = tmp;
-		i++;
-	}
-	return (ret);
-} */
-
 void	prepare_sim(char **argv, t_sim **sim, t_philo **philo)
 {
 	*sim = fillsim(argv);
 	*philo = createphilo((*sim)->p_count, *sim);
-	gettimeofday(&((*sim)->start_time), NULL);
 }

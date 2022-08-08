@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 13:31:21 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/03 16:42:45 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/08 14:28:29 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_philosophers
 	char					fork;
 	char					state;
 	int						diecd;
+	struct s_simulation		*sim;
 	pthread_t				thread;
 }	t_philo;
 
