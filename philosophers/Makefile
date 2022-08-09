@@ -6,13 +6,13 @@
 #    By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/26 13:38:25 by aeryilma          #+#    #+#              #
-#    Updated: 2022/07/28 13:27:55 by aeryilma         ###   ########.fr        #
+#    Updated: 2022/08/09 17:50:45 by aeryilma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= philo
 
-CC		= gcc
+CC		= gcc -g
 CFLAGS	= -Wall -Wextra -Werror
 INCLUDE	= -I include
 
@@ -20,12 +20,12 @@ SRC		= $(shell find src -name "*.c")
 OBJ		= $(SRC:.c=.o)
 
 %.o: %.c
-	gcc $(CFLAGS) -c $< -o $@ $(INCLUDE)
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDE)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	gcc $(CFLAGS) $(OBJ) $(INCLUDE) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(INCLUDE) -o $(NAME)
 
 clean:
 	@find src -name "*.o" -delete

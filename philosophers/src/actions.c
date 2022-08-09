@@ -6,12 +6,13 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 12:42:20 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/01 11:34:12 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/09 13:17:34 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
+/*
 static int	look_lfork(t_philo *philo, int phil)
 {
 	if (philo[phil - 1].id)
@@ -60,3 +61,4 @@ void	thinking(t_philo *philo, t_sim *sim, int phil)
 		}
 	}
 }
+*/

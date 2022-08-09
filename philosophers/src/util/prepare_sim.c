@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 12:07:16 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/08 22:33:23 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/09 11:26:29 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,14 @@ t_sim	*fillsim(char **argv)
 	sim->d_timeout = ft_atoi(argv[2]);
 	sim->e_timeout = ft_atoi(argv[3]);
 	sim->s_timeout = ft_atoi(argv[4]);
-	i = 0;
-	mutexes = malloc(sizeof(pthread_mutex_t) * sim->p_count);
-	while (i < sim->p_count)
-		pthread_mutex_init(&mutexes[i++], NULL);
+	i = -1;
+	mutexes = malloc(sizeof(pthread_mutex_t) * (sim->p_count + 1));
+	while (++i < (sim->p_count))
+	{
+		printf("%i. fork initializing!\n", i);
+		pthread_mutex_init(&mutexes[i], NULL);
+	}
+	//mutexes[i] = (pthread_mutex_t)0;
 	sim->forks = mutexes;
 	if (argv[5])
 		sim->eat_times = ft_atoi(argv[5]);
