@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 13:05:50 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/10 18:09:35 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/10 21:08:39 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@ void	*born_philo(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-
-	//write(1, "sa\n", 2);
-	ft_printf("sa");
-	philo->state = DEAD;
+	pthread_mutex_lock(&(philo->sim->forks[0]));
+	ft_printf("sa %i \n", philo->id);
+	pthread_mutex_unlock(&(philo->sim->forks[0]));
 	return (arg);
 }
 

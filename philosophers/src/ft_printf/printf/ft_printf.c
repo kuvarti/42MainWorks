@@ -6,55 +6,55 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:51:03 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/03/07 23:02:37 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/10 21:02:46 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>//denemek için
 
-int	cozbunu(va_list eleman, char f)
+int	cozbunu(va_list arglist, char f)
 {
 	if (f == 'c')
-		return (ft_putchar(va_arg(eleman, int)));
+		return (ft_putchar(va_arg(arglist, int)));
 	else if (f == 's')
-		return (ft_putstr(va_arg(eleman, char *)));
+		return (ft_putstr(va_arg(arglist, char *)));
 	else if (f == 'd' || f == 'i')
-		return (ft_putnbr(va_arg(eleman, int)));
+		return (ft_putnbr(va_arg(arglist, int)));
 	else if (f == 'u')
-		return (ft_putunbr(va_arg(eleman, unsigned int)));
+		return (ft_putunbr(va_arg(arglist, unsigned int)));
 	else if (f == 'p')
-		return (ft_putptr(va_arg(eleman, unsigned long), "0123456789abcdef"));
+		return (ft_putptr(va_arg(arglist, unsigned long), "0123456789abcdef"));
 	else if (f == 'x')
-		return (ft_puthex(va_arg(eleman, unsigned int), "0123456789abcdef"));
+		return (ft_puthex(va_arg(arglist, unsigned int), "0123456789abcdef"));
 	else if (f == 'X')
-		return (ft_puthex(va_arg(eleman, unsigned int), "0123456789ABCDEF"));
+		return (ft_puthex(va_arg(arglist, unsigned int), "0123456789ABCDEF"));
 	return (0);
 }
 
 int	ft_printf(const char *ref, ...)
 {
-	int		toplam;
-	va_list	demirbas;
+	int		ret;
+	va_list	arglist;
 
-	toplam = 0;
-	va_start(demirbas, ref);
+	ret = 0;
+	va_start(arglist, ref);
 	while (*ref)
 	{
 		if (*ref == '%')
 		{
 			ref++;
 			if (*ref == '%')
-				toplam += ft_putchar('%');
+				ret += ft_putchar('%');
 			else
-				toplam += cozbunu(demirbas, *ref);
+				ret += cozbunu(arglist, *ref);
 		}
 		else
-			toplam += ft_putchar(*ref);
+			ret += ft_putchar(*ref);
 		ref++;
 	}
-	va_end(demirbas);
-	return (toplam);
+	va_end(arglist);
+	return (ret);
 }
 /*
 #include "limits.h"
