@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions.c                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/28 12:42:20 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/10 17:33:06 by aeryilma         ###   ########.fr       */
+/*   Created: 2022/08/10 17:57:52 by aeryilma          #+#    #+#             */
+/*   Updated: 2022/08/10 17:58:23 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "ft_printf.h"
 
-/*
-void	eating(t_philo *philo)
+size_t	ft_strlen(const char *s)
 {
-}
+	size_t	i;
 
-void	sleeping(t_philo *philo)
-{
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }
-
-void	thinking(t_philo *philo)
-{
-	while (1)
-	{
-		philo->sim->forks[philo->id];
-	}
-}
-*/

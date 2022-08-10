@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions.c                                          :+:      :+:    :+:   */
+/*   sim_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/28 12:42:20 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/10 17:33:06 by aeryilma         ###   ########.fr       */
+/*   Created: 2022/08/01 12:01:18 by aeryilma          #+#    #+#             */
+/*   Updated: 2022/08/10 15:48:07 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-/*
-void	eating(t_philo *philo)
+int	sim_status(t_philo *philo)
 {
-}
+	int	i;
 
-void	sleeping(t_philo *philo)
-{
-}
-
-void	thinking(t_philo *philo)
-{
-	while (1)
+	i = 0;
+	while (philo[i].id)
 	{
-		philo->sim->forks[philo->id];
+		if (philo[i].state == DEAD)
+			return (0);
+		i++;
 	}
+	return (i);
 }
-*/

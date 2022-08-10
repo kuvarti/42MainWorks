@@ -6,13 +6,13 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 12:07:16 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/09 11:26:29 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/10 15:48:47 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-static int checknumber(char *str)
+static int	checknumber(char *str)
 {
 	int	i;
 
@@ -31,7 +31,7 @@ static int checknumber(char *str)
 	return (1);
 }
 
-static int checkargs(char **argv)
+static int	checkargs(char **argv)
 {
 	int	i;
 
@@ -72,11 +72,7 @@ t_sim	*fillsim(char **argv)
 	i = -1;
 	mutexes = malloc(sizeof(pthread_mutex_t) * (sim->p_count + 1));
 	while (++i < (sim->p_count))
-	{
-		printf("%i. fork initializing!\n", i);
 		pthread_mutex_init(&mutexes[i], NULL);
-	}
-	//mutexes[i] = (pthread_mutex_t)0;
 	sim->forks = mutexes;
 	if (argv[5])
 		sim->eat_times = ft_atoi(argv[5]);
@@ -88,7 +84,7 @@ t_sim	*fillsim(char **argv)
 t_philo	*createphilo(int pcount, t_sim *sim)
 {
 	t_philo	*philo;
-	int	i;
+	int		i;
 
 	philo = malloc(sizeof(t_philo) * (pcount + 1));
 	i = 0;

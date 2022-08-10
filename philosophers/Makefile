@@ -6,16 +6,17 @@
 #    By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/26 13:38:25 by aeryilma          #+#    #+#              #
-#    Updated: 2022/08/09 17:50:45 by aeryilma         ###   ########.fr        #
+#    Updated: 2022/08/10 18:07:25 by aeryilma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= philo
 
-CC		= gcc -g
+CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
-INCLUDE	= -I include
+INCLUDE	= -Iinclude -Isrc/ft_printf/Includes
 
+PRINTF	= src/ft_printf/printf.a
 SRC		= $(shell find src -name "*.c")
 OBJ		= $(SRC:.c=.o)
 
@@ -24,18 +25,21 @@ OBJ		= $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(INCLUDE) -o $(NAME)
+$(NAME): $(OBJ) $(PRINTF)
+	$(CC) $(CFLAGS) $(PRINTF) $(OBJ) $(INCLUDE) -o $(NAME)
+
+$(PRINTF):
+	make -C src/ft_printf
 
 clean:
 	@find src -name "*.o" -delete
+	make -i -C src/ft_printf clean
 	@echo "Objects Deleted"
 
 fclean: clean
 	@rm philo
+	make -C src/ft_printf fclean
 	@echo "Program Deleted"
 
 re: fclean all
 
-yaz:
-	@echo $(SRC)

@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   simstatus.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 12:01:18 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/01 12:11:37 by aeryilma         ###   ########.fr       */
+/*   Created: 2022/08/10 17:58:52 by aeryilma          #+#    #+#             */
+/*   Updated: 2022/08/10 17:59:10 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "ft_printf.h"
 
-int	sim_status(t_philo *philo)
+char	*ft_strdup(const char *s)
 {
-	int	i;
+	char	*ret;
+	size_t	index;
+	size_t	len;
 
-	i = 0;
-	while (philo[i].id)
+	len = ft_strlen(s) + 1;
+	ret = malloc(sizeof(char) * len);
+	if (!ret)
+		return (NULL);
+	index = 0;
+	while (index < len)
 	{
-		if (philo[i].state == DEAD)
-			return (0);
-		i++;
+		ret[index] = s[index];
+		index++;
 	}
-	return(i);
+	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 13:31:21 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/08 22:44:46 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/10 18:09:47 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "stdlib.h"
 # include "pthread.h"
 # include "sys/time.h"
+# include "ft_printf.h"
 
 // STRUCTURES
 typedef struct s_simulation
@@ -42,7 +43,6 @@ typedef struct s_philosophers
 	pthread_t				thread;
 }	t_philo;
 
-
 # define TO_UP 1000
 
 // STATES
@@ -52,9 +52,9 @@ typedef struct s_philosophers
 # define THINKING 't'
 
 // ACTIONS
-void	eating(t_philo *philo, t_sim *sim, int phil);
-void	sleeping(t_philo *philo, t_sim *sim, int phil);
-void	thinking(t_philo *philo, t_sim *sim, int phil);
+void	eating(t_philo *philo);
+void	sleeping(t_philo *philo);
+void	thinking(t_philo *philo);
 
 // UTILS
 long	total_time(t_sim *sim);
@@ -63,6 +63,6 @@ int		sim_status(t_philo *philo);
 void	print_status(t_philo *philo, t_sim *sim, int phil);
 
 // STARTS SIMULATIONS
-int	prep_sim(t_sim **sim, t_philo **philo, char **argv);
+int		prep_sim(t_sim **sim, t_philo **philo, char **argv);
 
 #endif
