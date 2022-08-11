@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 12:07:16 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/10 15:48:47 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/11 11:42:13 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ t_sim	*fillsim(char **argv)
 	mutexes = malloc(sizeof(pthread_mutex_t) * (sim->p_count + 1));
 	while (++i < (sim->p_count))
 		pthread_mutex_init(&mutexes[i], NULL);
+	pthread_mutex_init(&(sim->printlock), NULL);
 	sim->forks = mutexes;
 	if (argv[5])
 		sim->eat_times = ft_atoi(argv[5]);
@@ -111,5 +112,6 @@ int	prep_sim(t_sim **sim, t_philo **philo, char **argv)
 	if (!(*sim))
 		return (0);
 	*philo = createphilo((*sim)->p_count, *sim);
+	(*sim)->philos = *philo;
 	return (1);
 }

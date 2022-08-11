@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 13:05:50 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/10 21:08:39 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/11 18:06:17 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,39 +17,11 @@ void	*born_philo(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	pthread_mutex_lock(&(philo->sim->forks[0]));
-	ft_printf("sa %i \n", philo->id);
-	pthread_mutex_unlock(&(philo->sim->forks[0]));
-	return (arg);
-}
-
-
-void	*deadcheck(void *philos)
-{
-	int	i;
-	int	j;
-
 	while (1)
 	{
-		i = 0;
-		j = 0;
-		while (((t_philo *)philos)[i].thread)
-		{
-			if (((t_philo *)philos)[i].state == DEAD)
-			{
-				j = -1;
-				while (((t_philo *)philos)[++j].id)
-				{
-					if (((t_philo *)philos)[j].thread)
-						pthread_detach(((t_philo *)philos)[j].thread);
-				}
-				break ;
-			}
-			i++;
-		}
-		if (j == ((t_philo *)philos)[0].sim->p_count)
-			break ;
-		usleep(5 * TO_UP);
+		//LIFECYCLE
+		if (!sim_status(philo->sim->philos))
+			return ((void *)0);
 	}
 	return ((void *)0);
 }
@@ -64,12 +36,9 @@ void	create_threads(t_sim *sim, t_philo *philo)
 	{
 		pthread_create(&philo[i].thread, NULL, born_philo, &philo[i]);
 	}
-	pthread_create(&(sim->checker), NULL, deadcheck, philo);
 	i = -1;
 	while (++i < (philo[0].sim->p_count))
 		pthread_join(philo[i].thread, NULL);
-	pthread_join(sim->checker, NULL);
-
 }
 
 int	main(int argc, char **argv)

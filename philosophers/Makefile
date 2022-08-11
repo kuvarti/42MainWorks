@@ -6,13 +6,13 @@
 #    By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/26 13:38:25 by aeryilma          #+#    #+#              #
-#    Updated: 2022/08/10 18:07:25 by aeryilma         ###   ########.fr        #
+#    Updated: 2022/08/11 10:47:42 by aeryilma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= philo
 
-CC		= gcc
+CC		= gcc -g
 CFLAGS	= -Wall -Wextra -Werror
 INCLUDE	= -Iinclude -Isrc/ft_printf/Includes
 

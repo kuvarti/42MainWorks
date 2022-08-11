@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 13:31:21 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/10 18:09:47 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/11 18:01:30 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@
 typedef struct s_simulation
 {
 	struct timeval			start_time;
+	struct s_philosophers	*philos;
 	pthread_mutex_t			*forks;
+	pthread_mutex_t			printlock;
 	int						p_count;
 	int						d_timeout;
 	int						e_timeout;
@@ -60,7 +62,6 @@ void	thinking(t_philo *philo);
 long	total_time(t_sim *sim);
 int		ft_atoi(const char *nptr);
 int		sim_status(t_philo *philo);
-void	print_status(t_philo *philo, t_sim *sim, int phil);
 
 // STARTS SIMULATIONS
 int		prep_sim(t_sim **sim, t_philo **philo, char **argv);
