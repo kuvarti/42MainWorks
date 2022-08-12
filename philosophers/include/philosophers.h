@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 13:31:21 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/11 18:01:30 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/12 17:29:30 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include "stdlib.h"
 # include "pthread.h"
 # include "sys/time.h"
-# include "ft_printf.h"
 
 // STRUCTURES
 typedef struct s_simulation
@@ -52,6 +51,7 @@ typedef struct s_philosophers
 # define EATING 'e'
 # define SLEEPING 's'
 # define THINKING 't'
+# define FORK 'f'
 
 // ACTIONS
 void	eating(t_philo *philo);
@@ -62,6 +62,7 @@ void	thinking(t_philo *philo);
 long	total_time(t_sim *sim);
 int		ft_atoi(const char *nptr);
 int		sim_status(t_philo *philo);
+void	printmessage(t_philo *philo, char state);
 
 // STARTS SIMULATIONS
 int		prep_sim(t_sim **sim, t_philo **philo, char **argv);
