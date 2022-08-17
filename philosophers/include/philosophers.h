@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 13:31:21 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/12 17:29:30 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/17 04:02:42 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_simulation
 	struct s_philosophers	*philos;
 	pthread_mutex_t			*forks;
 	pthread_mutex_t			printlock;
+	pthread_mutex_t			checklock;
 	int						p_count;
 	int						d_timeout;
 	int						e_timeout;
@@ -57,6 +58,7 @@ typedef struct s_philosophers
 void	eating(t_philo *philo);
 void	sleeping(t_philo *philo);
 void	thinking(t_philo *philo);
+int		leftfork(t_philo *philo);
 
 // UTILS
 long	total_time(t_sim *sim);

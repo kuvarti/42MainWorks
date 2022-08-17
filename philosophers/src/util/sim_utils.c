@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:01:18 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/12 17:36:17 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/17 02:07:38 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ int	sim_status(t_philo *philo)
 
 void	printmessage(t_philo *philo, char state)
 {
+	while (!(philo->sim->printlock.__sig))
+		usleep(1);
+	pthread_mutex_lock(&(philo->sim->printlock));
 	if (state == FORK)
 		printf("%ld %d has taken a fork\n", total_time(philo->sim), philo->id);
 	else if (state == EATING)
@@ -38,4 +41,5 @@ void	printmessage(t_philo *philo, char state)
 		printf("%ld %d is thinking\n", total_time(philo->sim), philo->id);
 	else if (state == DEAD)
 		printf("%ld %d is dead\n", total_time(philo->sim), philo->id);
+	pthread_mutex_unlock(&(philo->sim->printlock));
 }

@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 12:07:16 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/11 11:42:13 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/17 02:14:43 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ t_sim	*fillsim(char **argv)
 	sim->e_timeout = ft_atoi(argv[3]);
 	sim->s_timeout = ft_atoi(argv[4]);
 	i = -1;
-	mutexes = malloc(sizeof(pthread_mutex_t) * (sim->p_count + 1));
+	mutexes = malloc(sizeof(pthread_mutex_t) * (sim->p_count));
 	while (++i < (sim->p_count))
 		pthread_mutex_init(&mutexes[i], NULL);
 	pthread_mutex_init(&(sim->printlock), NULL);
