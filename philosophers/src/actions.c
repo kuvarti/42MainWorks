@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 12:42:20 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/17 04:01:30 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/19 13:16:30 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	lookforks(t_philo *philo)
 {
 	int	i;
 
+	if (philo->sim->p_count < 2)
+		return (1);
 	pthread_mutex_lock(&(philo->sim->checklock));
 	i = 0;
 	if (philo->sim->forks[philo->id - 1].__sig)
@@ -38,6 +40,7 @@ void	eating(t_philo *philo)
 {
 	if (!sim_status(philo->sim->philos))
 		return ;
+	philo->eat--;
 	philo->diecd = 0;
 	philo->diecd += philo->sim->e_timeout;
 	printmessage(philo, EATING);

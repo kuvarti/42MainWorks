@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 13:31:21 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/17 04:02:42 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/19 11:45:31 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ int		leftfork(t_philo *philo);
 
 // UTILS
 long	total_time(t_sim *sim);
+int		lookforks(t_philo *philo);
+int		leftfork(t_philo *philo);
 int		ft_atoi(const char *nptr);
 int		sim_status(t_philo *philo);
 void	printmessage(t_philo *philo, char state);

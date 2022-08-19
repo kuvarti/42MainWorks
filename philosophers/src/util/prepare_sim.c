@@ -6,13 +6,13 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 12:07:16 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/17 02:14:43 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/19 12:49:58 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-static int	checknumber(char *str)
+static int	checknumber(char *str, int id)
 {
 	int	i;
 
@@ -24,8 +24,11 @@ static int	checknumber(char *str)
 		i++;
 	}
 	i = ft_atoi(str);
-	if (i < 60)
-		return (0 * printf("Paramaters cannot be lower than 60\n"));
+	if (id != 5)
+	{
+		if (i < 60)
+			return (0 * printf("Paramaters cannot be lower than 60\n"));
+	}
 	else if (i == 0 || i == -1)
 		return (0 * printf("Parameters must integer"));
 	return (1);
@@ -38,7 +41,7 @@ static int	checkargs(char **argv)
 	i = 1;
 	while (argv[++i])
 	{
-		if (!checknumber(argv[i]))
+		if (!checknumber(argv[i], i))
 			return (0);
 	}
 	if (ft_atoi(argv[1]) < 200)

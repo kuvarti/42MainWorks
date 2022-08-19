@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 13:05:50 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/17 02:41:58 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/19 13:20:38 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,20 @@ void	*born_philo(void *arg)
 		sleeping(philo);
 	else if ((philo->id - 1) % 3 == 1)
 	{
+		while (lookforks(philo) != 2)
+		{
+			if (philo->diecd > philo->sim->d_timeout)
+			{
+				philo->state = DEAD;
+				printmessage(philo, DEAD);
+				return ((void *)0);
+			}
+			usleep(5 * TO_UP);
+			philo->diecd += 5;
+		}
 		pthread_mutex_lock(&(philo->sim->forks[philo->id - 1]));
 		printmessage(philo, FORK);
-		pthread_mutex_lock(&(philo->sim->forks[leftfork(philo->id, philo)]));
+		pthread_mutex_lock(&(philo->sim->forks[leftfork(philo)]));
 		printmessage(philo, FORK);
 		eating(philo);
 	}
