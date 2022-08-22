@@ -6,13 +6,13 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 12:42:20 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/19 13:16:30 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/22 13:56:32 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-int		leftfork(t_philo *philo)
+int	leftfork(t_philo *philo)
 {
 	if (philo->id > 1)
 		return (philo->id - 2);
@@ -20,29 +20,33 @@ int		leftfork(t_philo *philo)
 		return (philo->sim->p_count - 1);
 }
 
-int	lookforks(t_philo *philo)
+/*
+void	*waiting(void *arg)
 {
-	int	i;
+	char	st;
+	t_philo	*philo;
 
-	if (philo->sim->p_count < 2)
-		return (1);
-	pthread_mutex_lock(&(philo->sim->checklock));
-	i = 0;
-	if (philo->sim->forks[philo->id - 1].__sig)
-		i++;
-	if (philo->sim->forks[leftfork(philo)].__sig)
-		i++;
-	pthread_mutex_unlock(&(philo->sim->checklock));
-	return (i);
+	philo = (t_philo *)arg;
+	st = philo->state;
+	while (diecheck(philo))
+		usleep(1 * TO_UP);
+	if (!diecheck(philo))
+		die(philo);
+	return (philo);
 }
+*/
 
 void	eating(t_philo *philo)
 {
-	if (!sim_status(philo->sim->philos))
+	if (!sim_status(philo->sim->philos, philo->id))
 		return ;
+	if (!diecheck(philo))
+	{
+		die(philo);
+		return ;
+	}
 	philo->eat--;
-	philo->diecd = 0;
-	philo->diecd += philo->sim->e_timeout;
+	philo->lastmeat = total_time(philo->sim);
 	printmessage(philo, EATING);
 	usleep(philo->sim->e_timeout * TO_UP);
 	pthread_mutex_unlock(&(philo->sim->forks[philo->id - 1]));
@@ -52,15 +56,15 @@ void	eating(t_philo *philo)
 
 void	sleeping(t_philo *philo)
 {
-	if (!sim_status(philo->sim->philos))
+	if (!sim_status(philo->sim->philos, philo->id))
 		return ;
 	printmessage(philo, SLEEPING);
-	philo->diecd += philo->sim->s_timeout;
-	if (philo->diecd > philo->sim->d_timeout)
+	if ((philo->lastmeat + philo->sim->s_timeout)
+		> (philo->lastmeat + philo->sim->d_timeout))
 	{
-		usleep((philo->diecd - philo->sim->d_timeout) * TO_UP);
-		philo->state = DEAD;
-		printmessage(philo, DEAD);
+		usleep((philo->lastmeat + philo->sim->d_timeout)
+			- (philo->lastmeat + philo->sim->s_timeout));
+		die(philo);
 		return ;
 	}
 	usleep((philo->sim->s_timeout) * TO_UP);
@@ -69,20 +73,10 @@ void	sleeping(t_philo *philo)
 
 void	thinking(t_philo *philo)
 {
-	if (!sim_status(philo->sim->philos))
+	if (!sim_status(philo->sim->philos, philo->id))
 		return ;
 	printmessage(philo, THINKING);
-	while (lookforks(philo) != 2)
-	{
-		if (philo->diecd > philo->sim->d_timeout)
-		{
-			philo->state = DEAD;
-			printmessage(philo, DEAD);
-			return ;
-		}
-		usleep(5 * TO_UP);
-		philo->diecd += 5;
-	}
+	//pthread_create(&(philo->wait), NULL, waiting, (void *)philo);
 	pthread_mutex_lock(&(philo->sim->forks[philo->id - 1]));
 	printmessage(philo, FORK);
 	pthread_mutex_lock(&(philo->sim->forks[leftfork(philo)]));

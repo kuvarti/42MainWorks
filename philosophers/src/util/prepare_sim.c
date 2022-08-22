@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 12:07:16 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/19 12:49:58 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/21 02:06:53 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	checknumber(char *str, int id)
 		if (i < 60)
 			return (0 * printf("Paramaters cannot be lower than 60\n"));
 	}
-	else if (i == 0 || i == -1)
+	if (i == 0 || i == -1)
 		return (0 * printf("Parameters must integer"));
 	return (1);
 }
@@ -97,6 +97,7 @@ t_philo	*createphilo(int pcount, t_sim *sim)
 		philo[i].id = i + 1;
 		philo[i].state = THINKING;
 		philo[i].sim = sim;
+		philo[i].lastmeat = 0;
 		if (sim->eat_times)
 			philo[i].eat = sim->eat_times;
 		else

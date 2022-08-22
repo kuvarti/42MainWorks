@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 13:05:50 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/19 13:20:38 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/22 13:55:49 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,7 @@ void	*born_philo(void *arg)
 		sleeping(philo);
 	else if ((philo->id - 1) % 3 == 1)
 	{
-		while (lookforks(philo) != 2)
-		{
-			if (philo->diecd > philo->sim->d_timeout)
-			{
-				philo->state = DEAD;
-				printmessage(philo, DEAD);
-				return ((void *)0);
-			}
-			usleep(5 * TO_UP);
-			philo->diecd += 5;
-		}
+		//pthread_create(&(philo->wait), NULL, waiting, (void *)philo);
 		pthread_mutex_lock(&(philo->sim->forks[philo->id - 1]));
 		printmessage(philo, FORK);
 		pthread_mutex_lock(&(philo->sim->forks[leftfork(philo)]));
@@ -56,6 +46,9 @@ void	create_threads(t_sim *sim, t_philo *philo)
 	i = -1;
 	while (++i < (philo[0].sim->p_count))
 		pthread_join(philo[i].thread, NULL);
+	i = -1;
+	while (i++ < (philo[0].sim->p_count))
+		pthread_detach(philo[i].thread);
 }
 
 int	main(int argc, char **argv)
@@ -68,4 +61,5 @@ int	main(int argc, char **argv)
 	if (!prep_sim(&sim, &philo, argv))
 		return (0);
 	create_threads(sim, philo);
+	return (0);
 }
