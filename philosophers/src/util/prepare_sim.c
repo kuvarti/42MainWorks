@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 12:07:16 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/21 02:06:53 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/26 02:07:24 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	checknumber(char *str, int id)
 			return (0 * printf("Paramaters cannot be lower than 60\n"));
 	}
 	if (i == 0 || i == -1)
-		return (0 * printf("Parameters must integer"));
+		return (0 * printf("Parameters must integer\n"));
 	return (1);
 }
 
@@ -44,7 +44,7 @@ static int	checkargs(char **argv)
 		if (!checknumber(argv[i], i))
 			return (0);
 	}
-	if (ft_atoi(argv[1]) < 200)
+	if (ft_atoi(argv[1]) <= 200)
 	{
 		i = 0;
 		while (argv[1][i])
@@ -55,7 +55,7 @@ static int	checkargs(char **argv)
 		}
 	}
 	else
-		return (0 * printf("Maximum philosopher count is 199"));
+		return (0 * printf("Maximum philosopher count is 200\n"));
 	return (1);
 }
 

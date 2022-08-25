@@ -6,11 +6,27 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:01:18 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/25 13:05:04 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/26 01:33:35 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
+void	philo_wait(t_philo *philo, int s_value)
+{
+	long	max_sleep;
+
+	max_sleep = total_time(philo->sim) + s_value;
+	while (max_sleep >= total_time(philo->sim))
+	{
+		usleep (1000);
+		if (!diecheck(philo))
+		{
+			die(philo);
+			return ;
+		}
+	}
+}
 
 void	die(t_philo *philo)
 {
@@ -19,7 +35,7 @@ void	die(t_philo *philo)
 	philo->state = DEAD;
 	printmessage(philo, DEAD);
 	i = 0;
-	while (philo->sim->forks[i].__sig)
+	while (i < philo->sim->p_count)
 		pthread_mutex_unlock(&(philo->sim->forks[i++]));
 	i = 0;
 }
