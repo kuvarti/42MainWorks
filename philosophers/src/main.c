@@ -6,25 +6,52 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 13:05:50 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/22 14:35:09 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/25 13:01:09 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
+void	lifecycle(t_philo *philo)
+{
+	if (philo->sim->p_count % 2 == 0)
+	{
+		if ((philo->id - 1) % 2 == 0)
+			sleeping(philo);
+		else if ((philo->id - 1) % 2 == 1)
+		{
+			takeforks(philo);
+			eating(philo);
+		}
+	}
+	else
+	{
+		if ((philo->id - 1) % 3 == 0)
+			sleeping(philo);
+		else if ((philo->id - 1) % 3 == 1)
+		{
+			takeforks(philo);
+			eating(philo);
+		}
+		else
+			thinking(philo);
+	}
+}
 
 void	*born_philo(void *arg)
 {
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	if ((philo->id - 1) % 2 == 0)
-		thinking(philo);
-	else if ((philo->id - 1) % 2 == 1)
+	if (philo->sim->p_count <= 1)
 	{
-		eating(philo);
+		pthread_mutex_lock(&(philo->sim->forks[philo->id - 1]));
+		printmessage(philo, FORK);
+		usleep(philo->sim->d_timeout * TO_UP);
+		printmessage(philo, DEAD);
+		return ((void *)0);
 	}
-	else
-		thinking(philo);
+	lifecycle(philo);
 	return ((void *)0);
 }
 

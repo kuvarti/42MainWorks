@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 12:01:18 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/22 13:43:58 by aeryilma         ###   ########.fr       */
+/*   Updated: 2022/08/25 13:05:04 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ void	printmessage(t_philo *philo, char state)
 	if (sim_status(philo->sim->philos, philo->id))
 	{
 		if (state == FORK)
-			printf("%ld %d has taken a fork\n", total_time(philo->sim), philo->id);
+			printf("%ld %d has taken a fork\n", total_time(philo->sim),
+				philo->id);
 		else if (state == EATING)
 			printf("%ld %d is eating\n", total_time(philo->sim), philo->id);
 		else if (state == SLEEPING)
