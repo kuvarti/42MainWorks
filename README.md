@@ -24,7 +24,8 @@
 | So_long| [![So_long](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2538270)](https://github.com/kuvarti/42MainWorks/tree/so_long)|
 | Push_Swap| [![Push_Swap](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2538179)](https://github.com/kuvarti/42MainWorks/tree/push_swap)|
 
-</td>
+</td></tr>
+<tr style="display:flex; justify-content:space-around; paddind:0;">
 <td style="padding:0; margin:0;">
 
 |Proje| Durum|
