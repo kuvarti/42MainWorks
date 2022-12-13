@@ -15,7 +15,7 @@ class PhoneBook{
 	private:
 		//* Add Utils
 		std::string getstream(std::string prompt);
-		int overwriteContact();
+		std::string overwriteContact();
 
 		//* Search utils
 		void printthat(std::string stream);
@@ -25,5 +25,7 @@ class PhoneBook{
 		int totalid;
 		_contact *contact_list;
 };
+
+int	isnumarray(std::string str);
 
 #endif

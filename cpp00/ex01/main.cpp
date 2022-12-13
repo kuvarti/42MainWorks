@@ -10,6 +10,16 @@ void	printmenu()
 	std::cout << "Enter The Choise: ";
 }
 
+int	isnumarray(std::string str)
+{
+	for (size_t i = 0; i < str.length(); i++)
+	{
+		if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
+			return (0);
+	}
+	return (1);
+}
+
 int	main()
 {
 	PhoneBook phonelist;
@@ -20,6 +30,11 @@ int	main()
 		printmenu();
 		std::cin >> inp;
 		std::cout << LINE << std::endl;
+		if (!isnumarray(inp))
+		{
+			std::cout << "Please enter a menu(numeric)" << std::endl << LINE << std::endl;
+			continue;
+		}
 		switch (stoi(inp))
 		{
 		case 1:
@@ -29,6 +44,7 @@ int	main()
 			phonelist.search();
 			break;
 		case 3:
+			std::cout << "bye bye" << std::endl << LINE << std::endl;
 			return (0);
 		default:
 			std::cout << "Wrong input!! Plase enter the menu numbers" << std::endl;

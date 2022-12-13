@@ -1,9 +1,9 @@
-NAME = megaphone
+NAME = PhoneBook
 
 CC = c++ -std=c++98
 CFLAGS = -Wall -Wextra -Werror
 
-FILES = megaphone.cpp
+FILES = $(shell find . -name "*.cpp")
 OBJ = $(FILES:.cpp=.o)
 
 %.o: %.cpp
@@ -13,7 +13,8 @@ all: $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean:
-	rm $(OBJ)
+	@rm $(OBJ)
 
 fclean: clean
-	rm $(NAME)
+	@rm $(NAME)
+	@echo "Done"

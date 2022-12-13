@@ -13,15 +13,16 @@ PhoneBook::~PhoneBook()
 	delete[] this->contact_list;
 }
 
-int PhoneBook::overwriteContact()
+std::string PhoneBook::overwriteContact()
 {
 	std::cout << "You're overWriting to : ";
 	std::cout << this->contact_list[this->lastcontact].getfirstname() << " ";
 	std::cout << this->contact_list[this->lastcontact].getlastname() << std::endl;
 	std::cout << "Are u sure?\n" << "Enter 0 :\"No i dont wanna overwrite\"" << std::endl;
 	std::cout << "Enter Otherwise: \"Yes i wanna overwrite\"\nSelection: ";
-	int	inp;
+	std::string	inp;
 	std::cin >> inp;
+	std::cout<< LINE << std::endl;
 	return inp;
 }
 
@@ -48,7 +49,7 @@ void PhoneBook::addcontact()
 		std::cout << "You're adding new contact" << std::endl;
 	else
 	{
-		if (!overwriteContact())
+		if (overwriteContact() == "0")
 			return ;
 	}
 	this->contact_list[this->lastcontact].setid(++(this->totalid));
@@ -89,7 +90,7 @@ void PhoneBook::printdetails(int index)
 	{
 		if (contact_list[i].getid() == index)
 		{
-			std::cout << contact_list[i].getid() << "is firstname: ";
+			std::cout << contact_list[i].getid() << "(index) is firstname: ";
 			std::cout << contact_list[i].getfirstname() << ", lastname: ";
 			std::cout << contact_list[i].getlastname() << ", Nickname: ";
 			std::cout << contact_list[i].getnickname() << ", Phone Number: ";
@@ -101,6 +102,8 @@ void PhoneBook::printdetails(int index)
 
 void PhoneBook::search()
 {
+	std::string listindex;
+
 	std::cout<<"|     index|first name| last name|  Nickname|" <<std::endl;
 	for(int i = 0; i < 8; i++)
 	{
@@ -118,9 +121,11 @@ void PhoneBook::search()
 		std::cout << std::endl;
 	}
 	std::cout << "Enter index for Details(if dont exist returns the Menu): ";
-	int listindex;
 	std::cin >> listindex;
-	printdetails(listindex);
+	if (!isnumarray(listindex))
+		std::cout << "Please enter a index(numeric)" << std::endl;
+	else
+		printdetails(stoi(listindex));
 	std::cout << "Returning the main menu"<< std::endl;
 	std::cout << LINE << std::endl;
 }
