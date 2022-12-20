@@ -1,4 +1,4 @@
-NAME = idk
+NAME = Unnecessaryviolence
 
 CC = c++ -std=c++98
 CFLAGS = -Wall -Werror -Wextra
