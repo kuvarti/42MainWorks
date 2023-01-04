@@ -13,14 +13,14 @@
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
-class fixed{
+class Fixed{
 public:
-	fixed();
-	fixed (const fixed &f);
-	~fixed();
-	fixed & operator = (const fixed &f);
+	Fixed();
+	Fixed (const Fixed &f);
+	~Fixed();
+	Fixed & operator = (const Fixed &f);
 
-	int		getRawBits( void );
+	int		getRawBits( void ) const;
 	void	setRawBits( int const raw );
 
 private:
