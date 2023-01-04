@@ -25,7 +25,7 @@ public:
 
 private:
 	int					_rawbits;
-	static const int	_dotPoint = 16;
+	static const int	_fractional_bits = 8;
 };
 
 #endif
