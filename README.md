@@ -41,6 +41,8 @@
 |:-|-:|
 |Examrank04| Not Registered|
 |NetPractice| [![NetPractice](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2925969)](https://github.com/kuvarti/42MainWorks/tree/net-practice)|
+|Cub3d| Not Registered|
+|ft_Cointainers| Locked|
 
 </td>
 
