@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 23:24:32 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/05 00:01:36 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/05 05:38:15 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,12 @@ public:
 	Fixed getX() const;
 	Fixed getY() const;
 
-	Fixed getRange(Point const &) const;
-
 private:
 	Fixed const _x;
 	Fixed const _y;
 };
 
+std::ostream & operator<<(std::ostream &, const Point &);
 bool bsp( Point const a, Point const b, Point const c, Point const point);
 
 #endif

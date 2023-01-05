@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 23:47:03 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/04 23:04:21 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/05 04:59:54 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Fixed::Fixed(const Fixed &f) : _rawbits(f.getRawBits())
 }
 
 // Assignment operator
-Fixed & Fixed::operator =(const Fixed &f)
+Fixed & Fixed::operator=(const Fixed &f)
 {
 	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &f)
