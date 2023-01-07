@@ -6,11 +6,23 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 05:40:42 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/05 05:41:17 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/07 22:27:24 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
+
+/*
+/ * barycentric coordinates
+/ *
+/ *	d1, d2 ve d3 hep beraber pozitif veya hep beraber negatif olursa nokta
+/ * üçgenin içerisindedir
+/ *
+/ * d1 :(Px - Ax) * (By - Ay) - (Bx - Ax) * (Py - Ay)
+/ * d2 :(Px - Bx) * (Cy - By) - (Cx - Bx) * (Py - By)
+/ * d3 :(Px - Cx) * (Ay - Cy) - (Ax - Cx) * (Py - Cy)
+/ *
+*/
 
 bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
