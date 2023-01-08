@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 00:13:35 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/08 01:45:46 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/08 08:56:59 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
 
 	std::string		getName() const;
 	unsigned int	getAttackValue() const;
-private:
+protected:
 	std::string	_name;
 	int	_hitpoint;
 	int	_energypoint;

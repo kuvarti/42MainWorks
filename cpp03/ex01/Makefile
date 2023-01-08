@@ -1,9 +1,12 @@
-NAME = ClapTrap
+NAME = FragTrap
 
 CC = c++ -std=c++98
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I./include
+ifeq ($(shell uname), Linux)
+	CC = c++
+endif
 
-SRC =  $(shell find . -name "*.cpp")
+SRC =  $(shell find src -name "*.cpp")
 OBJ = $(SRC:.cpp=.o)
 
 %.o: %.cpp

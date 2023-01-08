@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 00:33:40 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/08 01:53:50 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/08 09:12:37 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 ClapTrap::ClapTrap()
 	: _name(""), _hitpoint(10), _energypoint(10), _attackdamage(0)
 {
+	_name = "ClapTrap";
 	std::cout << _name << " is created with " << "[Default Constructor]" << std::endl;
 }
 
