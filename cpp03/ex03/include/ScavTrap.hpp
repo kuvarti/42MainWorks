@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 02:13:06 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/08 09:18:55 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/09 21:57:21 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "ClapTrap.hpp"
 #include <string>
 
-class ScavTrap : public ClapTrap{
+class ScavTrap : virtual public ClapTrap{
 public:
 	ScavTrap();
 	~ScavTrap();

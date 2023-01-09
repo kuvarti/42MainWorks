@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:33:25 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/08 16:43:52 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/09 22:09:51 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ FragTrap::FragTrap() : ClapTrap()
 	this->_hitpoint = 100;
 	this->_energypoint = 30;
 	this->_attackdamage = 30;
-	std::cout << "ScavTrap Default Constructor called" << std::endl;
+	std::cout << "FragTrap Default Constructor called" << std::endl;
 }
 
 FragTrap::~FragTrap()
@@ -27,7 +27,7 @@ FragTrap::~FragTrap()
 
 FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
-		this->_hitpoint = 100;
+	this->_hitpoint = 100;
 	this->_energypoint = 30;
 	this->_attackdamage = 30;
 	std::cout << "FragTrap String Constructor called" << std::endl;

@@ -1,7 +1,7 @@
-NAME = FragTrap
+NAME = DiamondTrap
 
 CC = c++ -std=c++98
-CFLAGS = -Wall -Wextra -Werror -I./include
+CFLAGS = -Wall -Wextra -Werror -Wno-shadow -I./include
 ifeq ($(shell uname), Linux)
 	CC = c++
 endif

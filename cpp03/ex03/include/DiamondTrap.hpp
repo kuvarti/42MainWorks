@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:53:22 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/08 16:55:31 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/09 22:24:06 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,20 @@
 # define DIAMONDTRAP_HPP
 
 #include "FragTrap.hpp"
-#include <iostream>
+#include "ScavTrap.hpp"
 
-class DiamondTrap : FragTrap{
+class DiamondTrap : public FragTrap, public ScavTrap
+{
 public:
+	~DiamondTrap();
+	DiamondTrap(std::string);
+	DiamondTrap(const DiamondTrap &);
+	DiamondTrap & operator=(const DiamondTrap &);
+
+	void whoAmI();
+	void attack(const std::string& target);
 private:
+	DiamondTrap();
 	std::string _name;
 };
 
