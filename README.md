@@ -8,7 +8,7 @@
 <tr style="display:flex; justify-content:space-around; paddind:0;">
 <td style="padding:0; margin:0;">
 
-<table>
+<table style="margin:0;">
 <thead>
 <tr>
 <th align="left">Proje</th>
