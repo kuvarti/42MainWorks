@@ -8,12 +8,31 @@
 <tr style="display:flex; justify-content:space-around; paddind:0;">
 <td style="padding:0; margin:0;">
 
-| Proje | Durum |
-| :-	|	-:	|
-| Libft | [![Libft](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2473081)](https://github.com/kuvarti/42MainWorks/tree/libft)|
-| Born2Beroot| [![Born2Beroot](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2511701)](https://github.com/kuvarti/42MainWorks/tree/born2beroot)|
-| GetNextLine| [![GetNextLine](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2510999)](https://github.com/kuvarti/42MainWorks/tree/getnextline)|
-| Printf| [![Printf](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2511000)](https://github.com/kuvarti/42MainWorks/tree/ft_prinf)|
+<table>
+<thead>
+<tr>
+<th align="left">Proje</th>
+<th align="right">Durum</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Libft</td>
+<td align="right"><a href="https://github.com/kuvarti/42MainWorks/tree/libft"><img src="https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2473081" alt="Libft"></a></td>
+</tr>
+<tr>
+<td align="left">Born2Beroot</td>
+<td align="right"><a href="https://github.com/kuvarti/42MainWorks/tree/born2beroot"><img src="https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2511701" alt="Born2Beroot"></a></td>
+</tr>
+<tr>
+<td align="left">GetNextLine</td>
+<td align="right"><a href="https://github.com/kuvarti/42MainWorks/tree/getnextline"><img src="https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2510999" alt="GetNextLine"></a></td>
+</tr>
+<tr>
+<td align="left">Printf</td>
+<td align="right"><a href="https://github.com/kuvarti/42MainWorks/tree/ft_prinf"><img src="https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2511000" alt="Printf"></a></td>
+</tr>
+</tbody></table>
+
 
 </td><td style="padding:0; margin:0;">
 
