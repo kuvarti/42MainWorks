@@ -39,8 +39,8 @@
 
 |Proje| Durum|
 |:-|-:|
-|Examrank04| Not Registered|
-|NetPractice| [![NetPractice](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2925969)](https://github.com/kuvarti/42MainWorks/tree/net-practice)|
+|Examrank04| ![Exam04](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2933439)|
+|NetPractice| [![NetPractice](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2925584)](https://github.com/kuvarti/42MainWorks/tree/net-practice)|
 |Cub3d| ![cub2d](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2927486) |
 |ft_Cointainers| ![Locked](./img/locked.svg) |
 
