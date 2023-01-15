@@ -1,1 +1,3 @@
-This is aeryilma's 42 adventure
+# CUB3d
+
+i'll making cub3d alone yet
