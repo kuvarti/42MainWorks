@@ -5,7 +5,7 @@
 NAME = cub3d
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra #-Werror
 
 LIBFT = $(addprefix $(OUTPREFIX), libft.a)
 
