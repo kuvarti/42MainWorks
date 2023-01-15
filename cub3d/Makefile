@@ -1,3 +1,7 @@
+#
+#!	MLX LINUX FOLDER NAME MUST BE minilibx-linux
+#
+
 NAME = cub3d
 
 CC = gcc
@@ -8,6 +12,11 @@ INCLUDE = -Iinclude/
 ifeq ($(shell uname), Linux)
 MINILIBX = $(addprefix $(OUTPREFIX), libmlx_Linux.a)
 MINILIBXFLAGS = -Lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+EXTRAMINILIBXFLAGS =  -I/usr/include -Imlx_linux
+else ifeq ($(shell uname), Darwin)
+#
+#TODO be filled
+#
 endif
 
 SRC = $(shell find src -name "*.c")
@@ -19,7 +28,7 @@ OBJ = $(addprefix $(OUTPREFIX), $(SRCFLS:.c=.o))
 
 vpath %.c $(SRCDIR)
 $(OUTPREFIX)%.o: %.c
-	@$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -c $< -o $@
+	@$(CC) $(CFLAGS) $(INCLUDE) $(EXTRAMINILIBXFLAGS) -c $< -o $@
 
 all: outfolder $(MINILIBX) $(NAME)
 
@@ -47,3 +56,8 @@ fclean: clean
 	@echo "Full Cleaning..."
 	@if [ ! -d $(NAME) ]; then rm -rf $(NAME); fi
 	@echo "Full Cleaned."
+
+seperate:
+	@echo "---------------------"
+
+re: fclean seperate all
