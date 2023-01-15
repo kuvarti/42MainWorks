@@ -7,7 +7,7 @@ INCLUDE = -Iinclude/
 
 ifeq ($(shell uname), Linux)
 MINILIBX = $(addprefix $(OUTPREFIX), libmlx_Linux.a)
-MINILIBXFLAGS = -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+MINILIBXFLAGS = -Lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 endif
 
 SRC = $(shell find src -name "*.c")
@@ -19,7 +19,7 @@ OBJ = $(addprefix $(OUTPREFIX), $(SRCFLS:.c=.o))
 
 vpath %.c $(SRCDIR)
 $(OUTPREFIX)%.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -c $< -o $@
 
 all: outfolder $(MINILIBX) $(NAME)
 
@@ -34,6 +34,16 @@ $(NAME): $(OBJ)
 
 $(MINILIBX):
 	@echo "Compiling Minilibx..."
-	@make -C minilibx-linux
+	@make -C minilibx-linux 2> /dev/null > /dev/null
 	@cp minilibx-linux/libmlx_Linux.a $(OUTPREFIX)/.
 	@echo "Minilibx compiled."
+
+clean:
+	@echo "Cleaning..."
+	@if [ -d $(OUTPREFIX) ]; then rm -rf $(OUTPREFIX); fi
+	@make -C minilibx-linux clean 2> /dev/null > /dev/null
+
+fclean: clean
+	@echo "Full Cleaning..."
+	@if [ ! -d $(NAME) ]; then rm -rf $(NAME); fi
+	@echo "Full Cleaned."
