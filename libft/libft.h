@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 18:29:07 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/06/14 13:11:26 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/15 22:20:54 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,17 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+// GET_NEXT_LINE
+char	*get_next_line(int fd);
+char	*ft_read_to_left_str(int fd, char *left_str);
+char	*ft_get_line(char *left_str);
+char	*ft_new_left_str(char *left_str);
+// GNL UTILS
+char	*ft_gnl_strchr(const char *s, int c);
+char	*ft_gnl_strjoin(char *s1, char *s2);
+size_t	ft_gnl_strlen(const char *s);
+# define BUFFER_SIZE 10
 
 //BONUS
 typedef struct s_list
