@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 04:28:44 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/15 05:00:53 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/15 22:41:20 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 //*		System LIBs
 #include <stdlib.h>
+#include <stdio.h>
+#include <fcntl.h>
 
 typedef struct g_cub3d
 {
