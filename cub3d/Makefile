@@ -7,6 +7,8 @@ NAME = cub3d
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
+LIBFT = $(addprefix $(OUTPREFIX), libft.a)
+
 INCLUDE = -Iinclude/
 
 ifeq ($(shell uname), Linux)
@@ -19,7 +21,7 @@ else ifeq ($(shell uname), Darwin)
 #
 endif
 
-SRC = $(shell find src -name "*.c")
+SRC = $(shell find src -name "*.c" | grep -v "libft")
 SRCDIR = $(sort $(dir $(SRC)))
 SRCFLS = $(notdir $(SRC))
 
@@ -30,7 +32,9 @@ vpath %.c $(SRCDIR)
 $(OUTPREFIX)%.o: %.c
 	@$(CC) $(CFLAGS) $(INCLUDE) $(EXTRAMINILIBXFLAGS) -c $< -o $@
 
-all: outfolder $(MINILIBX) $(NAME)
+all: outfolder $(LIBFT) $(MINILIBX) $(NAME) seperate
+	@echo ""
+	@echo "./$(NAME) is ready to use."
 
 outfolder:
 	@echo "Building Cub3d"
@@ -47,9 +51,16 @@ $(MINILIBX):
 	@cp minilibx-linux/libmlx_Linux.a $(OUTPREFIX)/.
 	@echo "Minilibx compiled."
 
+$(LIBFT):
+	@echo "Compiling Libft..."
+	@make -C src/libft 2> /dev/null > /dev/null
+	@cp src/libft/libft.a $(OUTPREFIX)/.
+	@echo "Libft compiled."
+
 clean:
 	@echo "Cleaning..."
 	@if [ -d $(OUTPREFIX) ]; then rm -rf $(OUTPREFIX); fi
+	@make -C src/libft fclean 2> /dev/null > /dev/null
 	@make -C minilibx-linux clean 2> /dev/null > /dev/null
 
 fclean: clean
