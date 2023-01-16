@@ -8,7 +8,7 @@ NAME = cub3d
 
 CC = gcc
 CFLAGS = -Wall -Wextra #-Werror
-INCLUDE = -Iinclude/
+INCLUDE = -Iinclude/ -Isrc/libft/
 
 LIBFT = $(addprefix $(OUTPREFIX), libft.a)
 
@@ -49,7 +49,7 @@ $(OUTPREFIX):
 
 #* COMPILING CUB3D
 $(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) $(INCLUDE) $(OBJ) $(MINILIBX) $(MINILIBXFLAGS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(INCLUDE) $(OBJ) $(MINILIBX) $(LIBFT) $(MINILIBXFLAGS) -o $(NAME)
 
 #* LIBFT COMPILATION
 $(LIBFT):

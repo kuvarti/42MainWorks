@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   mapgenerate.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 04:29:43 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/16 20:52:27 by aeryilma         ###   ########.fr       */
+/*   Created: 2023/01/16 19:49:04 by aeryilma          #+#    #+#             */
+/*   Updated: 2023/01/16 20:51:10 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int main(int argc, char **argv)
+int	mapgenerate(t_cub3d *game, char *file)
 {
-	t_cub3d	*game;
-
-	if (argc != 2)
-		return (printf("error: please run with single map: ./cub3d eg.cub\n"));
-	game = malloc(sizeof(t_cub3d));
-	if (!initialize(game, argv))
-		return (0);
-	mlx_loop(game->mlx);
+	game->player = malloc(sizeof(t_character));
+	if (ft_strlen(file) < 5 || ft_strrcmp(file, ".cub") != 0)
+		return (printf("Wrong file format: correct file format: file.cub\n"));
+	return (0);
 }

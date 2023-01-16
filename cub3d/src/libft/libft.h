@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 18:29:07 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/15 22:20:54 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/16 20:04:28 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,9 @@ char	*ft_gnl_strchr(const char *s, int c);
 char	*ft_gnl_strjoin(char *s1, char *s2);
 size_t	ft_gnl_strlen(const char *s);
 # define BUFFER_SIZE 10
+
+// EXTRAS
+int	ft_strrcmp(char *src, char *dest);
 
 //BONUS
 typedef struct s_list
