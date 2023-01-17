@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 01:40:03 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/16 20:33:19 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/17 02:18:41 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ int	initialize(t_cub3d *init, char **argv)
 {
 	char	*title;
 
-	if (!mapgenerate(init, argv[1]))
-		return (1);
 	(init)->mlx = mlx_init();
 	if (!((init)->mlx))
-		return (1);
+		return (0);
+	if (!mapgenerate(init, argv[1]))
+		return (0);
 	title = malloc(6);
 	title = "cub3d\0";
 	(init)->win = mlx_new_window((init)->mlx, 1280, 720, title);
 	if  (!((init)->win))
-		return (1);
+		return (0);
 	mlx_hook((init)->win, ON_DESTROY, 1L << 0, bitir, init);
-	return (0);
+	return (1);
 }

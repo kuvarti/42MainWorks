@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 04:29:43 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/16 20:52:27 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/17 02:39:57 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ int main(int argc, char **argv)
 	game = malloc(sizeof(t_cub3d));
 	if (!initialize(game, argv))
 		return (0);
-	mlx_loop(game->mlx);
+	//mlx_loop(game->mlx);
+	printf("\n\nloop started\n");
 }
