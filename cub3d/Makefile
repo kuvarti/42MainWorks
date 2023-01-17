@@ -6,7 +6,7 @@
 
 NAME = cub3d
 
-CC = gcc
+CC = gcc -g
 CFLAGS = -Wall -Wextra #-Werror
 INCLUDE = -Iinclude/ -Isrc/libft/
 
