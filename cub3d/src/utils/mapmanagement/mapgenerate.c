@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 19:49:04 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/18 19:14:44 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/19 00:52:27 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,19 +93,17 @@ char	**getmap(char *file, size_t ylen)
 
 int	mapgenerate(t_cub3d *game, char *file)
 {
-	size_t	xlen;
-	size_t	ylen;
-
+	game->map = malloc(sizeof(t_map));
 	if (ft_strlen(file) < 5 || ft_strrcmp(file, ".cub") != 0)
 		return (!printf("Wrong file format: correct file format: file.cub\n"));
-	if (!maplens(&ylen, &xlen, file))
+	if (!maplens(&game->map->y, &game->map->x, file))
 		return (!printf("File Not Found :%s\n", file));
-	game->map = getmap(file, ylen);
+	game->map->map = getmap(file, game->map->y);
 	if (!game->map)
 		return (!printf("Some Error Accuired.\n"));
-	if (!fill_mapspaces(game->map, xlen))
+	if (!fill_mapspaces(game->map->map, game->map->y))
 		return (!printf("Unsupported character detected.\n"));
-	if (!mapcheck(game->map))
+	if (!mapcheck(game->map->map))
 		return (!printf("Map & Player must be covered by wall(s)\n"));
 	return (1);
 }

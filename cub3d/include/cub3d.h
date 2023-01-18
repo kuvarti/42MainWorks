@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 04:28:44 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/18 19:07:20 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/19 00:52:08 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,18 @@
 #include <fcntl.h>
 #include <math.h>
 
+# define SCREEN_WIDTH 300
+# define SCREEN_HEIGH 300
+
+typedef struct	s_data
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}	t_data;
+
 typedef struct	g_chararacter
 {
 	double	posX;
@@ -35,7 +47,8 @@ typedef struct	g_cub3d
 {
 	void		*mlx;
 	void		*win;
-	char		**map;
+	t_map		*map;
+	t_data		img;
 	t_character	*player;
 }	t_cub3d;
 
