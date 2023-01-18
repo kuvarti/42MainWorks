@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 19:49:04 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/18 02:41:07 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/18 19:14:44 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	maplens(size_t *xlen, size_t *ylen, char *file)
 	*xlen = 1;
 	tmp = get_next_line(fd);
 	*ylen = ft_strlen(tmp);
-	while(tmp)
+	while (tmp)
 	{
 		free(tmp);
 		tmp = get_next_line(fd);
@@ -57,7 +57,7 @@ int	fill_mapspaces(char **map, int xlen)
 			if (map[i][j] == '\n')
 				break ;
 			if (!ft_strchr("10NSE W", map[i][j]))
-				return(0);
+				return (0);
 			tmp[j] = map[i][j];
 		}
 		if (map[i][j])
@@ -91,32 +91,6 @@ char	**getmap(char *file, size_t ylen)
 	return (map);
 }
 
-int	mapcheck(char **map)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	while (map[++i])
-	{
-		j = -1;
-		while(map[i][++j])
-		{
-			if(map[i][j] != '0')
-				continue ;
-			else if (!ft_strchr("1NSEW", map[i + 1][j]))
-				return (0);
-			else if (!ft_strchr("1NSEW", map[i - 1][j]))
-				return (0);
-			else if (!ft_strchr("1NSEW", map[i][j - 1]))
-				return (0);
-			else if (!ft_strchr("1NSEW", map[i][j + 1]))
-				return (0);
-		}
-	}
-	return (1);
-}
-
 int	mapgenerate(t_cub3d *game, char *file)
 {
 	size_t	xlen;
@@ -128,10 +102,10 @@ int	mapgenerate(t_cub3d *game, char *file)
 		return (!printf("File Not Found :%s\n", file));
 	game->map = getmap(file, ylen);
 	if (!game->map)
-		return(!printf("Some Error Accuired.\n"));
+		return (!printf("Some Error Accuired.\n"));
 	if (!fill_mapspaces(game->map, xlen))
-		return(!printf("Unsupported character detected.\n"));
+		return (!printf("Unsupported character detected.\n"));
 	if (!mapcheck(game->map))
-		return(!printf("Map must be covered by wall(s)\n"));
+		return (!printf("Map & Player must be covered by wall(s)\n"));
 	return (1);
 }
