@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 01:40:03 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/19 23:18:51 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/19 23:57:58 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,22 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
+void drawline(t_cub3d *game, t_vectord p1, t_vectord p2)
+{
+	float x = p2.X - p1.X;
+	float y = p2.Y - p1.Y;
+
+	const float max = x < y ? x : y;
+	x /= max;
+	y /= max;
+	for (float n = 0; n < max; ++n)
+	{
+		my_mlx_pixel_put(&(game->img), (game->player->pos.Y * 100) + 50+ p1.X, (game->player->pos.Y * 100) + 50 + p1.Y, 0x00FF00);
+		p1.X += x;
+		p1.Y += y;
+	}
+}
+
 void	drawsquare(t_cub3d *game, double x, double y, int color)
 {
 	int	_x;
@@ -79,7 +95,59 @@ void	drawsquare(t_cub3d *game, double x, double y, int color)
 	}
 }
 
-void ciz(t_cub3d *game)
+void	raycast(t_cub3d *game)
+{
+	int		r, mx, my, mp, dof;
+	float	rx, ry, ra, xo, yo;
+
+	ra = game->player->angle;
+	for (r = 0; r < 1; r++)
+	{
+		dof = 0;
+		float aTan = -1/tan(ra);
+		//looking down
+		if (ra > PI)
+		{
+			ry = (((int)game->player->pos.Y >>6) <<  6) - 0.0001;
+			rx = (game->player->pos.Y - ry) * aTan + game->player->pos.X;
+			yo = -64;
+			xo = -yo * aTan;
+		}
+		else if (ra < PI)
+		{
+			ry = (((int)game->player->pos.Y >>6) <<  6) + 64;
+			rx = (game->player->pos.Y - ry) * aTan + game->player->pos.X;
+			yo = 64;
+			xo = yo * aTan;
+		}
+		else if (ra == 0 || ra == PI)
+		{
+			rx = game->player->pos.X;
+			ry = game->player->pos.Y;
+			dof = 8;
+		}
+		while (dof < 8)
+		{
+			mx = (int)rx >> 6;
+			my = (int)(ry) >> 6;
+			mp = my * game->map->x + mx;
+			if ( mp < game->map->x * game->map->y && game->map->map[mp] == '1')
+				dof = 8;
+			else
+			{
+				rx+= xo;
+				ry += yo;
+				dof += 1;
+			}
+		}
+		t_vectord a;
+		a.X = rx;
+		a.Y = ry;
+		drawline(game, game->player->pos, a );
+	}
+}
+
+void	ciz(t_cub3d *game)
 {
 	mlx_clear_window(game->mlx, game->win);
 	int i = -1;
