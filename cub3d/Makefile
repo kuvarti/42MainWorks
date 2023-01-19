@@ -96,3 +96,7 @@ seperate:
 	@echo "---------------------"
 
 re: fclean seperate all
+
+rec: $(OBJ)
+	@$(CC) $(CFLAGS) $(INCLUDE) $(OBJ) $(MINILIBX) $(LIBFT) $(MINILIBXFLAGS) -o $(NAME)
+

@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 04:28:44 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/19 00:52:08 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/19 22:43:20 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,13 @@
 #include "libft.h"
 #include "events.h"
 #include "maplib.h"
+#include "defines.h"
 
 //*		System LIBs
 #include <stdlib.h>
 #include <stdio.h>
 #include <fcntl.h>
 #include <math.h>
-
-# define SCREEN_WIDTH 300
-# define SCREEN_HEIGH 300
 
 typedef struct	s_data
 {
@@ -37,10 +35,17 @@ typedef struct	s_data
 	int		endian;
 }	t_data;
 
+typedef struct	g_vectord
+{
+	double	X;
+	double	Y;
+}	t_vectord;
+
 typedef struct	g_chararacter
 {
-	double	posX;
-	double	posY;
+	t_vectord	pos;
+	t_vectord	delta;
+	double		angle;
 }	t_character;
 
 typedef struct	g_cub3d
@@ -55,5 +60,10 @@ typedef struct	g_cub3d
 int	mapcheck(char **map);
 int	mapgenerate(t_cub3d *game, char *file);
 int	initialize(t_cub3d *init, char **argv);
+
+//*	EVENTS
+int	getkeys(int	keycode, t_cub3d *game);
+int	finish(t_cub3d *cub3d);
+		void ciz(t_cub3d *game);
 
 #endif
