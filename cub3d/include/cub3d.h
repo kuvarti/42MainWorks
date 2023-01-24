@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 04:28:44 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/19 22:43:20 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/24 05:28:39 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,19 @@ typedef struct	g_cub3d
 	void		*win;
 	t_map		*map;
 	t_data		img;
+	t_onkeys	onkey;
 	t_character	*player;
 }	t_cub3d;
 
+//*	init
+int	initialize(t_cub3d *init, char **argv);
+
+//*	mapcontrol
 int	mapcheck(char **map);
 int	mapgenerate(t_cub3d *game, char *file);
-int	initialize(t_cub3d *init, char **argv);
 
 //*	EVENTS
 int	getkeys(int	keycode, t_cub3d *game);
 int	finish(t_cub3d *cub3d);
-		void ciz(t_cub3d *game);
 
 #endif

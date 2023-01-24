@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 19:49:04 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/19 00:52:27 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/24 05:04:59 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,9 @@ int	fill_mapspaces(char **map, int xlen)
 {
 	int		i;
 	int		j;
-	int		flag;
 	char	*tmp;
 
 	i = -1;
-	flag = 0;
 	while(map[++i])
 	{
 		tmp = malloc(xlen - 1);

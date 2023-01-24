@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 22:11:21 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/19 23:18:02 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/24 05:04:34 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,5 @@ int	getkeys(int	keycode, t_cub3d *game)
 		turn(game, KEY_LEFT);
 	else if (keycode == KEY_RIGHT)
 		turn(game, KEY_RIGHT);
-	ciz(game);
 	return (1);
 }
