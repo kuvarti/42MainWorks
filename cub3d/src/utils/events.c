@@ -6,53 +6,53 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 22:11:21 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/24 05:04:34 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/25 21:17:21 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	finish(t_cub3d *cub3d)
+int	basic_loop(t_cub3d *game)
 {
-	exit(mlx_destroy_window(cub3d->mlx, cub3d->win));
-	return (1);
+	if (move(game))
+		ciz(game);
+	return (0);
 }
 
-static void	turn(t_cub3d *game, int key)
-{
-	if (key == KEY_LEFT)
-	{
-		game->player->angle -= TURNSPEED;
-		if (game->player->angle < 0)
-			game->player->angle += 2 * PI;
-		game->player->delta.X = cos(game->player->angle) * 5;
-		game->player->delta.Y = sin(game->player->angle) * 5;
-	}
-	else if (key == KEY_RIGHT)
-	{
-		game->player->angle += TURNSPEED;
-		if (game->player->angle > 2 * PI)
-			game->player->angle -= 2 * PI;
-		game->player->delta.X = cos(game->player->angle) * 5;
-		game->player->delta.Y = sin(game->player->angle) * 5;
-	}
-}
-
-int	getkeys(int	keycode, t_cub3d *game)
+int	keydown(int	keycode, t_cub3d *game)
 {
 	if (keycode == KEY_ESC)
 		finish(game);
 	else if (keycode == KEY_W)
-		game->player->pos.Y -= WALKINGSPEED;
+		game->onkey.keyw = 1;
 	else if (keycode == KEY_S)
-		game->player->pos.Y += WALKINGSPEED;
+		game->onkey.keys = 1;
 	else if (keycode == KEY_A)
-		game->player->pos.X -= WALKINGSPEED;
+		game->onkey.keya = 1;
 	else if (keycode == KEY_D)
-		game->player->pos.X += WALKINGSPEED;
-	if (keycode == KEY_LEFT)
-		turn(game, KEY_LEFT);
+		game->onkey.keyd = 1;
+	else if (keycode == KEY_LEFT)
+		game->onkey.keyleft = 1;
 	else if (keycode == KEY_RIGHT)
-		turn(game, KEY_RIGHT);
+		game->onkey.keyright = 1;
+	return (1);
+}
+
+int	keyup(int keycode, t_cub3d *game)
+{
+	if (keycode == KEY_ESC)
+		finish(game);
+	else if (keycode == KEY_W)
+		game->onkey.keyw = 0;
+	else if (keycode == KEY_S)
+		game->onkey.keys = 0;
+	else if (keycode == KEY_A)
+		game->onkey.keya = 0;
+	else if (keycode == KEY_D)
+		game->onkey.keyd = 0;
+	else if (keycode == KEY_LEFT)
+		game->onkey.keyleft = 0;
+	else if (keycode == KEY_RIGHT)
+		game->onkey.keyright = 0;
 	return (1);
 }

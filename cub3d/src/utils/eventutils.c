@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maplib.h                                           :+:      :+:    :+:   */
+/*   eventutils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 19:45:49 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/19 00:49:41 by aeryilma         ###   ########.fr       */
+/*   Created: 2023/01/25 03:41:53 by aeryilma          #+#    #+#             */
+/*   Updated: 2023/01/25 21:16:51 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAPLIB_H
-# define MAPLIB_H
+#include "cub3d.h"
 
-typedef struct s_map
+int	finish(t_cub3d *game)
 {
-	char	**map;
-	size_t	x;
-	size_t	y;
-}	t_map;
-
-
-#endif
+	exit(mlx_destroy_window(game->mlx, game->win));
+	return (1);
+}
