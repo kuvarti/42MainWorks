@@ -6,11 +6,12 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 18:37:41 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/25 03:58:53 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/27 06:15:28 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+void raycast(t_cub3d *game);
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
@@ -23,14 +24,6 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	dst = \
 	data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
-}
-
-int	abs(int n)
-{
-	if (n < 0)
-		return (n * -1);
-	else
-		return (n);
 }
 
 void	drawline(t_cub3d *game, t_vectord start, t_vectord end, int color)
@@ -57,6 +50,25 @@ void	drawsquare(t_cub3d *game, double x, double y, int color)
 	int	i;
 	int	j;
 
+	if (color == 0)
+	{
+		_x = x * 100;
+		_x -=50;
+		i = _x + 100;
+		while (_x < i)
+		{
+			_y = y * 100;
+			_y -=50;
+			j = _y + 100;
+			while (_y < j)
+			{
+				my_mlx_pixel_put(game->img, _x + 50, _y + 50, color);
+				_y++;
+			}
+			_x++;
+		}
+		return ;
+	}
 	_x = x * 100;
 	_x -=50;
 	i = _x + 99;
@@ -74,130 +86,173 @@ void	drawsquare(t_cub3d *game, double x, double y, int color)
 	}
 }
 
-void	simpleraycasat(t_cub3d *game)
-{
-	//0,0 distance
-	double x0 = game->player->pos.X, y0 = game->player->pos.Y;
-    // Işının hızı (v) ve yönü (angle)
-    //double v = 1;
-	double angle = game->player->angle;
-    // Işının çarpışma noktası (x1, y1)
-    double x1, y1;
-    // Işının çarpışma noktasına kadar olan mesafe (d)
-    double d;
-
-    // Işının yönünü radyana çeviriyoruz
-    angle = angle * PI / 180;
-    // Işının çarpışma noktasını hesaplıyoruz
-    d = sqrt(x0*x0 + y0*y0);
-    x1 = x0 + d * cos(angle);
-    y1 = y0 + d * sin(angle);
-
-    printf("(x1, y1) = (%f, %f)\n", x1, y1);
-}
-
 void drawplayer(t_cub3d *game)
 {
 	drawsquare(game, game->player->pos.X, game->player->pos.Y, 0x440088);
-	my_mlx_pixel_put(game->img,
-		(game->player->pos.X * 100) + 50 + game->player->delta.X * 7,
-		(game->player->pos.Y * 100) + 50 + game->player->delta.Y * 7,
-		0xFFFFFF);
+//	my_mlx_pixel_put(game->img,
+//		(game->player->pos.X * 100) + 50 + game->player->delta.X * 7,
+//		(game->player->pos.Y * 100) + 50 + game->player->delta.Y * 7,
+//		0xFFFFFF);
 }
 
-void raycast(t_cub3d *game);
+//void	extramap(t_cub3d *game)
+//{
+//	int i = -1;
+//	int j;
+//	while (game->map->map[++i])
+//	{
+//		j = -1;
+//		while (game->map->map[i][++j])
+//		{
+//			if (game->map->map[i][j] == '1')
+//				drawsquare(game, j, i, 0xFFFFFF);
+//			else
+//				drawsquare(game, j, i, 0x000000);
+//		}
+//	}
+//	drawplayer(game);
+//}
 
 void	ciz(t_cub3d *game)
 {
 	mlx_clear_window(game->mlx, game->win);
-	int i = -1;
-	int j;
-
-	while (game->map->map[++i])
-	{
-		j = -1;
-		while (game->map->map[i][++j])
-		{
-			if (game->map->map[i][j] == '1')
-				drawsquare(game, j, i, 0xFFFFFF);
-			else
-				drawsquare(game, j, i, 0x000000);
-		}
-	}
-	drawplayer(game);
-	//raycast(game);
+	raycast(game);
+	printf("(player.x,player.y) : %0.2f %0.2f\n(dir.x, dir.y) : %0.2f %0.2f\n(plane.x, plane.y) %0.2f %0.2f \n\n",
+			game->player->pos.X, game->player->pos.Y,
+			game->player->dir.X, game->player->dir.Y,
+			game->player->plane.X, game->player->plane.Y);
 	mlx_put_image_to_window(game->mlx, game->win, game->img->img, 0, 0);
 }
 
-/*
-#define mapX  8      //map width
-#define mapY  8      //map height
-#define mapS 64      //map cube size
-int map[]=           //the map array. Edit to change level but keep the outer walls
+void	verline(t_cub3d *game, int x, int ystart, int yend, int color)
 {
- 1,1,1,1,1,1,1,1,
- 1,0,1,0,0,0,0,1,
- 1,0,1,0,0,0,0,1,
- 1,0,1,0,0,0,0,1,
- 1,0,0,0,0,0,0,1,
- 1,0,0,0,0,1,0,1,
- 1,0,0,0,0,0,0,1,
- 1,1,1,1,1,1,1,1,
-};
+	int	i;
 
-void raycast(t_cub3d *game)
-{
-	int r, mx,my,mp,dof; double rx, ry, ra, xo, yo;
-	ra = game->player->angle;
-
-	for (r = 0; r < 1; r++)
+	i = 0;
+	while (i < SCREEN_HEIGH)
 	{
-		dof = 0;
-		double aTan = -1/tan(ra);
-		if (ra > PI) //looking down
-		{
-			ry = (((int)game->player->pos.Y >>6)<<6) - 0.0001;
-			rx = (game->player->pos.Y  - ry) * aTan+game->player->pos.X;
-			yo = -64;
-			xo = -yo * aTan;
-		}
-		if (ra < PI) //looking up
-		{
-			ry = (((int)game->player->pos.Y >>6)<<6) + 64;
-			rx = (game->player->pos.Y  - ry) * aTan+game->player->pos.X;
-			yo = 64;
-			xo = -yo * aTan;
-		}
-		if (ra == 0 || ra == PI)
-		{
-			rx = game->player->pos.X;
-			ry = game->player->pos.Y;
-			dof = 8;
-		}
-		while (dof < 8)
-		{
-			mx = (int)(rx) >> 6;
-			my = (int)(ry) >> 6;
-			mp = my * mapX + mx;
-			if (mp < mapX * mapY && map[mp] == 1)
-				dof = 8;
-			else
-			{
-				rx += xo;
-				ry += yo;
-				dof+= 1;
-			}
-		}
-		t_vectord a;
-		a.X = rx * 100 + 50;	a.Y = ry * 100 + 50;
-		drawline(game, game->player->pos, a, 0x00ff00);
-		printf("player: %0.2f,%0.2f\n ray %0.2f,%0.2f\n",
-			game->player->pos.X * 100 + 50,
-			game->player->pos.Y * 100 + 50,
-			rx * 100 + 50,
-			ry * 100 + 50
-		);
+		if (i >= yend)
+			my_mlx_pixel_put(game->img, x, i, i % 2 == 0 ? 0x00ffff	 : 0x0fff00);
+		else if (i > ystart && i < yend)
+			my_mlx_pixel_put(game->img, x, i, color);
+		else
+			my_mlx_pixel_put(game->img, x, i, 0x000000);
+		i++;
 	}
 }
 
-*/
+void	raycast(t_cub3d *game)
+{
+	double	posX = game->player->pos.X, posY = game->player->pos.Y;  //x and y start position
+	double	dirX = game->player->dir.X,
+			dirY = game->player->dir.Y;
+	double	planeX = game->player->plane.X,
+			planeY = game->player->plane.Y; //the 2d raycaster version of camera plane
+
+	for(int x = 0; x < SCREEN_WIDTH; x++)
+	{
+		//calculate ray position and direction
+		double cameraX = 2 * x / (double)SCREEN_WIDTH - 1; //x-coordinate in camera space
+		double rayDirX = dirX + planeX * cameraX;
+		double rayDirY = dirY + planeY * cameraX;
+		//which box of the map we're in
+		int mapX = (int)(posX);
+		int mapY = (int)(posY);
+
+		//length of ray from current position to next x or y-side
+		double sideDistX;
+		double sideDistY;
+
+		//length of ray from one x or y-side to next x or y-side
+		//these are derived as:
+		//deltaDistX = sqrt(1 + (rayDirY * rayDirY) / (rayDirX * rayDirX))
+		//deltaDistY = sqrt(1 + (rayDirX * rayDirX) / (rayDirY * rayDirY))
+		//which can be simplified to abs(|rayDir| / rayDirX) and abs(|rayDir| / rayDirY)
+		//where |rayDir| is the length of the vector (rayDirX, rayDirY). Its length,
+		//unlike (dirX, dirY) is not 1, however this does not matter, only the
+		//ratio between deltaDistX and deltaDistY matters, due to the way the DDA
+		//stepping further below works. So the values can be computed as below.
+		// Division through zero is prevented, even though technically that's not
+		// needed in C++ with IEEE 754 floating point values.
+		double deltaDistX = (rayDirX == 0) ? 1e30 : dabs(1 / rayDirX);
+		double deltaDistY = (rayDirY == 0) ? 1e30 : dabs(1 / rayDirY);
+
+		double perpWallDist;
+
+		//what direction to step in x or y-direction (either +1 or -1)
+		int stepX;
+		int stepY;
+
+		int hit = 0; //was there a wall hit?
+		int side; //was a NS or a EW wall hit?
+		//calculate step and initial sideDist
+		if(rayDirX < 0)
+		{
+			stepX = -1;
+			sideDistX = (posX - mapX) * deltaDistX;
+		}
+		else
+		{
+			stepX = 1;
+			sideDistX = (mapX + 1.0 - posX) * deltaDistX;
+		}
+			if(rayDirY < 0)
+		{
+			stepY = -1;
+			sideDistY = (posY - mapY) * deltaDistY;
+		}
+		else
+		{
+			stepY = 1;
+			sideDistY = (mapY + 1.0 - posY) * deltaDistY;
+		}
+		//perform DDA
+		while(hit == 0)
+		{
+		//jump to next map square, either in x-direction, or in y-direction
+			if(sideDistX < sideDistY)
+			{
+				sideDistX += deltaDistX;
+				mapX += stepX;
+				side = 0;
+			}
+			else
+			{
+				sideDistY += deltaDistY;
+				mapY += stepY;
+				side = 1;
+			}
+			//Check if ray has hit a wall
+			if(!game->map->map[mapX])
+				break ;
+			else if (game->map->map[mapX][mapY] == '1')
+				hit = 1;
+		}
+		//Calculate distance projected on camera direction. This is the shortest distance from the point where the wall is
+		//hit to the camera plane. Euclidean to center camera point would give fisheye effect!
+		//This can be computed as (mapX - posX + (1 - stepX) / 2) / rayDirX for side == 0, or same formula with Y
+		//for size == 1, but can be simplified to the code below thanks to how sideDist and deltaDist are computed:
+		//because they were left scaled to |rayDir|. sideDist is the entire length of the ray above after the multiple
+		//steps, but we subtract deltaDist once because one step more into the wall was taken above.
+		if(side == 0) perpWallDist = (sideDistX - deltaDistX);
+		else          perpWallDist = (sideDistY - deltaDistY);
+
+		//Calculate height of line to draw on screen
+		int lineHeight = (int)(SCREEN_HEIGH/ perpWallDist);
+
+		//calculate lowest and highest pixel to fill in current stripe
+		int drawStart = -lineHeight / 2 + SCREEN_HEIGH / 2;
+		if(drawStart < 0) drawStart = 0;
+		int drawEnd = lineHeight / 2 + SCREEN_HEIGH / 2;
+		if(drawEnd >= SCREEN_HEIGH) drawEnd = SCREEN_HEIGH - 1;
+
+		//choose wall color
+		int color = 0xffffff;
+
+		//give x and y sides different brightness
+		if(side == 1) {color = color / 2;}
+
+		//draw the pixels of the stripe as a vertical line
+		verline(game, x, drawStart, drawEnd, color);
+	}
+}

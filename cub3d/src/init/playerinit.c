@@ -6,30 +6,22 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 03:49:05 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/25 03:53:39 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/27 06:11:11 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	setdelta(t_cub3d *game)
-{
-	game->player->delta.X = cos(game->player->angle) * 5;
-	game->player->delta.Y = sin(game->player->angle) * 5;
-}
 
 int	getplayerdir(t_cub3d *game, char c)
 {
 	if (c == 'N')
 	{
 		game->player->angle = (3 * PI) / 2;
-		setdelta(game);
 		return (1);
 	}
 	else if (c == 'E')
 	{
 		game->player->angle = 0;
-		setdelta(game);
 		return (1);
 	}
 	return (0);
@@ -49,8 +41,12 @@ int	initialize_player(t_cub3d *game)
 		{
 			if (ft_strchr("NSEW", game->map->map[i][j]))
 			{
-				game->player->pos.X = (double)j;
-				game->player->pos.Y = (double)i;
+				game->player->pos.X = (double)j + 0.5;
+				game->player->pos.Y = (double)i + 0.5;
+				game->player->plane.X = 0;
+				game->player->plane.Y = 1;
+				game->player->dir.X = -1;
+				game->player->dir.Y = 0;
 				return (getplayerdir(game, game->map->map[i][j]));
 			}
 		}

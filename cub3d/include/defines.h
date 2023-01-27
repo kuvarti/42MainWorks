@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 21:16:38 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/25 03:06:37 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/26 19:26:51 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # define PI 3.1415926535
 # define VERA (PI / 2)
 
-# define SCREEN_WIDTH 1400
-# define SCREEN_HEIGH 700
+# define SCREEN_WIDTH 1280
+# define SCREEN_HEIGH 720
 
 # define WALKINGSPEED 2
 # define WLK 0.015f

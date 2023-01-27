@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 04:28:44 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/25 21:18:27 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/27 04:33:08 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,9 @@ void	ciz(t_cub3d *game);
 //*	mapcontrol
 int	mapcheck(char **map);
 int	mapgenerate(t_cub3d *game, char *file);
+
+//* Utils
+int	abs(int n);
+double	dabs(double n);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 21:12:56 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/25 21:15:42 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/27 05:23:19 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ typedef struct	s_vectord
 typedef struct	s_chararacter
 {
 	t_vectord	pos;
-	t_vectord	delta;
+	t_vectord	dir;
+	t_vectord	plane;
 	double		angle;
 }	t_character;
 
