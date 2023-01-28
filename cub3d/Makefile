@@ -95,4 +95,9 @@ fclean: clean
 seperate:
 	@echo "---------------------"
 
+#* Leak Check
+ifeq ($(shell uname), Linux)
+	valgrind --leak-check=yes ./cub3d maps/simplesquare.cub > out.log 2>> out.log
+endif
+
 re: fclean seperate all

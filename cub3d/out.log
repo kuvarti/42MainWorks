@@ -1,0 +1,828 @@
+(player.x,player.y) : 1.50 3.50
+(dir.x, dir.y) : 1.00 0.00
+(plane.x, plane.y) 0.00 0.60 
+
+(player.x,player.y) : 1.53 3.50
+(dir.x, dir.y) : 1.00 0.00
+(plane.x, plane.y) 0.00 0.60 
+
+(player.x,player.y) : 1.56 3.50
+(dir.x, dir.y) : 1.00 0.00
+(plane.x, plane.y) 0.00 0.60 
+
+(player.x,player.y) : 1.56 3.50
+(dir.x, dir.y) : 1.00 -0.05
+(plane.x, plane.y) 0.03 0.60 
+
+(player.x,player.y) : 1.56 3.50
+(dir.x, dir.y) : 1.00 -0.10
+(plane.x, plane.y) 0.06 0.60 
+
+(player.x,player.y) : 1.56 3.50
+(dir.x, dir.y) : 0.99 -0.15
+(plane.x, plane.y) 0.09 0.59 
+
+(player.x,player.y) : 1.56 3.50
+(dir.x, dir.y) : 0.98 -0.20
+(plane.x, plane.y) 0.12 0.59 
+
+(player.x,player.y) : 1.56 3.50
+(dir.x, dir.y) : 0.97 -0.25
+(plane.x, plane.y) 0.15 0.58 
+
+(player.x,player.y) : 1.56 3.50
+(dir.x, dir.y) : 0.96 -0.30
+(plane.x, plane.y) 0.18 0.57 
+
+(player.x,player.y) : 1.56 3.50
+(dir.x, dir.y) : 0.94 -0.34
+(plane.x, plane.y) 0.21 0.56 
+
+(player.x,player.y) : 1.56 3.50
+(dir.x, dir.y) : 0.92 -0.39
+(plane.x, plane.y) 0.23 0.55 
+
+(player.x,player.y) : 1.56 3.50
+(dir.x, dir.y) : 0.90 -0.43
+(plane.x, plane.y) 0.26 0.54 
+
+(player.x,player.y) : 1.56 3.50
+(dir.x, dir.y) : 0.88 -0.48
+(plane.x, plane.y) 0.29 0.53 
+
+(player.x,player.y) : 1.59 3.49
+(dir.x, dir.y) : 0.88 -0.48
+(plane.x, plane.y) 0.29 0.53 
+
+(player.x,player.y) : 1.61 3.47
+(dir.x, dir.y) : 0.88 -0.48
+(plane.x, plane.y) 0.29 0.53 
+
+(player.x,player.y) : 1.64 3.46
+(dir.x, dir.y) : 0.88 -0.48
+(plane.x, plane.y) 0.29 0.53 
+
+(player.x,player.y) : 1.67 3.44
+(dir.x, dir.y) : 0.88 -0.48
+(plane.x, plane.y) 0.29 0.53 
+
+(player.x,player.y) : 1.69 3.43
+(dir.x, dir.y) : 0.85 -0.52
+(plane.x, plane.y) 0.31 0.51 
+
+(player.x,player.y) : 1.72 3.41
+(dir.x, dir.y) : 0.85 -0.52
+(plane.x, plane.y) 0.31 0.51 
+
+(player.x,player.y) : 1.74 3.40
+(dir.x, dir.y) : 0.85 -0.52
+(plane.x, plane.y) 0.31 0.51 
+
+(player.x,player.y) : 1.77 3.38
+(dir.x, dir.y) : 0.83 -0.56
+(plane.x, plane.y) 0.34 0.50 
+
+(player.x,player.y) : 1.79 3.36
+(dir.x, dir.y) : 0.83 -0.56
+(plane.x, plane.y) 0.34 0.50 
+
+(player.x,player.y) : 1.82 3.35
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 1.84 3.33
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 1.87 3.31
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 1.89 3.29
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 1.91 3.27
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 1.94 3.26
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 1.96 3.24
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 1.99 3.22
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.01 3.20
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.03 3.18
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.06 3.17
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.08 3.15
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.10 3.13
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.13 3.11
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.15 3.09
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.18 3.07
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.20 3.06
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.22 3.04
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.25 3.02
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.27 3.00
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.30 2.98
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.32 2.97
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.34 2.95
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.36 2.92
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.37 2.88
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.38 2.85
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.40 2.82
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.41 2.79
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.43 2.77
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.46 2.75
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.48 2.73
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.50 2.71
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.53 2.69
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.55 2.68
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.58 2.66
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.60 2.64
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.62 2.62
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.65 2.60
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.67 2.59
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.69 2.57
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.72 2.55
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.74 2.53
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.77 2.51
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.79 2.49
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.81 2.48
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.84 2.46
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.86 2.44
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.89 2.42
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.91 2.40
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.93 2.39
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.96 2.37
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 2.98 2.35
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 3.01 2.33
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 3.03 2.31
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 3.05 2.30
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 3.08 2.28
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 3.10 2.26
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 3.12 2.24
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 3.15 2.22
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 3.17 2.20
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 3.20 2.19
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 3.22 2.17
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 3.24 2.15
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 3.27 2.13
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 3.29 2.11
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 3.32 2.10
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 3.34 2.08
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 3.36 2.06
+(dir.x, dir.y) : 0.80 -0.61
+(plane.x, plane.y) 0.36 0.48 
+
+(player.x,player.y) : 3.39 2.04
+(dir.x, dir.y) : 0.83 -0.56
+(plane.x, plane.y) 0.34 0.50 
+
+(player.x,player.y) : 3.41 2.02
+(dir.x, dir.y) : 0.83 -0.56
+(plane.x, plane.y) 0.34 0.50 
+
+(player.x,player.y) : 3.44 2.01
+(dir.x, dir.y) : 0.83 -0.56
+(plane.x, plane.y) 0.34 0.50 
+
+(player.x,player.y) : 3.46 1.99
+(dir.x, dir.y) : 0.83 -0.56
+(plane.x, plane.y) 0.34 0.50 
+
+(player.x,player.y) : 3.49 1.97
+(dir.x, dir.y) : 0.85 -0.52
+(plane.x, plane.y) 0.31 0.51 
+
+(player.x,player.y) : 3.51 1.96
+(dir.x, dir.y) : 0.85 -0.52
+(plane.x, plane.y) 0.31 0.51 
+
+(player.x,player.y) : 3.54 1.94
+(dir.x, dir.y) : 0.88 -0.48
+(plane.x, plane.y) 0.29 0.53 
+
+(player.x,player.y) : 3.56 1.93
+(dir.x, dir.y) : 0.90 -0.43
+(plane.x, plane.y) 0.26 0.54 
+
+(player.x,player.y) : 3.59 1.91
+(dir.x, dir.y) : 0.90 -0.43
+(plane.x, plane.y) 0.26 0.54 
+
+(player.x,player.y) : 3.62 1.90
+(dir.x, dir.y) : 0.92 -0.39
+(plane.x, plane.y) 0.23 0.55 
+
+(player.x,player.y) : 3.65 1.89
+(dir.x, dir.y) : 0.92 -0.39
+(plane.x, plane.y) 0.23 0.55 
+
+(player.x,player.y) : 3.67 1.88
+(dir.x, dir.y) : 0.92 -0.39
+(plane.x, plane.y) 0.23 0.55 
+
+(player.x,player.y) : 3.70 1.87
+(dir.x, dir.y) : 0.92 -0.39
+(plane.x, plane.y) 0.23 0.55 
+
+(player.x,player.y) : 3.73 1.85
+(dir.x, dir.y) : 0.94 -0.34
+(plane.x, plane.y) 0.21 0.56 
+
+(player.x,player.y) : 3.76 1.84
+(dir.x, dir.y) : 0.94 -0.34
+(plane.x, plane.y) 0.21 0.56 
+
+(player.x,player.y) : 3.78 1.83
+(dir.x, dir.y) : 0.96 -0.30
+(plane.x, plane.y) 0.18 0.57 
+
+(player.x,player.y) : 3.81 1.83
+(dir.x, dir.y) : 0.96 -0.30
+(plane.x, plane.y) 0.18 0.57 
+
+(player.x,player.y) : 3.84 1.82
+(dir.x, dir.y) : 0.96 -0.30
+(plane.x, plane.y) 0.18 0.57 
+
+(player.x,player.y) : 3.87 1.81
+(dir.x, dir.y) : 0.96 -0.30
+(plane.x, plane.y) 0.18 0.57 
+
+(player.x,player.y) : 3.90 1.80
+(dir.x, dir.y) : 0.96 -0.30
+(plane.x, plane.y) 0.18 0.57 
+
+(player.x,player.y) : 3.93 1.79
+(dir.x, dir.y) : 0.97 -0.25
+(plane.x, plane.y) 0.15 0.58 
+
+(player.x,player.y) : 3.96 1.78
+(dir.x, dir.y) : 0.97 -0.25
+(plane.x, plane.y) 0.15 0.58 
+
+(player.x,player.y) : 3.99 1.77
+(dir.x, dir.y) : 0.97 -0.25
+(plane.x, plane.y) 0.15 0.58 
+
+(player.x,player.y) : 4.02 1.77
+(dir.x, dir.y) : 0.97 -0.25
+(plane.x, plane.y) 0.15 0.58 
+
+(player.x,player.y) : 4.04 1.76
+(dir.x, dir.y) : 0.97 -0.25
+(plane.x, plane.y) 0.15 0.58 
+
+(player.x,player.y) : 4.07 1.75
+(dir.x, dir.y) : 0.97 -0.25
+(plane.x, plane.y) 0.15 0.58 
+
+(player.x,player.y) : 4.10 1.75
+(dir.x, dir.y) : 0.97 -0.25
+(plane.x, plane.y) 0.15 0.58 
+
+(player.x,player.y) : 4.13 1.74
+(dir.x, dir.y) : 0.97 -0.25
+(plane.x, plane.y) 0.15 0.58 
+
+(player.x,player.y) : 4.16 1.73
+(dir.x, dir.y) : 0.97 -0.25
+(plane.x, plane.y) 0.15 0.58 
+
+(player.x,player.y) : 4.19 1.72
+(dir.x, dir.y) : 0.97 -0.25
+(plane.x, plane.y) 0.15 0.58 
+
+(player.x,player.y) : 4.22 1.72
+(dir.x, dir.y) : 0.97 -0.25
+(plane.x, plane.y) 0.15 0.58 
+
+(player.x,player.y) : 4.25 1.71
+(dir.x, dir.y) : 0.97 -0.25
+(plane.x, plane.y) 0.15 0.58 
+
+(player.x,player.y) : 4.28 1.70
+(dir.x, dir.y) : 0.97 -0.25
+(plane.x, plane.y) 0.15 0.58 
+
+(player.x,player.y) : 4.31 1.69
+(dir.x, dir.y) : 0.97 -0.25
+(plane.x, plane.y) 0.15 0.58 
+
+(player.x,player.y) : 4.34 1.69
+(dir.x, dir.y) : 0.97 -0.25
+(plane.x, plane.y) 0.15 0.58 
+
+(player.x,player.y) : 4.36 1.68
+(dir.x, dir.y) : 0.98 -0.20
+(plane.x, plane.y) 0.12 0.59 
+
+(player.x,player.y) : 4.39 1.67
+(dir.x, dir.y) : 0.98 -0.20
+(plane.x, plane.y) 0.12 0.59 
+
+(player.x,player.y) : 4.42 1.67
+(dir.x, dir.y) : 0.98 -0.20
+(plane.x, plane.y) 0.12 0.59 
+
+(player.x,player.y) : 4.45 1.66
+(dir.x, dir.y) : 0.98 -0.20
+(plane.x, plane.y) 0.12 0.59 
+
+(player.x,player.y) : 4.48 1.65
+(dir.x, dir.y) : 0.99 -0.15
+(plane.x, plane.y) 0.09 0.59 
+
+(player.x,player.y) : 4.51 1.65
+(dir.x, dir.y) : 0.99 -0.15
+(plane.x, plane.y) 0.09 0.59 
+
+(player.x,player.y) : 4.54 1.65
+(dir.x, dir.y) : 0.99 -0.15
+(plane.x, plane.y) 0.09 0.59 
+
+(player.x,player.y) : 4.57 1.64
+(dir.x, dir.y) : 0.99 -0.15
+(plane.x, plane.y) 0.09 0.59 
+
+(player.x,player.y) : 4.60 1.64
+(dir.x, dir.y) : 0.99 -0.15
+(plane.x, plane.y) 0.09 0.59 
+
+(player.x,player.y) : 4.63 1.63
+(dir.x, dir.y) : 0.99 -0.15
+(plane.x, plane.y) 0.09 0.59 
+
+(player.x,player.y) : 4.66 1.63
+(dir.x, dir.y) : 0.99 -0.15
+(plane.x, plane.y) 0.09 0.59 
+
+(player.x,player.y) : 4.69 1.62
+(dir.x, dir.y) : 1.00 -0.10
+(plane.x, plane.y) 0.06 0.60 
+
+(player.x,player.y) : 4.72 1.62
+(dir.x, dir.y) : 1.00 -0.10
+(plane.x, plane.y) 0.06 0.60 
+
+(player.x,player.y) : 4.75 1.62
+(dir.x, dir.y) : 1.00 -0.10
+(plane.x, plane.y) 0.06 0.60 
+
+(player.x,player.y) : 4.78 1.61
+(dir.x, dir.y) : 1.00 -0.10
+(plane.x, plane.y) 0.06 0.60 
+
+(player.x,player.y) : 4.81 1.61
+(dir.x, dir.y) : 1.00 -0.05
+(plane.x, plane.y) 0.03 0.60 
+
+(player.x,player.y) : 4.84 1.61
+(dir.x, dir.y) : 1.00 -0.05
+(plane.x, plane.y) 0.03 0.60 
+
+(player.x,player.y) : 4.87 1.61
+(dir.x, dir.y) : 1.00 0.00
+(plane.x, plane.y) 0.00 0.60 
+
+(player.x,player.y) : 4.90 1.61
+(dir.x, dir.y) : 1.00 0.05
+(plane.x, plane.y) -0.03 0.60 
+
+(player.x,player.y) : 4.93 1.61
+(dir.x, dir.y) : 1.00 0.10
+(plane.x, plane.y) -0.06 0.60 
+
+(player.x,player.y) : 4.96 1.61
+(dir.x, dir.y) : 0.99 0.15
+(plane.x, plane.y) -0.09 0.59 
+
+(player.x,player.y) : 4.99 1.62
+(dir.x, dir.y) : 0.98 0.20
+(plane.x, plane.y) -0.12 0.59 
+
+(player.x,player.y) : 5.02 1.62
+(dir.x, dir.y) : 0.97 0.25
+(plane.x, plane.y) -0.15 0.58 
+
+(player.x,player.y) : 5.05 1.63
+(dir.x, dir.y) : 0.96 0.30
+(plane.x, plane.y) -0.18 0.57 
+
+(player.x,player.y) : 5.08 1.62
+(dir.x, dir.y) : 0.94 0.34
+(plane.x, plane.y) -0.21 0.56 
+
+(player.x,player.y) : 5.12 1.62
+(dir.x, dir.y) : 0.92 0.39
+(plane.x, plane.y) -0.23 0.55 
+
+(player.x,player.y) : 5.15 1.61
+(dir.x, dir.y) : 0.90 0.43
+(plane.x, plane.y) -0.26 0.54 
+
+(player.x,player.y) : 5.16 1.59
+(dir.x, dir.y) : 0.88 0.48
+(plane.x, plane.y) -0.29 0.53 
+
+(player.x,player.y) : 5.17 1.58
+(dir.x, dir.y) : 0.85 0.52
+(plane.x, plane.y) -0.31 0.51 
+
+(player.x,player.y) : 5.18 1.56
+(dir.x, dir.y) : 0.83 0.56
+(plane.x, plane.y) -0.34 0.50 
+
+(player.x,player.y) : 5.19 1.55
+(dir.x, dir.y) : 0.80 0.61
+(plane.x, plane.y) -0.36 0.48 
+
+(player.x,player.y) : 5.20 1.53
+(dir.x, dir.y) : 0.76 0.64
+(plane.x, plane.y) -0.39 0.46 
+
+(player.x,player.y) : 5.21 1.52
+(dir.x, dir.y) : 0.73 0.68
+(plane.x, plane.y) -0.41 0.44 
+
+(player.x,player.y) : 5.22 1.51
+(dir.x, dir.y) : 0.70 0.72
+(plane.x, plane.y) -0.43 0.42 
+
+(player.x,player.y) : 5.23 1.49
+(dir.x, dir.y) : 0.66 0.75
+(plane.x, plane.y) -0.45 0.40 
+
+(player.x,player.y) : 5.25 1.48
+(dir.x, dir.y) : 0.62 0.78
+(plane.x, plane.y) -0.47 0.37 
+
+(player.x,player.y) : 5.26 1.47
+(dir.x, dir.y) : 0.58 0.81
+(plane.x, plane.y) -0.49 0.35 
+
+(player.x,player.y) : 5.28 1.46
+(dir.x, dir.y) : 0.54 0.84
+(plane.x, plane.y) -0.50 0.32 
+
+(player.x,player.y) : 5.29 1.45
+(dir.x, dir.y) : 0.50 0.87
+(plane.x, plane.y) -0.52 0.30 
+
+(player.x,player.y) : 5.31 1.44
+(dir.x, dir.y) : 0.45 0.89
+(plane.x, plane.y) -0.53 0.27 
+
+(player.x,player.y) : 5.32 1.43
+(dir.x, dir.y) : 0.41 0.91
+(plane.x, plane.y) -0.55 0.25 
+
+(player.x,player.y) : 5.34 1.43
+(dir.x, dir.y) : 0.36 0.93
+(plane.x, plane.y) -0.56 0.22 
+
+(player.x,player.y) : 5.36 1.42
+(dir.x, dir.y) : 0.32 0.95
+(plane.x, plane.y) -0.57 0.19 
+
+(player.x,player.y) : 5.37 1.41
+(dir.x, dir.y) : 0.27 0.96
+(plane.x, plane.y) -0.58 0.16 
+
+(player.x,player.y) : 5.39 1.41
+(dir.x, dir.y) : 0.22 0.98
+(plane.x, plane.y) -0.59 0.13 
+
+(player.x,player.y) : 5.41 1.41
+(dir.x, dir.y) : 0.17 0.99
+(plane.x, plane.y) -0.59 0.10 
+
+(player.x,player.y) : 5.43 1.40
+(dir.x, dir.y) : 0.12 0.99
+(plane.x, plane.y) -0.60 0.07 
+
+(player.x,player.y) : 5.44 1.40
+(dir.x, dir.y) : 0.07 1.00
+(plane.x, plane.y) -0.60 0.04 
+
+(player.x,player.y) : 5.46 1.40
+(dir.x, dir.y) : 0.02 1.00
+(plane.x, plane.y) -0.60 0.01 
+
+(player.x,player.y) : 5.48 1.40
+(dir.x, dir.y) : -0.03 1.00
+(plane.x, plane.y) -0.60 -0.02 
+
+(player.x,player.y) : 5.50 1.40
+(dir.x, dir.y) : -0.08 1.00
+(plane.x, plane.y) -0.60 -0.05 
+
+(player.x,player.y) : 5.52 1.40
+(dir.x, dir.y) : -0.13 0.99
+(plane.x, plane.y) -0.59 -0.08 
+
+(player.x,player.y) : 5.53 1.40
+(dir.x, dir.y) : -0.18 0.98
+(plane.x, plane.y) -0.59 -0.11 
+
+(player.x,player.y) : 5.55 1.41
+(dir.x, dir.y) : -0.23 0.97
+(plane.x, plane.y) -0.58 -0.14 
+
+(player.x,player.y) : 5.57 1.41
+(dir.x, dir.y) : -0.28 0.96
+(plane.x, plane.y) -0.58 -0.17 
+
+(player.x,player.y) : 5.59 1.42
+(dir.x, dir.y) : -0.32 0.95
+(plane.x, plane.y) -0.57 -0.19 
+
+(player.x,player.y) : 5.60 1.42
+(dir.x, dir.y) : -0.37 0.93
+(plane.x, plane.y) -0.56 -0.22 
+
+(player.x,player.y) : 5.62 1.43
+(dir.x, dir.y) : -0.42 0.91
+(plane.x, plane.y) -0.55 -0.25 
+
+(player.x,player.y) : 5.64 1.44
+(dir.x, dir.y) : -0.46 0.89
+(plane.x, plane.y) -0.53 -0.28 
+
+(player.x,player.y) : 5.65 1.44
+(dir.x, dir.y) : -0.50 0.86
+(plane.x, plane.y) -0.52 -0.30 
+
+(player.x,player.y) : 5.67 1.45
+(dir.x, dir.y) : -0.55 0.84
+(plane.x, plane.y) -0.50 -0.33 
+
+(player.x,player.y) : 5.68 1.46
+(dir.x, dir.y) : -0.59 0.81
+(plane.x, plane.y) -0.49 -0.35 
+
+(player.x,player.y) : 5.70 1.47
+(dir.x, dir.y) : -0.63 0.78
+(plane.x, plane.y) -0.47 -0.38 
+
+(player.x,player.y) : 5.71 1.48
+(dir.x, dir.y) : -0.67 0.75
+(plane.x, plane.y) -0.45 -0.40 
+
+(player.x,player.y) : 5.72 1.50
+(dir.x, dir.y) : -0.70 0.71
+(plane.x, plane.y) -0.43 -0.42 
+
+(player.x,player.y) : 5.74 1.51
+(dir.x, dir.y) : -0.74 0.68
+(plane.x, plane.y) -0.41 -0.44 
+
+(player.x,player.y) : 5.75 1.52
+(dir.x, dir.y) : -0.77 0.64
+(plane.x, plane.y) -0.38 -0.46 
+
+(player.x,player.y) : 5.76 1.54
+(dir.x, dir.y) : -0.80 0.60
+(plane.x, plane.y) -0.36 -0.48 
+
+(player.x,player.y) : 5.77 1.55
+(dir.x, dir.y) : -0.80 0.60
+(plane.x, plane.y) -0.36 -0.48 
+
+(player.x,player.y) : 5.78 1.57
+(dir.x, dir.y) : -0.80 0.60
+(plane.x, plane.y) -0.36 -0.48 
+
+(player.x,player.y) : 5.79 1.58
+(dir.x, dir.y) : -0.80 0.60
+(plane.x, plane.y) -0.36 -0.48 
+
+(player.x,player.y) : 5.80 1.59
+(dir.x, dir.y) : -0.80 0.60
+(plane.x, plane.y) -0.36 -0.48 
+
+(player.x,player.y) : 5.81 1.61
+(dir.x, dir.y) : -0.80 0.60
+(plane.x, plane.y) -0.36 -0.48 
+
+(player.x,player.y) : 5.83 1.62
+(dir.x, dir.y) : -0.80 0.60
+(plane.x, plane.y) -0.36 -0.48 
+
+(player.x,player.y) : 5.86 1.62
+(dir.x, dir.y) : -0.80 0.60
+(plane.x, plane.y) -0.36 -0.48 
+
+(player.x,player.y) : 5.89 1.62
+(dir.x, dir.y) : -0.80 0.60
+(plane.x, plane.y) -0.36 -0.48 
+
+(player.x,player.y) : 5.92 1.60
+(dir.x, dir.y) : -0.80 0.60
+(plane.x, plane.y) -0.36 -0.48 
+
+(player.x,player.y) : 5.94 1.58
+(dir.x, dir.y) : -0.80 0.60
+(plane.x, plane.y) -0.36 -0.48 
+
+==21603== 
+==21603== HEAP SUMMARY:
+==21603==     in use at exit: 76,205 bytes in 121 blocks
+==21603==   total heap usage: 226,280 allocs, 226,159 frees, 5,531,761 bytes allocated
+==21603== 
+==21603== LEAK SUMMARY:
+==21603==    definitely lost: 0 bytes in 0 blocks
+==21603==    indirectly lost: 0 bytes in 0 blocks
+==21603==      possibly lost: 0 bytes in 0 blocks
+==21603==    still reachable: 76,205 bytes in 121 blocks
+==21603==         suppressed: 0 bytes in 0 blocks
+==21603== Reachable blocks (those to which a pointer was found) are not shown.
+==21603== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==21603== 
+==21603== For lists of detected and suppressed errors, rerun with: -s
+==21603== ERROR SUMMARY: 330848 errors from 15 contexts (suppressed: 3 from 1)

@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 18:37:41 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/27 06:15:28 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/28 20:05:05 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,33 +85,6 @@ void	drawsquare(t_cub3d *game, double x, double y, int color)
 		_x++;
 	}
 }
-
-void drawplayer(t_cub3d *game)
-{
-	drawsquare(game, game->player->pos.X, game->player->pos.Y, 0x440088);
-//	my_mlx_pixel_put(game->img,
-//		(game->player->pos.X * 100) + 50 + game->player->delta.X * 7,
-//		(game->player->pos.Y * 100) + 50 + game->player->delta.Y * 7,
-//		0xFFFFFF);
-}
-
-//void	extramap(t_cub3d *game)
-//{
-//	int i = -1;
-//	int j;
-//	while (game->map->map[++i])
-//	{
-//		j = -1;
-//		while (game->map->map[i][++j])
-//		{
-//			if (game->map->map[i][j] == '1')
-//				drawsquare(game, j, i, 0xFFFFFF);
-//			else
-//				drawsquare(game, j, i, 0x000000);
-//		}
-//	}
-//	drawplayer(game);
-//}
 
 void	ciz(t_cub3d *game)
 {
@@ -196,7 +169,7 @@ void	raycast(t_cub3d *game)
 			stepX = 1;
 			sideDistX = (mapX + 1.0 - posX) * deltaDistX;
 		}
-			if(rayDirY < 0)
+		if(rayDirY < 0)
 		{
 			stepY = -1;
 			sideDistY = (posY - mapY) * deltaDistY;
@@ -223,9 +196,9 @@ void	raycast(t_cub3d *game)
 				side = 1;
 			}
 			//Check if ray has hit a wall
-			if(!game->map->map[mapX])
+			if(!game->map->map[mapY])
 				break ;
-			else if (game->map->map[mapX][mapY] == '1')
+			else if (game->map->map[mapY][mapX] == '1')
 				hit = 1;
 		}
 		//Calculate distance projected on camera direction. This is the shortest distance from the point where the wall is

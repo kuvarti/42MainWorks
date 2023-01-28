@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 03:17:25 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/27 05:35:36 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/28 20:10:56 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,55 +19,69 @@ static void	turn(t_cub3d *game)
 
 	oldDirX = game->player->dir.X;
 	oldPlaneX = game->player->plane.X;
-	if (game->onkey.keyright)
+	if (game->onkey.keyleft)
 	{
-		game->player->angle -= TURNSPEED;
-		if (game->player->angle < 0)
-			game->player->angle += 2 * PI;
-		game->player->dir.X = game->player->dir.X * cos(-TURNSPEED) - game->player->dir.Y * sin(-TURNSPEED);
-		game->player->dir.Y = oldDirX * sin(-TURNSPEED) + game->player->dir.Y * cos(-TURNSPEED);
-		game->player->plane.X = game->player->plane.X * cos(-TURNSPEED) - game->player->plane.Y * sin(-TURNSPEED);
-		game->player->plane.Y = oldPlaneX * sin(-TURNSPEED) + game->player->plane.Y * cos(-TURNSPEED);
+		game->player->dir.X = game->player->dir.X * cos(-TURNSPEED)
+				- game->player->dir.Y * sin(-TURNSPEED);
+		game->player->dir.Y = oldDirX * sin(-TURNSPEED)
+				+ game->player->dir.Y * cos(-TURNSPEED);
+		game->player->plane.X = game->player->plane.X * cos(-TURNSPEED)
+				- game->player->plane.Y * sin(-TURNSPEED);
+		game->player->plane.Y = oldPlaneX * sin(-TURNSPEED)
+				+ game->player->plane.Y * cos(-TURNSPEED);
+		return ;
 	}
-	else if (game->onkey.keyleft)
-	{
-		game->player->angle += TURNSPEED;
-		if (game->player->angle > 2 * PI)
-			game->player->angle -= 2 * PI;
-		game->player->dir.X = game->player->dir.X * cos(TURNSPEED) - game->player->dir.Y * sin(TURNSPEED);
-		game->player->dir.Y = oldDirX * sin(TURNSPEED) + game->player->dir.Y * cos(TURNSPEED);
-		game->player->plane.X = game->player->plane.X * cos(TURNSPEED) - game->player->plane.Y * sin(TURNSPEED);
-		game->player->plane.Y = oldPlaneX * sin(TURNSPEED) + game->player->plane.Y * cos(TURNSPEED);
-	}
+	game->player->dir.X = game->player->dir.X * cos(TURNSPEED)
+			- game->player->dir.Y * sin(TURNSPEED);
+	game->player->dir.Y = oldDirX * sin(TURNSPEED)
+			+ game->player->dir.Y * cos(TURNSPEED);
+	game->player->plane.X = game->player->plane.X * cos(TURNSPEED)
+			- game->player->plane.Y * sin(TURNSPEED);
+	game->player->plane.Y = oldPlaneX * sin(TURNSPEED)
+			+ game->player->plane.Y * cos(TURNSPEED);
 }
 
-float	getmvspeed()
+void	setpos(t_cub3d *game, double newposx, double newposy, char mod)
 {
-	return (WALKINGSPEED * WLK);
+	double	*posX;
+	double	*posY;
+
+	posX = &(game->player->pos.X);
+	posY = &(game->player->pos.Y);
+	if (mod == '-')
+	{
+		if (!(game->map->map[(int)(*posY - (newposy * WALKINGSPEED * WLK))]))
+			return ;
+		if (game->map->map[(int)(*posY - (newposy * WALKINGSPEED * WLK))]\
+				[(int)(*posX- (newposx * WALKINGSPEED * WLK))] == '1')
+			return ;
+		game->player->pos.X -= newposx * (WALKINGSPEED * WLK);
+		game->player->pos.Y -= newposy * (WALKINGSPEED * WLK);
+	}
+	else if (mod == '+')
+	{
+		if (!(game->map->map[(int)(*posY + (newposy * WALKINGSPEED * WLK))]))
+			return ;
+		if (game->map->map[(int)(*posY + (newposy * WALKINGSPEED * WLK))] \
+				[(int)(*posX + (newposx * WALKINGSPEED * WLK))] == '1')
+			return ;
+		game->player->pos.X += newposx * (WALKINGSPEED * WLK);
+		game->player->pos.Y += newposy * (WALKINGSPEED * WLK);
+	}
 }
+//	(int)(*posX + (newposx * WALKINGSPEED * WLK))
+//	(int)(*posY + (newposy * WALKINGSPEED * WLK))
 
 int	move(t_cub3d *game)
 {
 	if (game->onkey.keyw)
-	{
-		game->player->pos.X += game->player->dir.X * getmvspeed();
-		game->player->pos.Y += game->player->dir.Y * getmvspeed();
-	}
+		setpos(game, game->player->dir.X, game->player->dir.Y, '+');
 	if (game->onkey.keys)
-	{
-		game->player->pos.X -= game->player->dir.X * getmvspeed();
-		game->player->pos.Y -= game->player->dir.Y * getmvspeed();
-	}
-	//if (game->onkey.keya)
-	//{
-	//	game->player->pos.X -= game->player->dir.X * getmvspeed();
-	//	game->player->pos.Y -= sin(game->player->angle + VERA) * getmvspeed();
-	//}
-	//if (game->onkey.keyd)
-	//{
-	//	game->player->pos.X += cos(game->player->angle + VERA) * getmvspeed();
-	//	game->player->pos.Y += sin(game->player->angle + VERA) * getmvspeed();
-	//}
+		setpos(game, game->player->dir.X, game->player->dir.Y, '-');
+	if (game->onkey.keyd)
+		setpos(game, game->player->plane.X, game->player->plane.Y, '+');
+	if (game->onkey.keya)
+		setpos(game, game->player->plane.X, game->player->plane.Y, '-');
 	if (game->onkey.keyleft || game->onkey.keyright)
 		turn(game);
 	return (retmove(game));

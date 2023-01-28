@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 21:16:38 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/26 19:26:51 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/28 20:22:49 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 # define SCREEN_WIDTH 1280
 # define SCREEN_HEIGH 720
+# define FOV 0.6
 
 # define WALKINGSPEED 2
 # define WLK 0.015f
