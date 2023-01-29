@@ -1,7 +1,10 @@
-NO ./path_to_the_north_texture
-SO ./path_to_the_south_texture
-WE ./path_to_the_west_texture
-EA ./path_to_the_east_texture
+NO ./sprites/stone.xpm
+
+
+SO ./sprites/cobbelstone.xpm
+WE ./sprites/obsidian.xpm
+
+EA ./sprites/bookshelf.xpm
 
 F 220,100,0
 C 225,30,0
@@ -9,7 +12,7 @@ C 225,30,0
 11111111111111
 10000000001001
 10001000001001
-1E000000001001
+1S000000001001
 10000000000001
 10000000000001
 11111111111111

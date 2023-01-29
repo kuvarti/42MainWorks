@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 18:37:41 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/28 20:05:05 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/29 00:36:36 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,10 @@ void	ciz(t_cub3d *game)
 {
 	mlx_clear_window(game->mlx, game->win);
 	raycast(game);
-	printf("(player.x,player.y) : %0.2f %0.2f\n(dir.x, dir.y) : %0.2f %0.2f\n(plane.x, plane.y) %0.2f %0.2f \n\n",
-			game->player->pos.X, game->player->pos.Y,
-			game->player->dir.X, game->player->dir.Y,
-			game->player->plane.X, game->player->plane.Y);
+//	printf("(player.x,player.y) : %0.2f %0.2f\n(dir.x, dir.y) : %0.2f %0.2f\n(plane.x, plane.y) %0.2f %0.2f \n\n",
+//			game->player->pos.X, game->player->pos.Y,
+//			game->player->dir.X, game->player->dir.Y,
+//			game->player->plane.X, game->player->plane.Y);
 	mlx_put_image_to_window(game->mlx, game->win, game->img->img, 0, 0);
 }
 
@@ -222,8 +222,23 @@ void	raycast(t_cub3d *game)
 		//choose wall color
 		int color = 0xffffff;
 
+		// side 1 ise N S
+		// side 0 ise W E
 		//give x and y sides different brightness
-		if(side == 1) {color = color / 2;}
+		if (side == 0)
+		{
+			if (mapX < game->player->pos.X)
+				color = 0xff0000;
+			else
+				color = 0x00ff00;
+		}
+		else
+		{
+			if (mapY < game->player->pos.Y)
+				color = 0x0000ff;
+			else
+				color = 0x0ffff0;
+		}
 
 		//draw the pixels of the stripe as a vertical line
 		verline(game, x, drawStart, drawEnd, color);

@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 21:12:56 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/27 05:23:19 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/29 01:12:01 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 # define STRUCTURES_H
 
 #include <stdlib.h>
+
+typedef struct s_textures
+{
+	int		top;
+	int		bot;
+	void	*xpm[4];
+}	t_textures;
 
 typedef struct s_onkeys
 {
@@ -64,6 +71,7 @@ typedef struct	s_cub3d
 	t_map		*map;
 	t_data		*img;
 	t_onkeys	onkey;
+	t_textures	texture;
 	t_character	*player;
 }	t_cub3d;
 

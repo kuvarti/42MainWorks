@@ -96,6 +96,7 @@ seperate:
 	@echo "---------------------"
 
 #* Leak Check
+leaks:
 ifeq ($(shell uname), Linux)
 	valgrind --leak-check=yes ./cub3d maps/simplesquare.cub > out.log 2>> out.log
 endif

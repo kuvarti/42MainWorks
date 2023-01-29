@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 04:28:44 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/27 04:33:08 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/29 01:25:12 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 int	initialize(t_cub3d *init, char **argv);
 int	initialize_player(t_cub3d *game);
 int	initialize_image(t_cub3d *game);
+int	importxpm(t_cub3d *game, char *line);
 
 void	ciz(t_cub3d *game);
 
