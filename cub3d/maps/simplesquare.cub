@@ -1,9 +1,6 @@
 NO ./sprites/stone.xpm
-
-
 SO ./sprites/cobbelstone.xpm
 WE ./sprites/obsidian.xpm
-
 EA ./sprites/bookshelf.xpm
 
 F 220,100,0
