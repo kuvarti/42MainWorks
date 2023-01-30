@@ -6,7 +6,7 @@
 
 NAME = cub3d
 
-CC = gcc -g -D LINUX
+CC = gcc -g
 CFLAGS = -Wall -Wextra #-Werror
 INCLUDE = -Iinclude/ -Isrc/libft/
 
@@ -78,6 +78,7 @@ endif
 clean:
 	@echo "Cleaning..."
 	@if [ -d $(OUTPREFIX) ]; then rm -rf $(OUTPREFIX); fi
+	@if [ ! -d $(LEAKFILE) ]; then rm -rf $(LEAKFILE); fi
 	@make -C src/libft fclean 2> /dev/null > /dev/null
 ifeq ($(shell uname), Linux)
 	@make -C minilibx-linux clean 2> /dev/null > /dev/null
@@ -96,9 +97,11 @@ seperate:
 	@echo "---------------------"
 
 #* Leak Check
+LEAKFILE = leaks.log
+
 leaks:
 ifeq ($(shell uname), Linux)
-	valgrind --leak-check=yes ./cub3d maps/simplesquare.cub > out.log 2>> out.log
+	valgrind --leak-check=yes ./cub3d maps/simplesquare.cub > $(LEAKFILE) 2>> $(LEAKFILE)
 endif
 
 re: fclean seperate all

@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 03:17:25 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/28 20:10:56 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/30 21:01:29 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,59 +14,59 @@
 
 static void	turn(t_cub3d *game)
 {
-	double oldDirX;
-	double oldPlaneX;
+	double	olddirx;
+	double	oldplanex;
 
-	oldDirX = game->player->dir.X;
-	oldPlaneX = game->player->plane.X;
+	olddirx = game->player->dir.x;
+	oldplanex = game->player->plane.x;
 	if (game->onkey.keyleft)
 	{
-		game->player->dir.X = game->player->dir.X * cos(-TURNSPEED)
-				- game->player->dir.Y * sin(-TURNSPEED);
-		game->player->dir.Y = oldDirX * sin(-TURNSPEED)
-				+ game->player->dir.Y * cos(-TURNSPEED);
-		game->player->plane.X = game->player->plane.X * cos(-TURNSPEED)
-				- game->player->plane.Y * sin(-TURNSPEED);
-		game->player->plane.Y = oldPlaneX * sin(-TURNSPEED)
-				+ game->player->plane.Y * cos(-TURNSPEED);
+		game->player->dir.x = game->player->dir.x * cos(-TURNSPEED)
+			- game->player->dir.y * sin(-TURNSPEED);
+		game->player->dir.y = olddirx * sin(-TURNSPEED)
+			+ game->player->dir.y * cos(-TURNSPEED);
+		game->player->plane.x = game->player->plane.x * cos(-TURNSPEED)
+			- game->player->plane.y * sin(-TURNSPEED);
+		game->player->plane.y = oldplanex * sin(-TURNSPEED)
+			+ game->player->plane.y * cos(-TURNSPEED);
 		return ;
 	}
-	game->player->dir.X = game->player->dir.X * cos(TURNSPEED)
-			- game->player->dir.Y * sin(TURNSPEED);
-	game->player->dir.Y = oldDirX * sin(TURNSPEED)
-			+ game->player->dir.Y * cos(TURNSPEED);
-	game->player->plane.X = game->player->plane.X * cos(TURNSPEED)
-			- game->player->plane.Y * sin(TURNSPEED);
-	game->player->plane.Y = oldPlaneX * sin(TURNSPEED)
-			+ game->player->plane.Y * cos(TURNSPEED);
+	game->player->dir.x = game->player->dir.x * cos(TURNSPEED)
+		- game->player->dir.y * sin(TURNSPEED);
+	game->player->dir.y = olddirx * sin(TURNSPEED)
+		+ game->player->dir.y * cos(TURNSPEED);
+	game->player->plane.x = game->player->plane.x * cos(TURNSPEED)
+		- game->player->plane.y * sin(TURNSPEED);
+	game->player->plane.y = oldplanex * sin(TURNSPEED)
+		+ game->player->plane.y * cos(TURNSPEED);
 }
 
 void	setpos(t_cub3d *game, double newposx, double newposy, char mod)
 {
-	double	*posX;
-	double	*posY;
+	double	*posx;
+	double	*posy;
 
-	posX = &(game->player->pos.X);
-	posY = &(game->player->pos.Y);
+	posx = &(game->player->pos.x);
+	posy = &(game->player->pos.y);
 	if (mod == '-')
 	{
-		if (!(game->map->map[(int)(*posY - (newposy * WALKINGSPEED * WLK))]))
+		if (!(game->map->map[(int)(*posy - (newposy * WALKINGSPEED * WLK))]))
 			return ;
-		if (game->map->map[(int)(*posY - (newposy * WALKINGSPEED * WLK))]\
-				[(int)(*posX- (newposx * WALKINGSPEED * WLK))] == '1')
+		if (game->map->map[(int)(*posy - (newposy * WALKINGSPEED * WLK))] \
+				[(int)(*posx - (newposx * WALKINGSPEED * WLK))] == '1')
 			return ;
-		game->player->pos.X -= newposx * (WALKINGSPEED * WLK);
-		game->player->pos.Y -= newposy * (WALKINGSPEED * WLK);
+		game->player->pos.x -= newposx * (WALKINGSPEED * WLK);
+		game->player->pos.y -= newposy * (WALKINGSPEED * WLK);
 	}
 	else if (mod == '+')
 	{
-		if (!(game->map->map[(int)(*posY + (newposy * WALKINGSPEED * WLK))]))
+		if (!(game->map->map[(int)(*posy + (newposy * WALKINGSPEED * WLK))]))
 			return ;
-		if (game->map->map[(int)(*posY + (newposy * WALKINGSPEED * WLK))] \
-				[(int)(*posX + (newposx * WALKINGSPEED * WLK))] == '1')
+		if (game->map->map[(int)(*posy + (newposy * WALKINGSPEED * WLK))] \
+				[(int)(*posx + (newposx * WALKINGSPEED * WLK))] == '1')
 			return ;
-		game->player->pos.X += newposx * (WALKINGSPEED * WLK);
-		game->player->pos.Y += newposy * (WALKINGSPEED * WLK);
+		game->player->pos.x += newposx * (WALKINGSPEED * WLK);
+		game->player->pos.y += newposy * (WALKINGSPEED * WLK);
 	}
 }
 //	(int)(*posX + (newposx * WALKINGSPEED * WLK))
@@ -75,13 +75,13 @@ void	setpos(t_cub3d *game, double newposx, double newposy, char mod)
 int	move(t_cub3d *game)
 {
 	if (game->onkey.keyw)
-		setpos(game, game->player->dir.X, game->player->dir.Y, '+');
+		setpos(game, game->player->dir.x, game->player->dir.y, '+');
 	if (game->onkey.keys)
-		setpos(game, game->player->dir.X, game->player->dir.Y, '-');
+		setpos(game, game->player->dir.x, game->player->dir.y, '-');
 	if (game->onkey.keyd)
-		setpos(game, game->player->plane.X, game->player->plane.Y, '+');
+		setpos(game, game->player->plane.x, game->player->plane.y, '+');
 	if (game->onkey.keya)
-		setpos(game, game->player->plane.X, game->player->plane.Y, '-');
+		setpos(game, game->player->plane.x, game->player->plane.y, '-');
 	if (game->onkey.keyleft || game->onkey.keyright)
 		turn(game);
 	return (retmove(game));
@@ -89,8 +89,8 @@ int	move(t_cub3d *game)
 
 int	retmove(t_cub3d *game)
 {
-	if (game->onkey.keyw || game->onkey.keys || game->onkey.keya ||
-			game->onkey.keyd || game->onkey.keyleft || game->onkey.keyright)
+	if (game->onkey.keyw || game->onkey.keys || game->onkey.keya
+		|| game->onkey.keyd || game->onkey.keyleft || game->onkey.keyright)
 		return (1);
 	else
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 18:37:41 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/29 00:36:36 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/30 21:08:28 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 void	drawline(t_cub3d *game, t_vectord start, t_vectord end, int color)
 {
-    int dx = end.X - (start.X * 100 + 50);
-    int dy = end.Y - (start.Y * 100 + 50);
+    int dx = end.x - (start.x * 100 + 50);
+    int dy = end.y - (start.y * 100 + 50);
     int steps = abs(dx) > abs(dy) ? abs(dx) : abs(dy);
     float Xinc = dx / (float) steps;
     float Yinc = dy / (float) steps;
-    float X = start.X * 100 + 50;
-    float Y = start.Y * 100 + 50;
+    float X = start.x * 100 + 50;
+    float Y = start.y * 100 + 50;
     for (int i = 0; i <= steps; i++)
     {
 		my_mlx_pixel_put(game->img, X, Y, color);
@@ -69,21 +69,6 @@ void	drawsquare(t_cub3d *game, double x, double y, int color)
 		}
 		return ;
 	}
-	_x = x * 100;
-	_x -=50;
-	i = _x + 99;
-	while (_x < i)
-	{
-		_y = y * 100;
-		_y -=50;
-		j = _y + 99;
-		while (_y < j)
-		{
-			my_mlx_pixel_put(game->img, _x + 50, _y + 50, color);
-			_y++;
-		}
-		_x++;
-	}
 }
 
 void	ciz(t_cub3d *game)
@@ -91,36 +76,42 @@ void	ciz(t_cub3d *game)
 	mlx_clear_window(game->mlx, game->win);
 	raycast(game);
 //	printf("(player.x,player.y) : %0.2f %0.2f\n(dir.x, dir.y) : %0.2f %0.2f\n(plane.x, plane.y) %0.2f %0.2f \n\n",
-//			game->player->pos.X, game->player->pos.Y,
-//			game->player->dir.X, game->player->dir.Y,
-//			game->player->plane.X, game->player->plane.Y);
+//			game->player->pos.x, game->player->pos.y,
+//			game->player->dir.x, game->player->dir.y,
+//			game->player->plane.x, game->player->plane.y);
 	mlx_put_image_to_window(game->mlx, game->win, game->img->img, 0, 0);
+	mlx_put_image_to_window(game->mlx, game->win, game->texture.xpm[0]->img, 0, 0);
+	mlx_put_image_to_window(game->mlx, game->win, game->texture.xpm[1]->img, 64, 0);
+	mlx_put_image_to_window(game->mlx, game->win, game->texture.xpm[2]->img, 128, 0);
+	mlx_put_image_to_window(game->mlx, game->win, game->texture.xpm[3]->img, 192, 0);
 }
 
-void	verline(t_cub3d *game, int x, int ystart, int yend, int color)
+void	verline(t_cub3d *game, int x, int ystart, int yend, char *color)
 {
 	int	i;
 
 	i = 0;
-	while (i < SCREEN_HEIGH)
+	while (i <= SCREEN_HEIGH)
 	{
 		if (i >= yend)
-			my_mlx_pixel_put(game->img, x, i, i % 2 == 0 ? 0x00ffff	 : 0x0fff00);
-		else if (i > ystart && i < yend)
+			my_mlx_pixel_put(game->img, x, i, game->texture.bot);
+		else if (i >= ystart && i <= yend)
+		{
 			my_mlx_pixel_put(game->img, x, i, color);
+		}
 		else
-			my_mlx_pixel_put(game->img, x, i, 0x000000);
+			my_mlx_pixel_put(game->img, x, i, game->texture.top);
 		i++;
 	}
 }
 
 void	raycast(t_cub3d *game)
 {
-	double	posX = game->player->pos.X, posY = game->player->pos.Y;  //x and y start position
-	double	dirX = game->player->dir.X,
-			dirY = game->player->dir.Y;
-	double	planeX = game->player->plane.X,
-			planeY = game->player->plane.Y; //the 2d raycaster version of camera plane
+	double	posX = game->player->pos.x, posY = game->player->pos.y;  //x and y start position
+	double	dirX = game->player->dir.x,
+			dirY = game->player->dir.y;
+	double	planeX = game->player->plane.x,
+			planeY = game->player->plane.y; //the 2d raycaster version of camera plane
 
 	for(int x = 0; x < SCREEN_WIDTH; x++)
 	{
@@ -222,25 +213,49 @@ void	raycast(t_cub3d *game)
 		//choose wall color
 		int color = 0xffffff;
 
+		int pitch = 100;
+
 		// side 1 ise N S
 		// side 0 ise W E
+		double wallX;
+		int	wall;
 		//give x and y sides different brightness
 		if (side == 0)
 		{
-			if (mapX < game->player->pos.X)
-				color = 0xff0000;
+			wallX = game->player->pos.y + perpWallDist * rayDirY;
+			if (mapX < game->player->pos.x)
+				color = 0xff0000; //E
 			else
-				color = 0x00ff00;
+				color = 0x00ff00; //W
 		}
 		else
 		{
-			if (mapY < game->player->pos.Y)
-				color = 0x0000ff;
+			wallX = game->player->pos.x + perpWallDist * rayDirX;
+			if (mapY < game->player->pos.y)
+				color = 0x0000ff; //S
 			else
-				color = 0x0ffff0;
+				color = 0x0ffff0; //N
 		}
+		//wallX -= floor(wallX);	//todo
+//
+		//int	texX = (int)(wallX * (double)(64));
+		//if (side == 0 && rayDirX > 0)
+		//	texX = 64 - texX - 1;
+		//if (side == 1 && rayDirY < 0)
+		//	texX = 64 - texX - 1;
+		////draw the pixels of the stripe as a vertical line
+//
+		//double step = 1.0 * 64 / lineHeight;
+		//double texPos = (drawStart - pitch - SCREEN_HEIGH / 2 + lineHeight / 2) * step;
+		//for (int y = drawStart; y < drawEnd; y++)
+		//{
+		//	int texY = (int)texPos & (64 - 1);
+		//	texPos += step;
+		//	color = (game->texture.xpm[wall][1]);
+		//	my_mlx_pixel_put(game->img, x, y, color);
+		//}
 
-		//draw the pixels of the stripe as a vertical line
+
 		verline(game, x, drawStart, drawEnd, color);
 	}
 }

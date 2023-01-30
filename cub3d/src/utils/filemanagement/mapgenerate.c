@@ -6,20 +6,18 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 19:49:04 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/30 02:52:29 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/30 20:50:29 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	fill_mapspaces(char **map, int xlen)
+int	fill_mapspaces(char **map, int xlen, int i)
 {
-	int		i;
 	int		j;
 	char	*tmp;
 
-	i = -1;
-	while(map[++i])
+	while (map[++i])
 	{
 		tmp = malloc(xlen - 1);
 		j = -1;
@@ -97,6 +95,7 @@ int	loadsprites(int fd, t_cub3d *game)
 {
 	char	*line;
 	int		ret;
+	int		i;
 
 	ret = 0;
 	line = 0;
@@ -107,8 +106,7 @@ int	loadsprites(int fd, t_cub3d *game)
 		if (importxpm(game, line))
 			return (0);
 		free(line);
-		if (game->texture.xpm[0] && game->texture.xpm[1] && game->texture.xpm[2]
-				&& game->texture.xpm[3] && game->texture.bot && game->texture.top)
+		if (game->texture.bot && game->texture.top)
 			break ;
 	}
 	return (ret);
@@ -125,11 +123,11 @@ int	mapgenerate(t_cub3d *game, char *file)
 	if (fd < 0)
 		return (!printf("File Not Found :%s\n", file));
 	if (!loadsprites(fd, game))
-		return(!printf("Some Error Accuired!\n"));
+		return (!printf("Some Error Accuired!\n"));
 	game->map->map = getmap(game, fd);
 	if (!game->map->map)
 		return (!printf("Some Error Accuired.\n"));
-	if (!fill_mapspaces(game->map->map, game->map->x))
+	if (!fill_mapspaces(game->map->map, game->map->x, -1))
 		return (!printf("Unsupported character detected.\n"));
 	if (!mapcheck(game->map->map))
 		return (!printf("Map & Player must be covered by wall(s)\n"));

@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 21:16:38 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/28 20:22:49 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/30 20:58:42 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define DEFINES_H
 
 # define PI 3.1415926535
-# define VERA (PI / 2)
 
 # define SCREEN_WIDTH 1280
 # define SCREEN_HEIGH 720

@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 19:56:10 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/17 02:19:07 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/30 21:02:54 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_strrcmp(char *src, char *dest)
 	desti = 0;
 	if (srci <= 0)
 		return (0);
-	while(src[srci] && dest[desti])
+	while (src[srci] && dest[desti])
 	{
 		if (src[srci] != dest[desti])
 			break ;

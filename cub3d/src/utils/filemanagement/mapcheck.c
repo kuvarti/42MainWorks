@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 19:06:46 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/18 22:36:24 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/30 20:48:59 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	horizontalcheck(char **map, int i, int j, int flag)
 	return (1);
 }
 
-static int verticalcheck(char **map, int i, int j, int flag)
+static int	verticalcheck(char **map, int i, int j, int flag)
 {
 	while (map[0][++j])
 	{

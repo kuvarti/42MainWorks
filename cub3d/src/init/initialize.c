@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 01:40:03 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/25 21:18:48 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/30 21:03:18 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	initialize(t_cub3d *init, char **argv)
 	if (!mapgenerate(init, argv[1]))
 		return (0);
 	init->win = mlx_new_window(init->mlx, SCREEN_WIDTH, SCREEN_HEIGH, "cub3d");
-	if  (!((init)->win))
+	if (!((init)->win))
 		return (0);
 	init_event(init);
 	if (!initialize_player(init))

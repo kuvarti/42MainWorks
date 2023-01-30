@@ -6,13 +6,13 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 04:29:43 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/19 21:22:35 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/30 21:04:33 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_cub3d	*game;
 

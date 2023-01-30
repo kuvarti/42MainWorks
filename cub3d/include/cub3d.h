@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 04:28:44 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/29 01:25:12 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/30 20:57:43 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,31 @@
 # define CUB3D_H
 
 //*		Custom LIBs
-#include "mlx.h"
-#include "libft.h"
-#include "structures.h"
-#include "defines.h"
-#include "events.h"
+# include "mlx.h"
+# include "libft.h"
+# include "structures.h"
+# include "defines.h"
+# include "events.h"
 
 //*		System LIBs
-#include <stdio.h>
-#include <fcntl.h>
-#include <math.h>
+# include <stdio.h>
+# include <fcntl.h>
+# include <math.h>
 
 //*	init
-int	initialize(t_cub3d *init, char **argv);
-int	initialize_player(t_cub3d *game);
-int	initialize_image(t_cub3d *game);
-int	importxpm(t_cub3d *game, char *line);
+int		initialize(t_cub3d *init, char **argv);
+int		initialize_player(t_cub3d *game);
+int		initialize_image(t_cub3d *game);
+int		importxpm(t_cub3d *game, char *line);
 
 void	ciz(t_cub3d *game);
 
 //*	mapcontrol
-int	mapcheck(char **map);
-int	mapgenerate(t_cub3d *game, char *file);
+int		mapcheck(char **map);
+int		mapgenerate(t_cub3d *game, char *file);
 
 //* Utils
-int	abs(int n);
+int		abs(int n);
 double	dabs(double n);
 
 #endif

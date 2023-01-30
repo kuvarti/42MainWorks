@@ -6,21 +6,14 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 21:12:56 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/29 01:12:01 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/30 21:02:13 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
 
-#include <stdlib.h>
-
-typedef struct s_textures
-{
-	int		top;
-	int		bot;
-	void	*xpm[4];
-}	t_textures;
+# include <stdlib.h>
 
 typedef struct s_onkeys
 {
@@ -41,7 +34,7 @@ typedef struct s_map
 	size_t	y;
 }	t_map;
 
-typedef struct	s_data
+typedef struct s_data
 {
 	void	*img;
 	char	*addr;
@@ -50,13 +43,24 @@ typedef struct	s_data
 	int		endian;
 }	t_data;
 
-typedef struct	s_vectord
+//	xpm[0] = NO
+//	xpm[1] = SO
+//	xpm[2] = WE
+//	xpm[3] = EA
+typedef struct s_textures
 {
-	double	X;
-	double	Y;
+	int		top;
+	int		bot;
+	t_data	*xpm[4];
+}	t_textures;
+
+typedef struct s_vectord
+{
+	double	x;
+	double	y;
 }	t_vectord;
 
-typedef struct	s_chararacter
+typedef struct s_chararacter
 {
 	t_vectord	pos;
 	t_vectord	dir;
@@ -64,7 +68,7 @@ typedef struct	s_chararacter
 	double		angle;
 }	t_character;
 
-typedef struct	s_cub3d
+typedef struct s_cub3d
 {
 	void		*mlx;
 	void		*win;

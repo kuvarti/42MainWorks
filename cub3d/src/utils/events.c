@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 22:11:21 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/25 21:17:21 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/01/30 20:51:58 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	basic_loop(t_cub3d *game)
 	return (0);
 }
 
-int	keydown(int	keycode, t_cub3d *game)
+int	keydown(int keycode, t_cub3d *game)
 {
 	if (keycode == KEY_ESC)
 		finish(game);
