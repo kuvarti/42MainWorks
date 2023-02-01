@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 04:29:43 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/30 21:04:33 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/01 23:40:07 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,4 @@ int	main(int argc, char **argv)
 	if (!initialize(game, argv))
 		return (0);
 	mlx_loop(game->mlx);
-	printf("\n\nloop started\n");
 }

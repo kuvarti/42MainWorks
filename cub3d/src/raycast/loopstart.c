@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 22:08:23 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/01 22:27:07 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/02 01:18:03 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,8 @@ t_raycast	raycastloopstart(t_raycast *ray, int x)
 	ray->raydir.y = ray->dir.y + ray->plane.y * camerax;
 	ray->map.x = (int)ray->pos.x;
 	ray->map.y = (int)ray->pos.y;
-	if (ray->raydir.x == 0)
-		ray->deltadist.x = 1e30;
-	else
-		ray->deltadist.x = dabs(1 / ray->raydir.x);
-	if (ray->raydir.y == 0)
-		ray->deltadist.y = 1e30;
-	else
-		ray->deltadist.y = dabs(1 / ray->raydir.y);
+	ray->deltadist.x = dabs(1 / ray->raydir.x);
+	ray->deltadist.y = dabs(1 / ray->raydir.y);
 	ray = setsidedist(ray);
 	ray->hit = 0;
 	return (*ray);
