@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 21:12:56 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/30 21:02:13 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/01 22:36:04 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,18 @@
 # define STRUCTURES_H
 
 # include <stdlib.h>
+
+typedef struct s_vectord
+{
+	double	x;
+	double	y;
+}	t_vectord;
+
+typedef struct s_vectori
+{
+	int	x;
+	int	y;
+}	t_vectori;
 
 typedef struct s_onkeys
 {
@@ -54,12 +66,6 @@ typedef struct s_textures
 	t_data	*xpm[4];
 }	t_textures;
 
-typedef struct s_vectord
-{
-	double	x;
-	double	y;
-}	t_vectord;
-
 typedef struct s_chararacter
 {
 	t_vectord	pos;
@@ -68,6 +74,20 @@ typedef struct s_chararacter
 	double		angle;
 }	t_character;
 
+typedef struct s_raycast
+{
+	int			side;
+	int			hit;
+	t_vectord	pos;
+	t_vectord	dir;
+	t_vectord	plane;
+	t_vectord	raydir;
+	t_vectord	deltadist;
+	t_vectord	sidedist;
+	t_vectori	step;
+	t_vectori	map;
+}	t_raycast;
+
 typedef struct s_cub3d
 {
 	void		*mlx;
@@ -75,6 +95,7 @@ typedef struct s_cub3d
 	t_map		*map;
 	t_data		*img;
 	t_onkeys	onkey;
+	t_raycast	raycast;
 	t_textures	texture;
 	t_character	*player;
 }	t_cub3d;

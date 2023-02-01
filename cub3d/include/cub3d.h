@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 04:28:44 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/30 20:57:43 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/01 22:36:13 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "libft.h"
 # include "structures.h"
 # include "defines.h"
+# include "raycast.h"
 # include "events.h"
 
 //*		System LIBs
@@ -31,7 +32,11 @@ int		initialize_player(t_cub3d *game);
 int		initialize_image(t_cub3d *game);
 int		importxpm(t_cub3d *game, char *line);
 
-void	ciz(t_cub3d *game);
+//*	Draw
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+size_t	get_texture_color(t_data *texture, int pixel_x, int pixel_y);
+
+void	getscreen(t_cub3d *game);
 
 //*	mapcontrol
 int		mapcheck(char **map);

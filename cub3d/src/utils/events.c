@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 22:11:21 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/30 20:51:58 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/01 20:19:10 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	basic_loop(t_cub3d *game)
 {
 	if (move(game))
-		ciz(game);
+		getscreen(game);
 	return (0);
 }
 

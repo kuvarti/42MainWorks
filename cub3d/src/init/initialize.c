@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 01:40:03 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/30 21:03:18 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/01 20:19:10 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,6 @@ int	initialize(t_cub3d *init, char **argv)
 	mlx_hook(init->win, ON_KEYDOWN, 1L << 0, keydown, init);
 	mlx_loop_hook(init->mlx, basic_loop, init);
 	mlx_put_image_to_window(init->mlx, init->win, init->img->img, 0, 0);
-	ciz(init);
+	getscreen(init);
 	return (1);
 }

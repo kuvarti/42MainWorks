@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 19:49:04 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/30 20:50:29 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/01 20:21:45 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ int	loadsprites(int fd, t_cub3d *game)
 {
 	char	*line;
 	int		ret;
-	int		i;
 
 	ret = 0;
 	line = 0;
