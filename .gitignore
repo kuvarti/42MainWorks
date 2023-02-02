@@ -1,4 +1,5 @@
 .*
 *.0
 minilibx*
-deneme*
+*deneme*
+*.cpp

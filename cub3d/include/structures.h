@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 21:12:56 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/01 22:41:23 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/03 01:00:05 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,18 +74,30 @@ typedef struct s_chararacter
 	double		angle;
 }	t_character;
 
+typedef struct s_draw
+{
+	int			wall;
+	int			color;
+	int			lineheight;
+	double		step;
+	double		texpos;
+	double		wallx;
+	double		perpwalldist;
+	t_vectori	tex;
+	t_vectori	drawwall;
+}	t_draw;
+
 typedef struct s_raycast
 {
-	int			side;
 	int			hit;
-	int			lineheight;
+	int			side;
+	t_draw		draw;
 	t_vectord	pos;
 	t_vectord	dir;
 	t_vectord	plane;
 	t_vectord	raydir;
 	t_vectord	deltadist;
 	t_vectord	sidedist;
-	t_vectori	draw;
 	t_vectori	step;
 	t_vectori	map;
 }	t_raycast;
