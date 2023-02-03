@@ -7,7 +7,7 @@
 NAME = cub3d
 
 CC = gcc -g
-CFLAGS = -Wall -Wextra #-Werror
+CFLAGS = -Wall -Wextra -Werror
 INCLUDE = -Iinclude/ -Isrc/libft/
 
 LIBFT = $(addprefix $(OUTPREFIX), libft.a)
@@ -25,7 +25,7 @@ EXTRAMINILIBXFLAGS = -Imlx -Iminilibx-macos
 endif
 
 #* FINDING ALL C FILES IN SRC FOLDER
-SRC = $(shell find src -name "*.c" | grep -v "libft")
+SRC = $(shell find src -name "*.c" | grep -v "libft" | grep -v "bonus")
 SRCDIR = $(sort $(dir $(SRC)))
 SRCFLS = $(notdir $(SRC))
 

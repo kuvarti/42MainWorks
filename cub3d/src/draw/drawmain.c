@@ -6,17 +6,11 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 20:18:29 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/03 01:06:35 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/03 18:37:29 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	getscreen(t_cub3d *game)
-{
-	raycast(game);
-	mlx_put_image_to_window(game->mlx, game->win, game->img->img, 0, 0);
-}
 
 static void	fillimage(int x, t_cub3d *game, t_raycast *ray)
 {

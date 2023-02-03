@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 04:59:02 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/30 20:59:40 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/03 18:39:03 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int		keydown(int keycode, t_cub3d *game);
 int		keyup(int keycode, t_cub3d *game);
 int		basic_loop(t_cub3d *game);
 int		init_event(t_cub3d *game);
+void	setpos(t_cub3d *game, double newposx, double newposy, char mod);
+void	turn(t_cub3d *game);
 
 //*	Utils
 float	getmvspeed(void);
