@@ -3,7 +3,7 @@ SO ./sprites/cobbelstone.xpm
 WE ./sprites/obsidian.xpm
 EA ./sprites/bookshelf.xpm
 
-F 220,220,220
+F 50,0,0
 C 22,0,44
 
 11111111111111
