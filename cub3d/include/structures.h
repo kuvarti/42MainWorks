@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 21:12:56 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/13 20:30:37 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/14 06:20:12 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,15 @@ typedef struct s_vectori
 
 typedef struct s_onkeys
 {
-	int	keyw;
-	int	keya;
-	int	keys;
-	int	keyd;
-	int	keyup;
-	int	keydown;
-	int	keyleft;
-	int	keyright;
+	int			keyw;
+	int			keya;
+	int			keys;
+	int			keyd;
+	int			keyup;
+	int			keydown;
+	int			keyleft;
+	int			keyright;
+	t_vectori	cursorpos;
 }	t_onkeys;
 
 typedef struct s_map

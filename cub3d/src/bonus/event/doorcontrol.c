@@ -6,13 +6,13 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 05:52:41 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/14 06:04:46 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/14 06:28:38 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void xordoor(t_cub3d *game, int x, int y)
+static void	xordoor(t_cub3d *game, int x, int y)
 {
 	if (game->map->map[y][x] == 'C')
 		game->map->map[y][x] = 'O';
@@ -22,7 +22,7 @@ static void xordoor(t_cub3d *game, int x, int y)
 
 void	switchdoor(t_cub3d *game)
 {
-	t_vectori cpos;
+	t_vectori	cpos;
 
 	cpos.x = game->player->pos.x;
 	cpos.y = game->player->pos.y;
@@ -38,5 +38,5 @@ void	switchdoor(t_cub3d *game)
 	if (game->map->map[cpos.y][cpos.x - 1]
 		&& ft_strchr("OC", game->map->map[cpos.y][cpos.x - 1]))
 		xordoor(game, cpos.x - 1, cpos.y);
-	basic_loop(game);
+	getscreen(game);
 }

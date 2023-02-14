@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 03:17:25 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/14 05:46:50 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/14 06:24:26 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,35 @@ void	turn(t_cub3d *game)
 	olddirx = game->player->dir.x;
 	oldplanex = game->player->plane.x;
 	if (game->onkey.keyleft)
+	{
+		game->player->dir.x = game->player->dir.x * cos(-TURNSPEED)
+			- game->player->dir.y * sin(-TURNSPEED);
+		game->player->dir.y = olddirx * sin(-TURNSPEED)
+			+ game->player->dir.y * cos(-TURNSPEED);
+		game->player->plane.x = game->player->plane.x * cos(-TURNSPEED)
+			- game->player->plane.y * sin(-TURNSPEED);
+		game->player->plane.y = oldplanex * sin(-TURNSPEED)
+			+ game->player->plane.y * cos(-TURNSPEED);
+		return ;
+	}
+	game->player->dir.x = game->player->dir.x * cos(TURNSPEED)
+		- game->player->dir.y * sin(TURNSPEED);
+	game->player->dir.y = olddirx * sin(TURNSPEED)
+		+ game->player->dir.y * cos(TURNSPEED);
+	game->player->plane.x = game->player->plane.x * cos(TURNSPEED)
+		- game->player->plane.y * sin(TURNSPEED);
+	game->player->plane.y = oldplanex * sin(TURNSPEED)
+		+ game->player->plane.y * cos(TURNSPEED);
+}
+
+void	cursorturn(t_cub3d *game, int key)
+{
+	double	olddirx;
+	double	oldplanex;
+
+	olddirx = game->player->dir.x;
+	oldplanex = game->player->plane.x;
+	if (key == KEY_LEFT)
 	{
 		game->player->dir.x = game->player->dir.x * cos(-TURNSPEED)
 			- game->player->dir.y * sin(-TURNSPEED);
