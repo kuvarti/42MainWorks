@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 01:40:03 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/14 06:40:35 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:28:15 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	initialize(t_cub3d *init, char **argv)
 	mlx_hook(init->win, ON_KEYUP, 1L << 1, keyup, init);
 	mlx_hook(init->win, ON_DESTROY, 1L << 0, finish, init);
 	mlx_hook(init->win, ON_KEYDOWN, 1L << 0, keydown, init);
-	mlx_hook(init->win, ON_MOUSEMOVE, 1L<<6, mousemove, init);
+	mlx_hook(init->win, ON_MOUSEMOVE, 1L << 6, mousemove, init);
 	mlx_loop_hook(init->mlx, basic_loop, init);
 	mlx_put_image_to_window(init->mlx, init->win, init->img->img, 0, 0);
 	getscreen(init);

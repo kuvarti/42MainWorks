@@ -6,11 +6,23 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 19:19:48 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/14 07:49:44 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:33:52 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	characterminimaploc(t_cub3d *game)
+{
+	int	x;
+	int	y;
+
+	x = (game->player->pos.x - (int)game->player->pos.x) * 1000;
+	y = (game->player->pos.y - (int)game->player->pos.y) * 1000;
+	x = (x / 36) + (36 * 2);
+	y = (y / 36) + (36 * 2);
+	my_mlx_pixel_put(game->mmap->img, x, y, 0x00ff00);
+}
 
 void	setframe(t_cub3d *game)
 {
@@ -29,6 +41,8 @@ void	setframe(t_cub3d *game)
 				my_mlx_pixel_put(game->mmap->img, x, y, 0x440088);
 		}
 	}
+	characterminimaploc(game);
+	mlx_put_image_to_window(game->mlx, game->win, game->mmap->img->img, 1, 1);
 }
 
 void	getminimap(t_cub3d *game)
@@ -46,9 +60,10 @@ void	getminimap(t_cub3d *game)
 		x = (int)game->player->pos.x - 3;
 		while (++x <= (int)game->player->pos.x + 2)
 		{
-			if (y == -1)
+			if (y < 0)
 				drawsquare(game, _x, _y, 0);
-			else if (game->map->map[y] && game->map->map[y][x] == '1')
+			else if (game->map->map[y] && game->map->map[y][x]
+					&& ft_strchr("1C", game->map->map[y][x]))
 				drawsquare(game, _x, _y, 0xff1f2f);
 			else
 				drawsquare(game, _x, _y, 0);
@@ -57,5 +72,4 @@ void	getminimap(t_cub3d *game)
 		_y++;
 	}
 	setframe(game);
-	mlx_put_image_to_window(game->mlx, game->win, game->mmap->img->img, 1, 1);
 }
