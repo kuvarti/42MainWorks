@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 03:17:25 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/03 18:39:17 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/14 05:46:50 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ void	turn(t_cub3d *game)
 		+ game->player->plane.y * cos(TURNSPEED);
 }
 
+static double	getdistance(double newpos)
+{
+	return (newpos * WALKINGSPEED * WLK);
+}
+
 void	setpos(t_cub3d *game, double newposx, double newposy, char mod)
 {
 	double	*posx;
@@ -50,20 +55,20 @@ void	setpos(t_cub3d *game, double newposx, double newposy, char mod)
 	posy = &(game->player->pos.y);
 	if (mod == '-')
 	{
-		if (!(game->map->map[(int)(*posy - (newposy * WALKINGSPEED * WLK))]))
+		if (!(game->map->map[(int)(*posy - getdistance(newposy))]))
 			return ;
-		if (game->map->map[(int)(*posy - (newposy * WALKINGSPEED * WLK))] \
-				[(int)(*posx - (newposx * WALKINGSPEED * WLK))] == '1')
+		if (ft_strchr("1C", game->map->map[(int)(*posy - getdistance(newposy))]
+			[(int)(*posx - getdistance(newposx))]))
 			return ;
 		game->player->pos.x -= newposx * (WALKINGSPEED * WLK);
 		game->player->pos.y -= newposy * (WALKINGSPEED * WLK);
 	}
 	else if (mod == '+')
 	{
-		if (!(game->map->map[(int)(*posy + (newposy * WALKINGSPEED * WLK))]))
+		if (!(game->map->map[(int)(*posy + getdistance(newposy))]))
 			return ;
-		if (game->map->map[(int)(*posy + (newposy * WALKINGSPEED * WLK))] \
-				[(int)(*posx + (newposx * WALKINGSPEED * WLK))] == '1')
+		if (ft_strchr("1C", game->map->map[(int)(*posy + getdistance(newposy))]
+			[(int)(*posx + getdistance(newposx))]))
 			return ;
 		game->player->pos.x += newposx * (WALKINGSPEED * WLK);
 		game->player->pos.y += newposy * (WALKINGSPEED * WLK);

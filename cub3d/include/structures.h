@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 21:12:56 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/03 01:00:05 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/13 20:30:37 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,11 @@ typedef struct s_raycast
 	t_vectori	map;
 }	t_raycast;
 
+typedef struct s_minimap
+{
+	t_data	*img;
+}	t_minimap;
+
 typedef struct s_cub3d
 {
 	void		*mlx;
@@ -109,6 +114,7 @@ typedef struct s_cub3d
 	t_map		*map;
 	t_data		*img;
 	t_onkeys	onkey;
+	t_minimap	*mmap;
 	t_raycast	raycast;
 	t_textures	texture;
 	t_character	*player;

@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 04:28:44 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/03 00:53:59 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/13 20:30:14 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "defines.h"
 # include "raycast.h"
 # include "events.h"
+# include "bonus.h"
 
 //*		System LIBs
 # include <stdio.h>

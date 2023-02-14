@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mapcheck.c                                         :+:      :+:    :+:   */
+/*   bmapcheck.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 19:06:46 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/06 15:20:28 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/13 19:47:19 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	horizontalcheck(char **map, int i, int j, int flag)
 		{
 			if (flag == 0 && map[i][j] == '1')
 				flag ^= 1;
-			if (flag == 0 && ft_strchr("NSEW0", map[i][j]))
+			if (flag == 0 && ft_strchr("NSEW0OC", map[i][j]))
 				return (0);
 			if (flag == 1 && map[i][j] == ' ')
 				flag ^= 1;
@@ -41,9 +41,9 @@ static int	verticalcheck(char **map, int i, int j, int flag)
 		{
 			if (flag == 0 && map[i][j] == '1')
 				flag ^= 1;
-			if (flag == 0 && ft_strchr("NSEW0", map[i][j]))
+			if (flag == 0 && ft_strchr("NSEW0OC", map[i][j]))
 				return (0);
-			if (!map[i + 1] && ft_strchr("NSEW0", map[i][j]))
+			if (!map[i + 1] && ft_strchr("NSEW0OC", map[i][j]))
 				return (0);
 			if (flag == 1 && map[i][j] == ' ')
 				flag ^= 1;

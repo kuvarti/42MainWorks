@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 21:16:38 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/06 15:20:33 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/14 05:52:11 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@
 #  define KEY_S 115
 #  define KEY_D 100
 
+#  define KEY_E 101
+
 #  define KEY_LEFT 65361
 #  define KEY_RIGHT 65363
 #  define KEY_DOWN 65364
@@ -51,10 +53,16 @@
 #  define KEY_S 1
 #  define KEY_D 2
 
+//#  define KEY_E ?
+
 #  define KEY_LEFT 123
 #  define KEY_RIGHT 124
 #  define KEY_DOWN 125
 #  define KEY_UP 126
 # endif
+
+//* FOR BONUS
+# define MMAPW 180
+# define MMAPH 180
 
 #endif

@@ -49,7 +49,7 @@ BONUSOBJ = $(addprefix $(OUTPREFIX), $(BONUSSRCFLS:.c=.o))
 
 vpath %.c $(BONUSSRCDIR)
 $(OUTPREFIX)%.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDE) $(EXTRAMINILIBXFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INCLUDE) $(EXTRAMINILIBXFLAGS) -c $< -o $@
 
 all: $(OUTPREFIX) $(LIBFT) $(MINILIBX) $(NAME) seperate
 	@echo "./$(NAME) is ready to use."
@@ -69,7 +69,7 @@ $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(INCLUDE) $(OBJ) $(MINILIBX) $(LIBFT) $(MINILIBXFLAGS) -o $(NAME)
 
 $(BONUS): $(BONUSOBJ)
-	$(CC) $(CFLAGS) $(INCLUDE) $(BONUSOBJ) $(MINILIBX) $(LIBFT) $(MINILIBXFLAGS) -o $(BONUS)
+	@$(CC) $(CFLAGS) $(INCLUDE) $(BONUSOBJ) $(MINILIBX) $(LIBFT) $(MINILIBXFLAGS) -o $(BONUS)
 
 #* LIBFT COMPILATION
 $(LIBFT):

@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 18:37:41 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/03 21:15:52 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/13 19:50:54 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ t_raycast	summonray(t_cub3d *game, t_raycast *ray)
 		}
 		if (!game->map->map[ray->map.y])
 			break ;
-		else if (game->map->map[ray->map.y][ray->map.x] == '1')
+		else if (game->map->map[ray->map.y][ray->map.x] == '1'
+				|| game->map->map[ray->map.y][ray->map.x] == 'C')
 			ray->hit = 1;
 	}
 	return (*ray);

@@ -1,0 +1,15 @@
+NO ./sprites/stone.xpm
+SO ./sprites/cobbelstone.xpm
+WE ./sprites/obsidian.xpm
+EA ./sprites/bookshelf.xpm
+
+F 50,0,0
+C 22,0,44
+
+11111111111111
+10000000001001
+10001000001001
+10000000001OC1
+10000000000001
+10000000000N01
+11111111111111

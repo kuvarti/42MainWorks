@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 20:18:29 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/03 18:37:29 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/13 20:06:55 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,12 @@
 static void	fillimage(int x, t_cub3d *game, t_raycast *ray)
 {
 	size_t	y;
+	t_data	*tmp;
 
 	y = -1;
+	tmp = game->texture.xpm[ray->draw.wall];
+	if (game->map->map[ray->map.y][ray->map.x] == 'C')
+		tmp = game->texture.xpm[0];
 	while (++y < SCREEN_HEIGH)
 	{
 		if (y < (size_t)ray->draw.drawwall.x)
@@ -26,7 +30,7 @@ static void	fillimage(int x, t_cub3d *game, t_raycast *ray)
 			ray->draw.tex.y = (int)ray->draw.texpos & (64 - 1);
 			ray->draw.texpos += ray->draw.step;
 			ray->draw.color = \
-				get_texture_color(game->texture.xpm[ray->draw.wall],
+				get_texture_color(tmp,
 					ray->draw.tex.x, ray->draw.tex.y);
 			my_mlx_pixel_put(game->img, x, y, ray->draw.color);
 		}

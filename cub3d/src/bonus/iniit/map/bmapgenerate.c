@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mapgenerate.c                                      :+:      :+:    :+:   */
+/*   bmapgenerate.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 19:49:04 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/06 15:20:19 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/13 19:46:57 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	fill_mapspaces(char **map, int xlen, int i)
 		{
 			if (map[i][j] == '\n')
 				break ;
-			if (!ft_strchr("10NSE W", map[i][j]))
+			if (!ft_strchr("10NSEOC W", map[i][j]))
 				return (0);
 			tmp[j] = map[i][j];
 		}

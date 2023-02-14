@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize.c                                       :+:      :+:    :+:   */
+/*   biniitialize.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 01:40:03 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/06 15:33:14 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/13 20:34:36 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,19 @@ int	init_event(t_cub3d *game)
 	game->onkey.keyleft = 0;
 	game->onkey.keyright = 0;
 	return (0);
+}
+
+void	initminimapimage(t_cub3d *game)
+{
+	t_minimap *mmap;
+
+	mmap = malloc(sizeof(t_minimap));
+	mmap->img = malloc(sizeof(t_data));
+	mmap->img->img = mlx_new_image(game->mlx, MMAPW, MMAPH);
+	mmap->img->addr = \
+	mlx_get_data_addr(mmap->img->img, &mmap->img->bits_per_pixel,
+			&mmap->img->line_length, &mmap->img->endian);
+	game->mmap = mmap;
 }
 
 int	initialize_image(t_cub3d *game)
@@ -53,6 +66,7 @@ int	initialize(t_cub3d *init, char **argv)
 		return (0);
 	if (!initialize_image(init))
 		return (0);
+	initminimapimage(init);
 	mlx_hook(init->win, ON_KEYUP, 1L << 1, keyup, init);
 	mlx_hook(init->win, ON_DESTROY, 1L << 0, finish, init);
 	mlx_hook(init->win, ON_KEYDOWN, 1L << 0, keydown, init);
