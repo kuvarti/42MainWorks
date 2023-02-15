@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 21:12:56 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/14 06:20:12 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/15 05:22:25 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ typedef struct s_textures
 	int		top;
 	int		bot;
 	t_data	*xpm[4];
+	t_data	*sprite[5];
+	t_data	*lastanimation;
 }	t_textures;
 
 typedef struct s_chararacter
@@ -112,6 +114,7 @@ typedef struct s_cub3d
 {
 	void		*mlx;
 	void		*win;
+	size_t		loop;
 	t_map		*map;
 	t_data		*img;
 	t_onkeys	onkey;

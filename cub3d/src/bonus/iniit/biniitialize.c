@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 01:40:03 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/14 15:28:15 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/15 05:52:13 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	init_event(t_cub3d *game)
 	game->onkey.keyright = 0;
 	game->onkey.cursorpos.x = SCREEN_WIDTH / 2;
 	game->onkey.cursorpos.y = SCREEN_HEIGH / 2;
+	game->loop = 0;
+	game->texture.lastanimation = game->texture.sprite[0];
 	return (0);
 }
 

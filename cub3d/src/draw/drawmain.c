@@ -6,11 +6,22 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 20:18:29 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/13 20:06:55 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/15 06:04:51 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+t_data	*getbonuswall(t_cub3d *game)
+{
+	t_data	*ret;
+
+	if (game->texture.lastanimation)
+		ret = game->texture.lastanimation;
+	else
+		ret = game->texture.xpm[0];
+	return (ret);
+}
 
 static void	fillimage(int x, t_cub3d *game, t_raycast *ray)
 {
@@ -20,7 +31,7 @@ static void	fillimage(int x, t_cub3d *game, t_raycast *ray)
 	y = -1;
 	tmp = game->texture.xpm[ray->draw.wall];
 	if (game->map->map[ray->map.y][ray->map.x] == 'C')
-		tmp = game->texture.xpm[0];
+		tmp = getbonuswall(game);
 	while (++y < SCREEN_HEIGH)
 	{
 		if (y < (size_t)ray->draw.drawwall.x)

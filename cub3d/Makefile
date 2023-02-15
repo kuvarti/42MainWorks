@@ -99,6 +99,7 @@ clean:
 	@echo "Cleaning..."
 	@if [ -d $(OUTPREFIX) ]; then rm -rf $(OUTPREFIX); fi
 	@if [ ! -d $(LEAKFILE) ]; then rm -rf $(LEAKFILE); fi
+	@if [ ! -d $(LEAKFILEB) ]; then rm -rf $(LEAKFILEB); fi
 	@make -C src/libft fclean 2> /dev/null > /dev/null
 ifeq ($(shell uname), Linux)
 	@make -C minilibx-linux clean 2> /dev/null > /dev/null
@@ -119,10 +120,16 @@ seperate:
 
 #* Leak Check
 LEAKFILE = leaks.log
+LEAKFILEB = bonusleaks.log
 
 leaks:
 ifeq ($(shell uname), Linux)
 	valgrind --leak-check=yes ./cub3d maps/simplesquare.cub > $(LEAKFILE) 2>> $(LEAKFILE)
+endif
+
+bonusleaks:
+ifeq ($(shell uname), Linux)
+	valgrind --leak-check=yes ./cub3d_bonus maps/bonusmap.cub > $(LEAKFILEB) 2>> $(LEAKFILEB)
 endif
 
 re: fclean seperate all

@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mousemove.c                                        :+:      :+:    :+:   */
+/*   animatedsprite.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 06:13:56 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/15 04:34:24 by aeryilma         ###   ########.fr       */
+/*   Created: 2023/02/15 05:25:07 by aeryilma          #+#    #+#             */
+/*   Updated: 2023/02/15 06:04:43 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	mousemove(int x, int y, t_cub3d *game)
+void	nextframe(t_cub3d *game)
 {
-	if (x % 5 != 0)
-		return (0);
-	if (x > game->onkey.cursorpos.x)
-		cursorturn(game, KEY_RIGHT);
-	else if (x == SCREEN_WIDTH / 2)
-		return (0);
+	int	i;
+
+	i = 0;
+	while (i < 5)
+	{
+		if (game->texture.sprite[i] == game->texture.lastanimation)
+			break ;
+		i++;
+	}
+	if (i == 4)
+	{
+		game->texture.lastanimation = game->texture.sprite[0];
+		return ;
+	}
+	while (!(game->texture.sprite[i + 1]))
+	{
+		i++;
+		if (i < 5)
+			break ;
+	}
+	if (i + 1 < 5)
+		game->texture.lastanimation = game->texture.sprite[i + 1];
 	else
-		cursorturn(game, KEY_LEFT);
-	y = y;
-	mlx_mouse_move(game->mlx, game->win, SCREEN_WIDTH / 2, SCREEN_HEIGH / 2);
-	mlx_mouse_hide(game->mlx, game->win);
-	return (1);
+		return ;
 }

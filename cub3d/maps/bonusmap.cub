@@ -3,6 +3,12 @@ SO ./sprites/cobbelstone.xpm
 WE ./sprites/obsidian.xpm
 EA ./sprites/bookshelf.xpm
 
+SP0 ./sprites/irondoor0.xpm
+SP1 ./sprites/irondoor1.xpm
+SP2 ./sprites/irondoor2.xpm
+SP3 ./sprites/irondoor3.xpm
+SP4 ./sprites/irondoor4.xpm
+
 F 50,0,0
 C 22,0,44
 

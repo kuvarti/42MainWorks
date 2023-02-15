@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 19:49:04 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/13 19:46:57 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/15 05:06:33 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,10 @@ int	loadsprites(int fd, t_cub3d *game)
 		ret++;
 		if (importxpm(game, line))
 			return (0);
+		if (importsprite(game, line))
+			return (0);
 		free(line);
-		if (game->texture.bot && game->texture.top)
+		if (game->texture.bot && game->texture.top && game->texture.sprite[0])
 			break ;
 	}
 	return (ret);
