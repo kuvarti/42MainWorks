@@ -6,13 +6,13 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 07:03:27 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/14 15:12:00 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/15 06:26:56 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	drawsquare(t_cub3d *game, double x, double y, int color)
+void	drawsquare(t_cub3d *game, double x, double y, unsigned int color)
 {
 	int	_x;
 	int	_y;

@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 19:20:22 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/15 06:04:46 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/15 06:26:47 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ void	getminimap(t_cub3d *game);
 void	initminimapimage(t_cub3d *game);
 void	setbonuspos(t_cub3d *game, double newposx, double newposy, char mod);
 void	cursorturn(t_cub3d *game, int key);
-void	drawsquare(t_cub3d *game, double x, double y, int color);
+void	drawsquare(t_cub3d *game, double x, double y, unsigned int color);
 #endif

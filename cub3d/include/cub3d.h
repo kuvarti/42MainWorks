@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 04:28:44 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/13 20:30:14 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/15 06:32:18 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	drawvertical(int x, t_cub3d *game, t_raycast *ray);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 size_t	get_texture_color(t_data *texture, int pixel_x, int pixel_y);
 
+//*	Event
 void	getscreen(t_cub3d *game);
 
 //*	mapcontrol

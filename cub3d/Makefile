@@ -132,6 +132,10 @@ ifeq ($(shell uname), Linux)
 	valgrind --leak-check=yes ./cub3d_bonus maps/bonusmap.cub > $(LEAKFILEB) 2>> $(LEAKFILEB)
 endif
 
+norm:
+	norminette src
+	norminette include
+
 re: fclean seperate all
 
 check:

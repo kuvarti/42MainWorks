@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 19:19:48 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/14 15:33:52 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/15 06:30:22 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,31 +45,37 @@ void	setframe(t_cub3d *game)
 	mlx_put_image_to_window(game->mlx, game->win, game->mmap->img->img, 1, 1);
 }
 
+static void	drawmanagement(t_vectori map, t_vectori mini, t_cub3d *game)
+{
+	if (map.y < 0)
+		drawsquare(game, mini.x, mini.y, 0);
+	else if (game->map->map[map.y] && game->map->map[map.y][map.x]
+			&& ft_strchr("1C", game->map->map[map.y][map.x]))
+		drawsquare(game, mini.x, mini.y, 0xff1f2f);
+	else if (game->map->map[map.y] && game->map->map[map.y][map.x]
+			&& ft_strchr("O", game->map->map[map.y][map.x]))
+		drawsquare(game, mini.x, mini.y, 0x4b1f2f);
+	else
+		drawsquare(game, mini.x, mini.y, 0);
+}
+
 void	getminimap(t_cub3d *game)
 {
-	int	x;
-	int	y;
-	int	_x;
-	int	_y;
+	t_vectori	map;
+	t_vectori	mini;
 
-	_y = 0;
-	y = (int)game->player->pos.y - 3;
-	while (++y <= (int)game->player->pos.y + 2)
+	mini.y = 0;
+	map.y = (int)game->player->pos.y - 3;
+	while (++map.y <= (int)game->player->pos.y + 2)
 	{
-		_x = 0;
-		x = (int)game->player->pos.x - 3;
-		while (++x <= (int)game->player->pos.x + 2)
+		mini.x = 0;
+		map.x = (int)game->player->pos.x - 3;
+		while (++map.x <= (int)game->player->pos.x + 2)
 		{
-			if (y < 0)
-				drawsquare(game, _x, _y, 0);
-			else if (game->map->map[y] && game->map->map[y][x]
-					&& ft_strchr("1C", game->map->map[y][x]))
-				drawsquare(game, _x, _y, 0xff1f2f);
-			else
-				drawsquare(game, _x, _y, 0);
-			_x++;
+			drawmanagement(map, mini, game);
+			mini.x++;
 		}
-		_y++;
+		mini.y++;
 	}
 	setframe(game);
 }
