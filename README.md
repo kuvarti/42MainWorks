@@ -41,7 +41,7 @@
 |:-|-:|
 |Examrank04| ![Exam04](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2933439)|
 |NetPractice| [![NetPractice](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2925584)](https://github.com/kuvarti/42MainWorks/tree/net-practice)|
-|Cub3d| ![cub2d](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2927486) |
+|Cub3d| [![cub3d](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2927486)](https://github.com/kuvarti/42MainWorks/tree/cub3d) |
 |ft_Cointainers| ![Locked](./img/locked.svg) |
 
 </td>
