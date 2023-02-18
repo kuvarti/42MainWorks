@@ -6,4 +6,6 @@
 |Cpp Module 01| ![cppmodule01](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2927100)|
 |Cpp Module 02| ![cppmodule02](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2927815)|
 |Cpp Module 03| ![cppmodule03](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2929357)|
-|Cpp Module 04| ![cppmodule04](*)|
+|Cpp Module 04| ![cppmodule04](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2929462)|
+|Cpp Module 05| ![cppmodule04](*)|
+|Cpp Module 06| ![cppmodule04](*)|
