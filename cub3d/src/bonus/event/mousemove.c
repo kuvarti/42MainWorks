@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 06:13:56 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/15 04:34:24 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/20 19:52:14 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	mousemove(int x, int y, t_cub3d *game)
 		return (0);
 	else
 		cursorturn(game, KEY_LEFT);
-	y = y;
-	mlx_mouse_move(game->mlx, game->win, SCREEN_WIDTH / 2, SCREEN_HEIGH / 2);
+	y = 1;
+	mlx_mouse_move(game->win, SCREEN_WIDTH / 2, SCREEN_HEIGH / 2);
 	mlx_mouse_hide(game->mlx, game->win);
 	return (1);
 }

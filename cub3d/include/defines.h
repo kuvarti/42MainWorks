@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 21:16:38 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/14 05:52:11 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/20 19:50:23 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@
 #  define KEY_S 1
 #  define KEY_D 2
 
-//#  define KEY_E ?
+#  define KEY_E 14
 
 #  define KEY_LEFT 123
 #  define KEY_RIGHT 124
