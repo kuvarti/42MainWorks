@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 19:49:04 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/15 05:06:33 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/20 23:25:35 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	fill_mapspaces(char **map, int xlen, int i)
 
 	while (map[++i])
 	{
-		tmp = malloc(xlen - 1);
+		tmp = ft_calloc(xlen, 1);
 		j = -1;
 		while (map[i][++j])
 		{
@@ -85,7 +85,7 @@ char	**getmap(t_cub3d *game, int fd)
 	{
 		tmp = ft_strlen(map[game->map->y]);
 		if (game->map->x < tmp)
-			game->map->x = tmp;
+			game->map->x = tmp + 1;
 		game->map->y++;
 	}
 	return (map);
