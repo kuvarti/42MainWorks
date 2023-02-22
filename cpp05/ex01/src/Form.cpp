@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 17:41:10 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/22 16:44:58 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/22 20:17:21 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	Form::beSigned(Bureaucrat &b)
 	}
 	else if(b.getGrade() > _gradeToSign)
 	{
-		std::cout << b.getName() << " couldn’t sign " << _name << "because grade isnt enough." << std::endl;
+		std::cout << b.getName() << " couldn’t sign " << _name << " because grade isnt enough." << std::endl;
 		throw(Form::GradeTooLowException);
 	}
 	else
