@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 19:06:46 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/24 21:00:25 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/24 22:40:32 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	horizontalcheck(char **map, int i, int j, int flag)
 				return (0);
 			if (flag == 1 && map[i][j] == ' ')
 			{
-				if (map[i][j - 1] && map[i][j - 1] != '1')
+				if (map[i][j - 1] && ft_strchr("0NSEW", map[i][j - 1]))
 					return (0);
 				flag ^= 1;
 			}
@@ -49,7 +49,8 @@ static int	verticalcheck(char **map, int i, int j, int flag)
 				return (0);
 			if (flag == 1 && map[i][j] == ' ')
 			{
-				if (map[i][j - 1] && map[i][j - 1] != '1')
+				if (map[i - 1] && map[i - 1][j]
+						&& ft_strchr("0NSEW", map[i - 1][j]))
 					return (0);
 				flag ^= 1;
 			}

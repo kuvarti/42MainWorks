@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 03:17:25 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/14 06:24:26 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/24 22:34:47 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,24 +50,24 @@ void	cursorturn(t_cub3d *game, int key)
 	oldplanex = game->player->plane.x;
 	if (key == KEY_LEFT)
 	{
-		game->player->dir.x = game->player->dir.x * cos(-TURNSPEED)
-			- game->player->dir.y * sin(-TURNSPEED);
-		game->player->dir.y = olddirx * sin(-TURNSPEED)
-			+ game->player->dir.y * cos(-TURNSPEED);
-		game->player->plane.x = game->player->plane.x * cos(-TURNSPEED)
-			- game->player->plane.y * sin(-TURNSPEED);
-		game->player->plane.y = oldplanex * sin(-TURNSPEED)
-			+ game->player->plane.y * cos(-TURNSPEED);
+		game->player->dir.x = game->player->dir.x * cos(-(TURNSPEED * 2))
+			- game->player->dir.y * sin(-(TURNSPEED * 2));
+		game->player->dir.y = olddirx * sin(-(TURNSPEED * 2))
+			+ game->player->dir.y * cos(-(TURNSPEED * 2));
+		game->player->plane.x = game->player->plane.x * cos(-(TURNSPEED * 2))
+			- game->player->plane.y * sin(-(TURNSPEED * 2));
+		game->player->plane.y = oldplanex * sin(-(TURNSPEED * 2))
+			+ game->player->plane.y * cos(-(TURNSPEED * 2));
 		return ;
 	}
-	game->player->dir.x = game->player->dir.x * cos(TURNSPEED)
-		- game->player->dir.y * sin(TURNSPEED);
-	game->player->dir.y = olddirx * sin(TURNSPEED)
-		+ game->player->dir.y * cos(TURNSPEED);
-	game->player->plane.x = game->player->plane.x * cos(TURNSPEED)
-		- game->player->plane.y * sin(TURNSPEED);
-	game->player->plane.y = oldplanex * sin(TURNSPEED)
-		+ game->player->plane.y * cos(TURNSPEED);
+	game->player->dir.x = game->player->dir.x * cos((TURNSPEED * 2))
+		- game->player->dir.y * sin((TURNSPEED * 2));
+	game->player->dir.y = olddirx * sin((TURNSPEED * 2))
+		+ game->player->dir.y * cos((TURNSPEED * 2));
+	game->player->plane.x = game->player->plane.x * cos((TURNSPEED * 2))
+		- game->player->plane.y * sin((TURNSPEED * 2));
+	game->player->plane.y = oldplanex * sin((TURNSPEED * 2))
+		+ game->player->plane.y * cos((TURNSPEED * 2));
 }
 
 static double	getdistance(double newpos)
