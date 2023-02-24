@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 19:49:04 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/20 23:21:02 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/02/24 20:51:25 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,16 @@ int	fill_mapspaces(char **map, int xlen, int i)
 
 	while (map[++i])
 	{
-		tmp = ft_calloc(xlen, 1);
+		tmp = ft_calloc(xlen + 1, 1);
 		j = -1;
 		while (map[i][++j])
 		{
-			if (map[i][j] == '\n')
-				break ;
 			if (!ft_strchr("10NSE W", map[i][j]))
 				return (0);
 			tmp[j] = map[i][j];
 		}
-		if (map[i][j])
-			tmp[j] = ' ';
 		while (++j < xlen)
-			tmp[j] = ' ';
-		tmp[j] = 0;
+			tmp = ft_gnl_strjoin(tmp, " ");
 		free(map[i]);
 		map[i] = tmp;
 	}
