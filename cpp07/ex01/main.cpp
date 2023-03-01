@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 17:36:15 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/03/01 17:50:36 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/03/01 18:12:21 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void iterfun(int &a)
 
 void iterfun(std::string &s)
 {
-	s = "Kardesim o haraketi yanlis yapiyosun";
+	s = "Kardesim o mallocu yanlis yapiyosun";
 }
 
 int	main()
