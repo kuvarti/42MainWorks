@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 12:17:01 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/18 15:01:06 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/03/06 22:57:12 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ std::string const &AMateria::getType() const {
 	return _type;
 }
 
-void	AMateria::use(ICharacter&  target){
-	target = target;
+void	AMateria::use(ICharacter& target) {
+	target.getName();
 }

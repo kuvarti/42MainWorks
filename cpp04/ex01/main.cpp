@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 16:54:52 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/02/17 21:41:17 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/03/06 22:46:22 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,4 @@ int main()
 	std::cout << "Dog's idea: " << dog->_brain->getIdea(0) << std::endl;
 	std::cout << "Copy's idea: " << copy->_brain->getIdea(0) << std::endl;
 	delete dog;
-	delete copy;
 }
