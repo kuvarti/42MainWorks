@@ -5,6 +5,12 @@
 </p>
 
 <table width="100%" align="center">
+<tr style="display:flex; justify-content:space-around; paddind:0; text-align: center;">
+<td style="padding:0; margin:0; text-align: center;">
+
+**COMMON CORE**
+
+</td></tr>
 <tr style="display:flex; justify-content:space-around; paddind:0;">
 <td style="padding:0; margin:0;">
 
@@ -45,13 +51,19 @@
 |Inception| Not Registered Yet! |
 
 </td></tr>
-<tr style="display:flex; justify-content:center; paddind:0;">
+<tr style="display:flex; justify-content:space-around; paddind:0;">
 <td style="padding:0; margin:0;">
 
 |Proje| Durum|
 |:-|-:|
-| Examrank05 | ![Locked](./img/locked.svg) |
-| ft_irc | Searching for teammate! |
+| Examrank05 | ![Exam05](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/3022646) |
+| ft_irc | Searching! |
+
+</td><td style="padding:0; margin:0;">
+
+|Proje| Durum|
+|:-|-:|
+| Examrank06 | ![Locked](./img/locked.svg) |
 | ft_transcandence| ![Locked](./img/locked.svg) |
 
 </td></tr>
