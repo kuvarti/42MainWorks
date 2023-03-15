@@ -42,13 +42,22 @@
 |Examrank04| ![Exam04](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2933439)|
 |NetPractice| [![NetPractice](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2925584)](https://github.com/kuvarti/42MainWorks/tree/net-practice)|
 |Cub3d| [![cub3d](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2927486)](https://github.com/kuvarti/42MainWorks/tree/cub3d) |
-|ft_Cointainers| ![Locked](./img/locked.svg) |
+|Inception| Not Registered Yet! |
 
-</td>
+</td></tr>
+<tr style="display:flex; justify-content:center; paddind:0;">
+<td style="padding:0; margin:0;">
 
+|Proje| Durum|
+|:-|-:|
+| Examrank05 | ![Locked](./img/locked.svg) |
+| ft_irc | Searching for teammate! |
+| ft_transcandence| ![Locked](./img/locked.svg) |
 
-</tr>
+</td></tr>
 </table>
+
+
 
 
 ### **How to see projetcs**
