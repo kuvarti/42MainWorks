@@ -1,0 +1,33 @@
+version: "3.5"
+
+networks:
+  inception:
+    name: inception
+
+volumes:
+  wordpress:
+    name: wordpress
+    driver: local
+    driver_opts:
+      device: /home/aeryilma/data/wordpress
+      o: bind
+      type: none
+  mariadb:
+    name: mariadb
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/aeryilma/data/wordpress
+
+services:
+  nginx:
+    container_name: c_nginx
+    build: ./requirements/nginx/.
+    ports:
+     - "443:443"
+    volumes:
+     - wordpress:/var/www/html
+    env_file:
+     - .env
+    restart: always
