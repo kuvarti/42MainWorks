@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:07:30 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/03/02 19:51:02 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/03/29 21:14:48 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ std::vector<int>	range(int start, int end, int increase){
 	if ( start < 0)
 	{
 		start = abs(start);
-		end > 0 ? end *= -1 : end = end;
+		if (end > 0)
+			end *= -1;
 	}
 	if (end < 0)
 	{
