@@ -1,7 +1,7 @@
 NAME = AttackHelicopter
 
 CC = c++ -std=c++98
-CFLAGS = -Wall -Wextra -I./include # -Werror
+CFLAGS = -Wall -Wextra -I./include -Werror
 ifeq ($(shell uname), Linux)
 	CC = c++ -g
 endif
@@ -13,8 +13,7 @@ OBJ = $(SRC:.cpp=.o)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-
+	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 clean:
 	@find . -name "*.o" -delete
 	@echo "Cleaning"

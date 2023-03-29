@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 02:49:41 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/03/01 03:29:21 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/03/29 20:43:51 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 Base * Base::generate(void)
 {
-	Base	*ret;
+	Base	*ret = nullptr;
 	srand(time(0));
 
 	int generate = rand() % 3;
@@ -48,10 +48,11 @@ void	Base::identify(Base* p)
 
 void	Base::identify(Base& p)
 {
-	try { dynamic_cast<A&>(p); std::cout << "Its A&" << std::endl; return ;}
+	Base	a;
+	try { a = dynamic_cast<A&>(p); std::cout << "Its A&" << std::endl; return ;}
 	catch (std::exception &e) { }
-	try { dynamic_cast<B&>(p); std::cout << "Its B&" << std::endl; return ;}
+	try { a = dynamic_cast<B&>(p); std::cout << "Its B&" << std::endl; return ;}
 	catch (std::exception &e) { }
-	try { dynamic_cast<C&>(p); std::cout << "Its C&" << std::endl; return ;}
+	try { a = dynamic_cast<C&>(p); std::cout << "Its C&" << std::endl; return ;}
 	catch (std::exception &e) {  }
 }
