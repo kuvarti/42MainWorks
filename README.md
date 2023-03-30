@@ -48,7 +48,7 @@
 |Examrank04| ![Exam04](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2933439)|
 |NetPractice| [![NetPractice](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2925584)](https://github.com/kuvarti/42MainWorks/tree/net-practice)|
 |Cub3d| [![cub3d](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2927486)](https://github.com/kuvarti/42MainWorks/tree/cub3d) |
-|Inception| Not Registered Yet! |
+|Inception| [![inception](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/3032913)]() |
 
 </td></tr>
 <tr style="display:flex; justify-content:space-around; paddind:0;">
@@ -57,7 +57,7 @@
 |Proje| Durum|
 |:-|-:|
 | Examrank05 | ![Exam05](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/3022646) |
-| ft_irc | Searching! |
+| ft_irc | ![temp](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/3032913) |
 
 </td><td style="padding:0; margin:0;">
 
