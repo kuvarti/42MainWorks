@@ -9,7 +9,7 @@ volumes:
     name: wordpress
     driver: local
     driver_opts:
-      device: /home/aeryilma/data/wordpress
+      device: /home/aeryilma/data/wordpress/.
       o: bind
       type: none
   mariadb:
@@ -18,7 +18,7 @@ volumes:
     driver_opts:
       o: bind
       type: none
-      device: /home/aeryilma/data/mariadb
+      device: /home/aeryilma/data/mariadb/.
 
 services:
   nginx:
@@ -31,11 +31,15 @@ services:
     env_file:
      - .env
     restart: always
+    depends_on:
+     - mariadb
   mariadb:
     container_name: c_mariadb
-    build: ./requirements/nginx/.
+    build: ./requirements/mariadb/.
     ports:
      - "3306:3306"
+    volumes:
+     - mariadb:/var/lib/mysql
     env_file:
      - .env
     restart: always

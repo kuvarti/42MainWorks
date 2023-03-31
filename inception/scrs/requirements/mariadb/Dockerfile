@@ -1,9 +1,12 @@
-from debian:bookworm
+from debian:10.12
 
-run apt update -y && apt upgrade -y && apt install mariadb-server -y
+#volume /home/aeryilma/data/mariadb/. /var/lib/mysql/.
 
-copy /conf/50-server.cnf /custom/50-server.cnf
+run apt update -y && apt upgrade -y && apt install mariadb-server vim -y
+
+copy /conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 copy /tools/. /custom/.
 
-run sh /custom/script.sh
+expose 3306 
+
 cmd sh /custom/starter.sh
