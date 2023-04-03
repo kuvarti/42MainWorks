@@ -6,14 +6,14 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 18:35:04 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/03/01 23:42:29 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/03/29 21:07:34 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <Array.hpp>
 
-#define MAX_VAL 750
+#define MAX_VAL 75
 int main(int, char**)
 {
 	Array<int> numbers(MAX_VAL);
@@ -45,7 +45,7 @@ int main(int, char**)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << " u cant use negative numbers" << '\n';
 	}
 	try
 	{
@@ -53,7 +53,7 @@ int main(int, char**)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << " u should MAX_VAL - 1" << '\n';
 	}
 
 	for (int i = 0; i < MAX_VAL; i++)

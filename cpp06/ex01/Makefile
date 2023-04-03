@@ -1,7 +1,7 @@
 NAME = Serializer
 
 CC = c++ -std=c++98
-CFLAGS = -Wall -Wextra -I./include # -Werror
+CFLAGS = -Wall -Wextra -I./include -Werror
 ifeq ($(shell uname), Linux)
 	CC = c++ -g
 endif
