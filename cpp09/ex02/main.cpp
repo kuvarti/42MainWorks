@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 01:21:23 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/04/03 16:03:07 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/04/03 19:01:53 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,67 +16,20 @@
 #include <vector>
 #include <list>
 
-void quicksort(std::vector<int>& arr, int left, int right) {
-	if (left < right) {
-		int pivot = arr[(left + right) / 2];
-		int i = left - 1;
-		int j = right + 1;
-		while (true) {
-			do {
-				i++;
-			} while (arr[i] < pivot);
-			do {
-				j--;
-			} while (arr[j] > pivot);
-			if (i >= j) {
-				break;
-			}
-			std::swap(arr[i], arr[j]);
-		}
-		quicksort(arr, left, j);
-		quicksort(arr, j + 1, right);
-	}
-}
-
-void quicksort(std::list<int>& lst) {
-	if (lst.size() < 2) {
-		return;
-	}
-
-	std::list<int> smaller;
-	std::list<int> equal;
-	std::list<int> larger;
-	int pivot = *lst.begin();
-
-	for (std::list<int>::const_iterator it = lst.begin(); it != lst.end(); ++it) {
-		if (*it < pivot) {
-			smaller.push_back(*it);
-		} else if (*it == pivot) {
-			equal.push_back(*it);
-		} else {
-			larger.push_back(*it);
-		}
-	}
-
-	quicksort(smaller);
-	quicksort(larger);
-
-	lst.clear();
-	lst.splice(lst.end(), smaller);
-	lst.splice(lst.end(), equal);
-	lst.splice(lst.end(), larger);
-}
+void merge_sort(std::vector<int>& arr);
+void merge_sort(std::list<int>& arr);
 
 void	getinput(std::vector<int> *vc, std::list<int> *ls, std::string input)
 {
-	input = std::string(input.begin() + 1, input.end() - 1);
-	input += " ";
+	input += "  ";
 	int fnd;
 	int value = 0;
 	while (input[0])
 	{
 		fnd = input.find(' ');
-		value = stoi(std::string(input.begin(), input.begin() + fnd + 1));
+		try {
+			value = stoi(std::string(input.begin(), input.begin() + fnd + 1));
+		} catch (std::exception const &e) { }
 		input = std::string(input.begin() + fnd + 1, input.end());
 		if (value < 0)
 		{
@@ -93,6 +46,7 @@ void	getinput(std::vector<int> *vc, std::list<int> *ls, std::string input)
 
 int main(int argc, char **argv)
 {
+	std::cout << argv[1] << std::endl;
 	if (argc != 2)
 	{
 		std::cerr << "Wrong Use! ./program \"positive numbers\"" << std::endl;
@@ -121,14 +75,14 @@ int main(int argc, char **argv)
 
 //*	VECTOR
 	start = std::chrono::high_resolution_clock::now();
-	quicksort(vec, 0, vec.size() - 1);
+	merge_sort(vec);
 	end = std::chrono::high_resolution_clock::now();
 	duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
 	std::cout << "Time to process a range of " << vec.size() << " elements with std::[vector] : " << duration.count() << " ns" << std::endl;
 
 //*	LIST
 	start = std::chrono::high_resolution_clock::now();
-	quicksort(ls);
+	merge_sort(ls);
 	end = std::chrono::high_resolution_clock::now();
 	duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
 	std::cout << "Time to process a range of " << vec.size() << " elements with std::[list] : " << duration.count() << " ns" << std::endl;
