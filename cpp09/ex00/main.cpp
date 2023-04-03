@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:22:33 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/03/31 00:54:08 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/04/03 15:22:14 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ std::queue<amount>	getqueue(std::string f)
 	std::string line;
 
 	if (file.is_open()) {
+		std::getline(file, line);
 		while (std::getline(file, line)) {
 			ret.push(getamount(line));
 		}

@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 01:21:23 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/03/31 02:08:25 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/04/03 16:03:07 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void quicksort(std::list<int>& lst) {
 
 void	getinput(std::vector<int> *vc, std::list<int> *ls, std::string input)
 {
+	input = std::string(input.begin() + 1, input.end() - 1);
 	input += " ";
 	int fnd;
 	int value = 0;
