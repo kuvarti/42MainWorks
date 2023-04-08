@@ -28,7 +28,7 @@ services:
     ports:
      - "443:443"
     volumes:
-     - wordpress:/var/www/html
+     - wordpress:/var/www/wordpress
     env_file:
      - .env
     networks:
@@ -42,7 +42,7 @@ services:
     expose:
      - "9000"
     volumes:
-     - wordpress:/var/www/html
+     - wordpress:/var/www/wordpress
     env_file:
      - .env
     networks:

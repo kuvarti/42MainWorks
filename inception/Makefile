@@ -16,9 +16,9 @@ start:
 stop:
 
 removecache:
-	@docker rmi -f $(docker images | grep "none" | awk '{print $3; print " "}')
-	@docker rmi -f $(docker images | grep "scrs" | awk '{print $3; print " "}')
-	@docker rmi -f $(docker images | grep "custom" | awk '{print $3; print " "}')
+	@docker rmi -f $(shell docker images | grep "none" | awk '{print $3; print " "}')
+	@docker rmi -f $(shell docker images | grep "scrs" | awk '{print $3; print " "}')
+	@docker rmi -f $(shell docker images | grep "custom" | awk '{print $3; print " "}')
 	@echo "Cache removed"
 
 req:
