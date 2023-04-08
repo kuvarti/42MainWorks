@@ -9,4 +9,4 @@ copy /tools/. /custom/.
 
 expose 3306 
 
-cmd sh /custom/starter.sh
+entrypoint sh /custom/starter.sh

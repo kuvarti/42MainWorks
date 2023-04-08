@@ -3,6 +3,7 @@ version: "3.5"
 networks:
   inception:
     name: inception
+    driver: bridge
 
 volumes:
   wordpress:
@@ -30,6 +31,22 @@ services:
      - wordpress:/var/www/html
     env_file:
      - .env
+    networks:
+     - inception
+    restart: always
+    depends_on:
+     - wordpress
+  wordpress:
+    container_name: c_wordpress
+    build: ./requirements/wordpress/.
+    expose:
+     - "9000"
+    volumes:
+     - wordpress:/var/www/html
+    env_file:
+     - .env
+    networks:
+     - inception
     restart: always
     depends_on:
      - mariadb
@@ -42,4 +59,7 @@ services:
      - mariadb:/var/lib/mysql
     env_file:
      - .env
+    networks:
+     - inception
     restart: always
+
