@@ -62,4 +62,20 @@ services:
     networks:
      - inception
     restart: always
-
+  portrainer:
+    container_name: c_portrainer
+    image: portainer/portainer-ce
+    ports:
+     - "9000:9000"
+    volumes:
+     - /var/run/docker.sock:/var/run/docker.sock
+     - /home/aeryilma/data/portrainer:/data
+  adminer:
+    container_name: c_adminer
+    image: adminer
+    ports:
+     - "9001:8080"
+    links:
+     - wordpress
+     - mariadb 
+    restart: always
