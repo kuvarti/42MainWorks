@@ -8,7 +8,7 @@
 <tr style="display:flex; justify-content:space-around; paddind:0;">
 <td colspan="2" style="padding:0; margin:0; text-align:center;">
 
-**COMMON CORE**
+**42 CURSUS**
 
 </td></tr>
 <tr style="display:flex; justify-content:space-around; paddind:0;">
@@ -48,7 +48,7 @@
 |Examrank04| ![Exam04](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2933439)|
 |NetPractice| [![NetPractice](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2925584)](https://github.com/kuvarti/42MainWorks/tree/net-practice)|
 |Cub3d| [![cub3d](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/2927486)](https://github.com/kuvarti/42MainWorks/tree/cub3d) |
-|Inception| [![inception](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/3032913)]() |
+|Inception| [![inception](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/3032913)](https://github.com/kuvarti/42MainWorks/tree/inception) |
 
 </td></tr>
 <tr style="display:flex; justify-content:space-around; paddind:0;">
@@ -57,7 +57,7 @@
 |Proje| Durum|
 |:-|-:|
 | Examrank05 | ![Exam05](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/3022646) |
-| ft_irc | ![temp](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/3032913) |
+| ft_irc | ![temp](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/3052284) |
 
 </td><td style="padding:0; margin:0;">
 
@@ -65,6 +65,20 @@
 |:-|-:|
 | Examrank06 | ![Locked](./img/locked.svg) |
 | ft_transcandence| ![Locked](./img/locked.svg) |
+
+</td></tr>
+<tr style="display:flex; justify-content:space-around; paddind:0;">
+<td colspan="2" style="padding:0; margin:0; text-align:center;">
+
+**42 EVENTS**
+
+</td></tr>
+<tr style="display:flex; justify-content:space-around; paddind:0;">
+<td colspan="2" style="padding:0; margin:0; text-align:center;">
+
+|Proje| Durum|
+|:-|-:|
+| April_2023 | [![Locked](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/3052340)](https://github.com/kuvarti/42MainWorks/tree/event_april_2023) |
 
 </td></tr>
 </table>
