@@ -57,7 +57,7 @@
 |Proje| Durum|
 |:-|-:|
 | Examrank05 | ![Exam05](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/3022646) |
-| ft_irc | ![temp](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/3052284) |
+| ft_irc | [![irc](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/3052284)](https://github.com/kuvarti/42MainWorks/tree/ft_irc) |
 
 </td><td style="padding:0; margin:0;">
 
@@ -82,9 +82,6 @@
 
 </td></tr>
 </table>
-
-
-
 
 ### **How to see projetcs**
 There is 2 way to explore projects;
