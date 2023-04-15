@@ -1,43 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.hpp                                         :+:      :+:    :+:   */
+/*   clients.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 21:45:53 by root              #+#    #+#             */
-/*   Updated: 2023/04/15 16:36:00 by root             ###   ########.fr       */
+/*   Created: 2023/04/15 13:19:06 by root              #+#    #+#             */
+/*   Updated: 2023/04/15 13:53:23 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
-#include <netinet/in.h>
-#include <sys/socket.h>
-#include <poll.h>
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string>
-#include <string.h>
-#include <unistd.h>
-#include <vector>
-#include <map>
-
 #include "clients.hpp"
 
-#define PORT 4242
-#define BSIZE 512
+Clients::Clients(int sock)
+{
+	socklen_t	slen = sizeof(clientaddr);
+	clientsock = accept(sock, (struct sockaddr*)&clientaddr, &slen);
+	if (clientsock < 0)
+		exit(EXIT_FAILURE);
+}
 
-class Server{
-public:
-	Server();
-	~Server();
-
-	void	loop();
-	void	recvmessage(struct pollfd);
-
-private:
-	std::vector<pollfd>	_socks;
-	std::vector<Clients>			cli;
-};
+Clients::~Clients()
+{
+}

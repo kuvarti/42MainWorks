@@ -1,43 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.hpp                                         :+:      :+:    :+:   */
+/*   clients.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 21:45:53 by root              #+#    #+#             */
-/*   Updated: 2023/04/15 16:36:00 by root             ###   ########.fr       */
+/*   Created: 2023/04/15 00:04:18 by root              #+#    #+#             */
+/*   Updated: 2023/04/15 13:28:29 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-
+#include <stdlib.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
-#include <poll.h>
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string>
-#include <string.h>
-#include <unistd.h>
-#include <vector>
-#include <map>
-
-#include "clients.hpp"
-
-#define PORT 4242
-#define BSIZE 512
-
-class Server{
+class Clients{
 public:
-	Server();
-	~Server();
+	Clients(int);
+	~Clients();
 
-	void	loop();
-	void	recvmessage(struct pollfd);
-
+	int	getclientsock() const { return clientsock; };
 private:
-	std::vector<pollfd>	_socks;
-	std::vector<Clients>			cli;
+	int					clientsock;
+	struct sockaddr_in	clientaddr;
 };
