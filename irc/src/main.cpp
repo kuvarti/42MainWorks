@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 21:51:00 by root              #+#    #+#             */
-/*   Updated: 2023/04/15 13:09:48 by root             ###   ########.fr       */
+/*   Updated: 2023/04/16 17:44:11 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,14 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char **argv)
 {
-	Server	srv;
+	if (argc != 3)
+	{
+		std::cerr << "Wrong use plase run with : ./ircserv <port> <password>" << std::endl;
+		return 1;
+	}
+	Server	srv(stoi(argv[1]));
 
 	srv.loop();
 

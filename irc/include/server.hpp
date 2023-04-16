@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 21:45:53 by root              #+#    #+#             */
-/*   Updated: 2023/04/15 16:36:00 by root             ###   ########.fr       */
+/*   Updated: 2023/04/16 19:39:17 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <sys/socket.h>
 #include <poll.h>
 
+#include <algorithm>
+#include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
@@ -24,20 +26,23 @@
 #include <vector>
 #include <map>
 
+#include "utils.hpp"
 #include "clients.hpp"
 
-#define PORT 4242
 #define BSIZE 512
 
 class Server{
 public:
-	Server();
+	Server(int);
 	~Server();
 
 	void	loop();
-	void	recvmessage(struct pollfd);
+	void	recvmessage(struct pollfd &);
+	void	sendmessage(struct pollfd &, char *);
 
 private:
+	int	port;
 	std::vector<pollfd>	_socks;
 	std::vector<Clients>			cli;
+	void	removesock(struct pollfd &);
 };
