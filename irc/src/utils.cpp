@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 18:53:18 by root              #+#    #+#             */
-/*   Updated: 2023/04/16 19:10:09 by root             ###   ########.fr       */
+/*   Updated: 2023/04/17 11:20:47 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ std::vector<struct pollfd>::iterator	util::findsocket(std::vector<struct pollfd>
 	for (; ret < vec.end(); ret++)
 	{
 		if (ret->fd == str.fd)
-			return ret;
+			break ;
 	}
-	return ((std::vector<struct pollfd>::iterator)0);
+	return (ret);
 }

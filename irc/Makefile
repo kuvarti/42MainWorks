@@ -1,7 +1,7 @@
 NAME	= ircserv
 
-CC		= c++ -g
-CFLAGS	= # -Wall -Wextra -Werror
+CC		= c++ -g -std=c++98
+CFLAGS	= -Wall -Wextra -Werror
 INCLUDE	= -Iinclude/
 
 SRC		= $(shell find src -name "*.cpp")
