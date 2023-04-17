@@ -1,7 +1,12 @@
 NAME	= ircserv
 
-CC		= c++ -g -std=c++98
-CFLAGS	= -Wall -Wextra -Werror
+#if on macosdo this
+ifeq ($(shell uname), Darwin)
+	CC		= c++ -g -std=c++98
+else
+	CC		= c++ -g
+endif
+CFLAGS	= # -Wall -Wextra -Werror
 INCLUDE	= -Iinclude/
 
 SRC		= $(shell find src -name "*.cpp")

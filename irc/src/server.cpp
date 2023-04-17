@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 21:45:48 by root              #+#    #+#             */
-/*   Updated: 2023/04/17 13:04:16 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/04/18 00:34:27 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,44 @@
 #include <stdlib.h>
 #include <iostream>
 
-Server::Server(int port)
+Server::Server(int port, std::string pass) : _password(pass)
 {
 	std::cout << "Initializing server..." << std::endl;
 	int opt = 1;
-	int	sockfd = socket(AF_INET, SOCK_STREAM, 0);
-	if (setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)))
+	_sock = socket(AF_INET, SOCK_STREAM, 0);
+	if (setsockopt(_sock, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)))
 		exit(EXIT_FAILURE);
 	struct sockaddr_in sockaddin;
 	sockaddin.sin_family = AF_INET;
 	sockaddin.sin_addr.s_addr = INADDR_ANY;
 	sockaddin.sin_port = htons(port);
-	if (bind(sockfd, (struct sockaddr*) &sockaddin, sizeof(sockaddin)) == -1)
+	if (bind(_sock, (struct sockaddr*) &sockaddin, sizeof(sockaddin)) == -1)
 	{
 		perror("bind");
 		exit(EXIT_FAILURE);
 	}
-
-	if (listen(sockfd, 5) == -1)
+	if (listen(_sock, 5) == -1)
 		exit(EXIT_FAILURE);
-	_socks.push_back((pollfd){sockfd, POLLIN | POLLOUT, POLLIN | POLLOUT});
+	commands = Messages::fillcommands();
+	_socks.push_back((pollfd){_sock, POLLIN | POLLOUT, POLLIN | POLLOUT});
 	std::cout << "Server running on port:" << port << std::endl;
+}
+
+std::map <std::string, void(*)(int, Server &, std::vector<std::string>)> Messages::fillcommands(){
+	std::map <std::string, void(*)(int, Server &, std::vector<std::string>)> ret;
+	ret["NICK"] = &Messages::nick;
+	//ret["USER"] = &Messages::user;
+	return ret;
+}
+
+void	showclients(std::vector<Clients> &cli )
+{
+	std::cout << std::endl << "Clients:" << std::endl;
+	for (size_t i = 0; i < cli.size(); i++)
+	{
+		std::cout << "Client " << i << " nickname: " << cli[i].getnickname() << std::endl;
+	}
+	std::cout << "------------" << std::endl;
 }
 
 void	Server::loop()
@@ -43,6 +60,7 @@ void	Server::loop()
 	int		pollrs;
 	while (1)
 	{
+		showclients(_cli);	//* This is Debug function
 		pollrs = poll(_socks.begin().base(), _socks.size(), -1);
 		if (pollrs < 0)
 			exit(EXIT_FAILURE);
@@ -55,7 +73,7 @@ void	Server::loop()
 				if (_socks[i].fd == _socks[0].fd)
 				{
 					tmp = new Clients(_socks[i].fd);
-					cli.push_back(*tmp);
+					_cli.push_back(*tmp);
 					_socks.push_back((pollfd){(*tmp).getclientsock(), POLLIN, 0});
 					std::cout << "New Connection appeared." << std::endl;
 				}
@@ -70,11 +88,17 @@ void	Server::loop()
 	}
 }
 
-void	socklist(std::vector<struct pollfd> &socks)
+void	debugparsing(std::vector<std::string> str)
 {
-	std::cout << "Socket list:" << std::endl;
-	for (size_t i = 0; i < socks.size(); i++)
-		std::cout << socks[i].fd << std::endl;
+	int j = 0;
+	if (str.size() > 0)
+		std::cout << "Parsed messages; " << std::endl;
+	for (std::vector<std::string>::iterator i = str.begin(); i < str.end(); i++)
+	{
+		std::cout << j++ << ". : " << (*i) << std::endl;
+	}
+	if (str.size() > 0)
+		std::cout << "-=-=-=-=-=-=-=-" << std::endl;
 }
 
 void	Server::recvmessage(struct pollfd &sock)
@@ -86,8 +110,43 @@ void	Server::recvmessage(struct pollfd &sock)
 		std::cerr << "some error appeared" << std::endl;
 		return ;
 	}
-	std::cout << "Message received from :" << sock.fd << std::endl << buffer << std::endl;
-	sendmessage(sock, buffer);
+	debugparsing(parsemessage(sock, buffer));
+}
+
+std::vector<std::string>	Server::parsemessage(struct pollfd &sock, char *buffer)
+{
+	std::vector<std::string> ret;
+	std::string tmp;
+	for (size_t i = 0; i < strlen(buffer); i++)
+	{
+		if (buffer[i] == ' ' || buffer[i] == '\r')
+		{
+			if (!(tmp.length() > 0))
+				continue ;
+			std::cout << "i'll take this : " << tmp << std::endl;
+			ret.push_back(tmp);
+			tmp.clear();
+		}
+		else if (buffer[i] == '\n')
+		{
+			if (!(ret.size() > 0))
+				continue;
+			std::cout << "I'll send this" <<std::endl;
+			debugparsing(ret);
+			sendmessage(sock, ret);
+			ret.clear();
+		}
+		else
+			tmp += buffer[i];
+	}
+	if (ret.size() > 0)
+		sendmessage(sock, ret);
+	return ret;
+}
+
+void	Server::sendmessage(struct pollfd &sock, std::vector<std::string> str)
+{
+//	commands.find(str[0]);
 }
 
 void	Server::sendmessage(struct pollfd &sock, char *msg)
@@ -108,6 +167,9 @@ void	Server::removesock(struct pollfd &sock)
 	std::vector<struct pollfd>::iterator it = util::findsocket(_socks, sock);
 	if (it != _socks.end())
 		_socks.erase(it);
+	std::vector<Clients>::iterator it2 = util::findclient(_cli, sock);
+	if (it2 != _cli.end())
+		_cli.erase(it2);
 }
 
 Server::~Server()

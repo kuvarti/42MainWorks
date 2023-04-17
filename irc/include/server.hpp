@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 21:45:53 by root              #+#    #+#             */
-/*   Updated: 2023/04/17 11:09:34 by aeryilma         ###   ########.fr       */
+/*   Updated: 2023/04/18 00:27:54 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,44 @@
 #include <string.h>
 #include <unistd.h>
 #include <vector>
+#include <utility>
 #include <map>
 
 #include "utils.hpp"
 #include "clients.hpp"
 
 #define BSIZE 512
+class Channel;
+class Server;
+
+class Messages{
+public:
+	static std::map <std::string, void(*)(int, Server &, std::vector<std::string>)> fillcommands();
+
+	static void	user(int, Server &, std::vector<std::string>);
+	static void	nick(int, Server &, std::vector<std::string>);
+	static void	join(int, Server &, std::vector<std::string>);
+};
 
 class Server{
 public:
-	Server(int);
+	Server(int, std::string);
 	~Server();
 
 	void	loop();
 	void	recvmessage(struct pollfd &);
 	void	sendmessage(struct pollfd &, char *);
+	void	sendmessage(struct pollfd &, std::vector<std::string>);
+	std::vector<std::string>	parsemessage(struct pollfd &, char *);
+
+	std::vector<Clients> &getclient() { return _cli; }
 
 private:
-	std::vector<pollfd>	_socks;
-	std::vector<Clients>			cli;
 	void	removesock(struct pollfd &);
+
+	std::string		_password;
+	int				_sock;
+	std::vector<pollfd>		_socks;
+	std::vector<Clients>	_cli;
+	std::map <std::string, void(*)(int, Server &, std::vector<std::string>)> commands;
 };
