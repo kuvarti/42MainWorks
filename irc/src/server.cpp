@@ -3,16 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   server.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: kuvarti <kuvarti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 21:45:48 by root              #+#    #+#             */
-/*   Updated: 2023/04/18 00:34:27 by root             ###   ########.fr       */
+/*   Updated: 2023/04/19 17:25:49 by kuvarti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "server.hpp"
 #include <stdlib.h>
 #include <iostream>
+
+//*	Can be delete this \/ \/
+void	debugparsing(std::vector<std::string> str)
+{
+	int j = 0;
+	if (str.size() > 0)
+		std::cout << "Parsed messages; " << std::endl;
+	for (std::vector<std::string>::iterator i = str.begin(); i < str.end(); i++)
+	{
+		std::cout << j++ << ". : " << (*i) << std::endl;
+	}
+	if (str.size() > 0)
+		std::cout << "-=-=-=-=-=-=-=-" << std::endl;
+}
+void	showclients(std::vector<Clients> &cli )
+{
+	std::cout << std::endl << "Clients:" << std::endl;
+	for (size_t i = 0; i < cli.size(); i++)
+	{
+		std::cout << "Client " << i << " nickname: " << cli[i].getnickname() << std::endl;
+	}
+	std::cout << "------------" << std::endl;
+}
+//*	Can be delete this /\ /\
 
 Server::Server(int port, std::string pass) : _password(pass)
 {
@@ -35,23 +59,6 @@ Server::Server(int port, std::string pass) : _password(pass)
 	commands = Messages::fillcommands();
 	_socks.push_back((pollfd){_sock, POLLIN | POLLOUT, POLLIN | POLLOUT});
 	std::cout << "Server running on port:" << port << std::endl;
-}
-
-std::map <std::string, void(*)(int, Server &, std::vector<std::string>)> Messages::fillcommands(){
-	std::map <std::string, void(*)(int, Server &, std::vector<std::string>)> ret;
-	ret["NICK"] = &Messages::nick;
-	//ret["USER"] = &Messages::user;
-	return ret;
-}
-
-void	showclients(std::vector<Clients> &cli )
-{
-	std::cout << std::endl << "Clients:" << std::endl;
-	for (size_t i = 0; i < cli.size(); i++)
-	{
-		std::cout << "Client " << i << " nickname: " << cli[i].getnickname() << std::endl;
-	}
-	std::cout << "------------" << std::endl;
 }
 
 void	Server::loop()
@@ -88,19 +95,6 @@ void	Server::loop()
 	}
 }
 
-void	debugparsing(std::vector<std::string> str)
-{
-	int j = 0;
-	if (str.size() > 0)
-		std::cout << "Parsed messages; " << std::endl;
-	for (std::vector<std::string>::iterator i = str.begin(); i < str.end(); i++)
-	{
-		std::cout << j++ << ". : " << (*i) << std::endl;
-	}
-	if (str.size() > 0)
-		std::cout << "-=-=-=-=-=-=-=-" << std::endl;
-}
-
 void	Server::recvmessage(struct pollfd &sock)
 {
 	char	buffer[BSIZE];
@@ -133,29 +127,47 @@ std::vector<std::string>	Server::parsemessage(struct pollfd &sock, char *buffer)
 				continue;
 			std::cout << "I'll send this" <<std::endl;
 			debugparsing(ret);
-			sendmessage(sock, ret);
+			if (!messageexecuter(sock, ret))
+				return ret;
 			ret.clear();
 		}
 		else
 			tmp += buffer[i];
 	}
 	if (ret.size() > 0)
-		sendmessage(sock, ret);
+		messageexecuter(sock, ret);
 	return ret;
 }
 
-void	Server::sendmessage(struct pollfd &sock, std::vector<std::string> str)
+int	Server::messageexecuter(struct pollfd &sock, std::vector<std::string> token)
 {
-//	commands.find(str[0]);
+	std::map<std::string, void(*)(struct pollfd,  Server &, std::vector<std::string>)>::iterator	it;
+	it = commands.find(token[0]);
+	if (it == commands.end())
+	{
+		Messages::error(sock, *this, util::msgCreator("ERROR", "This command unavailable."));
+		return 1;
+	}
+	std::vector<Clients>::iterator it2 = util::findclient(getclient(), sock);
+	if (token[0] != "PASS" && token[0] != "CAP" && (*it2).isconfirmed() == false)
+	{
+		Messages::error(sock, *this, util::msgCreator("ERROR", "This user not confirmed."));
+		Messages::quit(sock, *this, util::msgCreator("QUIT", "Disconnecting()"));
+		return 1;
+	}
+	it->second(sock, *this, token);
+	return (0);
 }
 
-void	Server::sendmessage(struct pollfd &sock, char *msg)
+void	Server::sendmessage(struct pollfd &sock, std::string str)
 {
+	str += "\r\n";
+
 	int error_code;
 	socklen_t error_code_size = sizeof(error_code);
 	getsockopt(sock.fd, SOL_SOCKET, SO_ERROR, &error_code, &error_code_size);
 	if (error_code == 0)
-		send(sock.fd, msg, BSIZE, 0);
+		send(sock.fd, str.c_str(), str.size(), 0);
 	else{
 		std::cout << "A connection is down" << std::endl;
 		removesock(sock);

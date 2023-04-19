@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   capls.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kuvarti <kuvarti@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 21:51:00 by root              #+#    #+#             */
-/*   Updated: 2023/04/19 12:36:22 by kuvarti          ###   ########.fr       */
+/*   Created: 2023/04/19 13:07:11 by kuvarti           #+#    #+#             */
+/*   Updated: 2023/04/19 13:24:13 by kuvarti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "server.hpp"
-#include <iostream>
-#include <string.h>
 
-using namespace std;
-
-int main(int argc, char **argv)
+void	Messages::cap(struct pollfd fd, Server &srv, std::vector<std::string> token)
 {
-	if (argc != 3)
-	{
-		std::cerr << "Wrong use plase run with : ./ircserv <port> <password>" << std::endl;
-		return 1;
-	}
-	Server	srv(stoi(argv[1]), argv[2]);
-	srv.loop();
+	(void)token;
+	srv.sendmessage(fd, "");
 }
