@@ -1,5 +1,5 @@
 # **This is aeryilma's 42 adventure**
-> #### Do down for [Repository Guide](#how-to-see-projetcs).
+> #### Go down for [Repository Guide](#how-to-see-projetcs).
 <p align="center">
 <a href="https://github.com/JaeSeoKim/badge42"><img src="https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/stats?cursusId=21&coalitionId=233" alt="42ProfileCard"/></a>
 </p>
@@ -57,14 +57,14 @@
 |Proje| Durum|
 |:-|-:|
 | Examrank05 | ![Exam05](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/3022646) |
-| ft_irc | [![irc](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/3052284)](https://github.com/kuvarti/42MainWorks/tree/ft_irc) |
+| ft_irc | [![irc](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/3052284)](https://github.com/kuvarti/irc_server) |
 
 </td><td style="padding:0; margin:0;">
 
 |Proje| Durum|
 |:-|-:|
-| Examrank06 | ![Locked](./img/locked.svg) |
-| ft_transcandence| ![Locked](./img/locked.svg) |
+| Examrank06 :( | ![Exam06](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/3078832) |
+| ft_transcandence| ![ft_transcandence](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/3078828) |
 
 </td></tr>
 <tr style="display:flex; justify-content:space-around; paddind:0;">
