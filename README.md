@@ -1,14 +1,16 @@
 # **This is aeryilma's 42 adventure**
-> #### Go down for [Repository Guide](#how-to-see-projetcs).
+
+> #### Go down for [Repository Guide](#how-to-see-projetcs)
+
 <p align="center">
-<a href="https://github.com/JaeSeoKim/badge42"><img src="https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/stats?cursusId=21&coalitionId=233" alt="42ProfileCard"/></a>
+<a href="https://github.com/JaeSeoKim/badge42"><img src="https://badge.mediaplus.ma/starryblue/aeryilma?1337Badge=off&UM6P=off" alt="42ProfileCard"/></a>
 </p>
 
 <table width="100%" align="center">
 <tr style="display:flex; justify-content:space-around; paddind:0;">
 <td colspan="2" style="padding:0; margin:0; text-align:center;">
 
-**42 CURSUS**
+**42 CURSUS COMMON CORE ADVENTURE**
 
 </td></tr>
 <tr style="display:flex; justify-content:space-around; paddind:0;">
@@ -64,13 +66,13 @@
 |Proje| Durum|
 |:-|-:|
 | Examrank06 | ![Exam06](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/3078832) |
-| ft_transcandence| ![ft_transcandence](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/3189924) |
+| ft_transcandence| [![ft_transcandence](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/3189924)](https://github.com/kuvarti/ft-Transcendence) |
 
 </td></tr>
 <tr style="display:flex; justify-content:space-around; paddind:0;">
 <td colspan="2" style="padding:0; margin:0; text-align:center;">
 
-**42 EVENTS**
+**42 Events**
 
 </td></tr>
 <tr style="display:flex; justify-content:space-around; paddind:0;">
@@ -79,6 +81,21 @@
 |Proje| Durum|
 |:-|-:|
 | April_2023 | [![Locked](https://badge42.vercel.app/api/v2/cl2clcq4c016009l8uaoijwh3/project/3052340)](https://github.com/kuvarti/42MainWorks/tree/event_april_2023) |
+
+</td></tr>
+<tr style="display:flex; justify-content:space-around; paddind:0;">
+<td colspan="2" style="padding:0; margin:0; text-align:center;">
+
+**42 CURSUS RNCP ADVENTURE**
+
+</td></tr>
+
+<tr style="display:flex; justify-content:space-around; paddind:0;">
+<td colspan="2" style="padding:0; margin:0; text-align:center;">
+
+|Proje| Durum|
+|:-|-:|
+| scop | Subscribed |
 
 </td></tr>
 </table>
