@@ -1,0 +1,44 @@
+{
+  "homebrew_version": "4.2.12",
+  "used_options": [
+
+  ],
+  "unused_options": [
+
+  ],
+  "built_as_bottle": false,
+  "poured_from_bottle": false,
+  "loaded_from_api": false,
+  "installed_as_dependency": false,
+  "installed_on_request": true,
+  "changed_files": null,
+  "time": 1710240656,
+  "source_modified_time": 1709678274,
+  "compiler": "clang",
+  "aliases": [
+
+  ],
+  "runtime_dependencies": [
+
+  ],
+  "source": {
+    "path": "/Users/aeryilma/Library/Caches/Homebrew/api-source/Homebrew/homebrew-core/81e459fd0a04bf35d5ff34bd729bfe11b5b66406/Formula/sdl2.rb",
+    "tap": "homebrew/core",
+    "tap_git_head": null,
+    "spec": "stable",
+    "versions": {
+      "stable": "2.30.1",
+      "head": "HEAD",
+      "version_scheme": 0
+    }
+  },
+  "arch": "x86_64",
+  "built_on": {
+    "os": "Macintosh",
+    "os_version": "macOS 10.15.7",
+    "cpu_family": "cometlake",
+    "xcode": "12.4",
+    "clt": "12.4.0.0.1.1610135815",
+    "preferred_perl": "5.18"
+  }
+}
