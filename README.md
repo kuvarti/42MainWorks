@@ -91,11 +91,17 @@
 </td></tr>
 
 <tr style="display:flex; justify-content:space-around; paddind:0;">
-<td colspan="2" style="padding:0; margin:0; text-align:center;">
+<td style="padding:0; margin:0; text-align:center;">
 
 |Proje| Durum|
 |:-|-:|
 | scop | Subscribed |
+
+</td><td style="padding:0; margin:0; text-align:center;">
+
+|Proje| Durum|
+|:-|-:|
+| malloc | [malloc](https://github.com/kuvarti/42MainWorks/tree/malloc) |
 
 </td></tr>
 </table>
