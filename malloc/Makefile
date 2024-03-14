@@ -3,20 +3,27 @@ ifeq ($(HOSTTYPE),)
 endif
 
 INCLUDE= -I ./src
+CC= gcc
 
-TESTFLS= $(shell find src -name "*.c")
+TESTFLS= $(shell find test -name "*.c") $(shell find src -name "*.c")
 TESTOBJ= $(TESTFLS:.c=.o)
+LIBFT= libft/libft.a
 
-.o: %.c
+%.o: %.c
 	@$(CC) $(INCLUDE) -c $< -o $@
 
-# TODO	real project makefile:
-# TODO	 -HOSTTYPE
-# TODO	 -CC
+all: $(LIBFT) $(TESTOBJ)
+	@$(CC) $(INCLUDE) $(TESTOBJ) $(LIBFT) -o testt
+	./testt
 
-print:
-	@echo $(TESTFLS)
-	@echo $(TESTOBJ)
+$(LIBFT):
+	@make -C libft
 
-test: $(TESTOBJ)
-	$(CC) $(INCLUDE) $(TESTOBJ) -o test
+clean:
+	@rm -f $(TESTOBJ)
+	@make -C libft clean
+
+fclean: clean
+	@make -C libft fclean
+
+re: fclean all

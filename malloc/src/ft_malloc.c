@@ -6,23 +6,29 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 16:41:03 by aeryilma          #+#    #+#             */
-/*   Updated: 2024/03/14 13:21:14 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/14 16:23:30 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_malloc.h"
+#include <stdio.h>
+
+t_zone	*g_zones = NULL;
 
 void	*malloc(size_t size)
 {
-	int	*ret;
-	size_t	len;
+	// if (g_zones == NULL)
+	// 	AllocateZone(size);
 
-	if (size <= 0)
-		return (NULLPTR);
-	if (size <= TINY)
-		size = TINY;
-	len = size + sizeof(size);
-	ret = mmap(0, len, PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
-	*ret = len;
-	return ((void *)ret);
+
+
+	int	*ret;
+	printf("Zone Size : %lu\n", sizeof(t_zone));
+	printf("Allocated Zone Size : %lu\n", sizeof(t_allocatedZone));
+	if (g_zones == NULL)
+		printf("g_zones is NULL\n");
+	g_zones = (t_zone *)mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_ANON | MAP_PRIVATE, -1, 0);
+	if (g_zones != NULL)
+		printf("g_zones is not NULL\n");
+	return ((void *)NULL);
 }
