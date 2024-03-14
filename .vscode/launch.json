@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/aeryilma/42MainWorks/malloc/src",
+      "program": "/Users/aeryilma/42MainWorks/malloc/src/build/Debug/outDebug"
+    }
+  ]
+}
