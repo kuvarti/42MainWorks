@@ -57,6 +57,21 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
-    "stdlib.h": "c"
+    "stdlib.h": "c",
+    "ft_malloc.h": "c",
+    "__hash_table": "c",
+    "__split_buffer": "c",
+    "__tree": "c",
+    "array": "c",
+    "bitset": "c",
+    "initializer_list": "c",
+    "map": "c",
+    "set": "c",
+    "span": "c",
+    "string": "c",
+    "string_view": "c",
+    "unordered_map": "c",
+    "utility": "c",
+    "vector": "c"
   }
 }

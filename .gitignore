@@ -1,0 +1,6 @@
+*a.out
+testt
+*.o
+*.a
+*.so
+.DS_Store

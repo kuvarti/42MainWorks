@@ -6,68 +6,66 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:22:31 by aeryilma          #+#    #+#             */
-/*   Updated: 2024/03/14 17:26:05 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/15 17:45:06 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_malloc.h"
 
-void	AppendAllocatedZone(t_allocatedZone *zone, t_allocatedZone *newZone) {
-	t_allocatedZone	*tmp, *cup;
+void AppendAllocatedZone(t_zone *zone, t_allocatedZone newZone) {
+	size_t allocatedZoneCount = zone->allocatedZoneCount;
+	t_allocatedZone *allocatedZones = zone->allocatedZones;
 
-	tmp = zone;
-	cup = tmp;
-	if (tmp->ptr > newZone->ptr)
-	{
-		newZone->next = tmp;
-		zone = newZone;
+	if (allocatedZoneCount >= 100) {
 		return;
 	}
-	while (tmp != NULLPTR) {
-		if (tmp->next == NULLPTR) {
-			tmp->next = newZone;
-			break;
-		}
-		if (tmp->ptr > newZone->ptr) {
-			cup->next = newZone;
-			newZone->next = tmp;
-			break;
-		}
-		cup = tmp;
-		tmp = cup->next;
+	size_t insertIndex = 0;
+	while (insertIndex < allocatedZoneCount && ((intptr_t)allocatedZones[insertIndex].ptr < (intptr_t)newZone.ptr)) {
+		insertIndex++;
 	}
+	for (size_t i = allocatedZoneCount; i > insertIndex; i--) {
+		allocatedZones[i] = allocatedZones[i - 1];
+	}
+	allocatedZones[insertIndex] = newZone;
+	zone->used += newZone.size;
+	zone->allocatedZoneCount++;
 }
 
-t_allocatedZone	*GetBlockInZone(void *start, size_t size) {
-	t_allocatedZone	*tmp;
+t_allocatedZone	GetBlockInZone(void *start, size_t size) {
+	t_allocatedZone	tmp;
 
-	tmp = (t_allocatedZone *)mmap(NULL, sizeof(t_allocatedZone), PROT_READ | PROT_WRITE, MAP_ANON | MAP_PRIVATE, -1, 0);
-	tmp->size = size;
-	tmp->ptr = start;
-	tmp->next = NULLPTR;
+	tmp.size = size;
+	tmp.ptr = start;
 	return (tmp);
 }
 
 void	*FindSpaceInZone(t_zone *zone, size_t size) {
 	void *zoneEnd, *spaceStart;
-	t_allocatedZone	*tmp;
+	t_allocatedZone	*tmp, ret;
 
 	zoneEnd = zone->ptr + zone->size;
 	tmp = zone->allocatedZones;
-	if (tmp == NULLPTR) {
-		AppendAllocatedZone(zone->allocatedZones, GetBlockInZone(zone->ptr, size));
+	if (zone->allocatedZoneCount == 0) {
+		AppendAllocatedZone(zone, GetBlockInZone(zone->ptr, size));
 		return (zone->ptr);
 	}
-
-
-	//YANLIS!!
-	while (tmp != NULLPTR) {
-		spaceStart = tmp->ptr + tmp->size + 1;
-		if (tmp->next == NULL) {
-			if (spaceStart <= zoneEnd)
-				return NULLPTR;
-			else
-				AppendAllocatedZone(zone->allocatedZones, GetBlockInZone(spaceStart, size));
+	for (size_t i = 0; i < zone->allocatedZoneCount; i++) {
+		spaceStart = tmp[i].ptr + tmp[i].size + 1;
+		if (spaceStart >= zoneEnd) {
+			return NULL;
+		}
+		if (tmp[i + 1].size != 0) {
+			if (spaceStart + size <= tmp[i + 1].ptr) {
+				ret = GetBlockInZone(spaceStart, size);
+				AppendAllocatedZone(zone, ret);
+				return (spaceStart);
+			}
+		}
+		else if (spaceStart + size <= zoneEnd) {
+			ret = GetBlockInZone(spaceStart, size);
+			AppendAllocatedZone(zone, ret);
+			return (spaceStart);
 		}
 	}
+	return NULL;
 }

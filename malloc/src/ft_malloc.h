@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 16:38:56 by aeryilma          #+#    #+#             */
-/*   Updated: 2024/03/14 16:27:41 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/15 17:12:38 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include <sys/types.h>
 # include <unistd.h>
 # include <stdlib.h>
-
-# define NULLPTR ((void *)NULL)
 
 // Mandatory functions
 void	free(void *ptr);
@@ -35,8 +33,7 @@ typedef enum e_zoneSize
 typedef struct s_allocatedZone
 {
 	size_t	size;
-	void	*ptr;//? burada garip seyler olacak
-	struct s_allocatedZone	*next;
+	void	*ptr;
 }	t_allocatedZone;
 
 typedef struct s_zone
@@ -44,7 +41,8 @@ typedef struct s_zone
 	size_t	size;
 	size_t	used;
 	void	*ptr;
-	t_allocatedZone	*allocatedZones;
+	t_allocatedZone	allocatedZones[100];
+	size_t	allocatedZoneCount;
 
 	struct s_zone	*next;
 	struct s_zone	*prev;
@@ -54,8 +52,9 @@ extern t_zone	*g_zones;
 
 
 // Utils
-# define ALLOCATE(SIZE) (t_zone *)mmap(NULL, SIZE, PROT_READ | PROT_WRITE, MAP_ANON | MAP_PRIVATE, -1, 0)
+# define ALLOCATE(SIZE) mmap(NULL, SIZE, PROT_READ | PROT_WRITE, MAP_ANON | MAP_PRIVATE, -1, 0)
 
-t_zone	*AllocateZone(size_t size);
+void	*AllocateManager(size_t neededSize);
+void	*FindSpaceInZone(t_zone *zone, size_t size);
 
 #endif
