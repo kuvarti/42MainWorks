@@ -5,7 +5,7 @@ endif
 INCLUDE= -I ./src
 CC= gcc -g
 
-TESTFLS= $(shell find test -name "*.c") $(shell find src -name "*.c")
+TESTFLS= $(shell find tests/test2 -name "*.c") $(shell find src -name "*.c")
 TESTOBJ= $(TESTFLS:.c=.o)
 LIBFT= libft/libft.a
 

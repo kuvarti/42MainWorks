@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:49:12 by aeryilma          #+#    #+#             */
-/*   Updated: 2024/03/15 17:40:41 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/18 17:54:50 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,17 @@ void	InitZone(t_zone *zone, size_t size)
 	zone->next = NULL;
 }
 
+/****
+ * AllocateZone
+ *
+ * Allocates a new zone, initialize it and adds it to the dobulelist of zones.
+ * And returns back.
+ *
+ * Zone size is calculated by the OS's page size.
+ *
+ * @param gZone: The list of zones to add the new zone to it
+ * @param size: The size of the zone to allocate.
+ ****/
 t_zone	*AllocateZone(t_zone *gZone, size_t size)
 {
 	t_zone	*zone, *cup;
@@ -28,8 +39,6 @@ t_zone	*AllocateZone(t_zone *gZone, size_t size)
 		size = TINY;
 	else if (size < SMALL)
 		size = SMALL;
-	else if (size < LARGE)
-		size = LARGE;
 	zone = (t_zone *)ALLOCATE(sizeof(t_zone));
 	zone->ptr = ALLOCATE(size);
 	InitZone(zone, size);
@@ -46,6 +55,13 @@ t_zone	*AllocateZone(t_zone *gZone, size_t size)
 	return (zone);
 }
 
+/****
+ * FirstCall
+ *
+ * Runs only once, when there is no zone, creates a new zone and allocates and returns back.
+ *
+ * @param size: The size of the zone to allocate.
+ ****/
 void	*FirstCall(size_t size)
 {
 	t_zone	*zone;
@@ -60,7 +76,15 @@ void	*FirstCall(size_t size)
 	return (NULL);
 }
 
-//TODO: Manage zones, removes unnessery ones, creates new ones and handles the links
+/****
+ * AllocateManager
+ *
+ * Manage allocations, if there is no zone, create a new zone and allocate and return back.
+ * If there is a zone, check if there is enough space in the zone, if not, create a new zone and allocate and return back.
+ * If there is enough space in the zone, allocate and return back.
+ *
+ * @param neededSize: The size of the space to allocate.
+ ****/
 void	*AllocateManager(size_t neededSize)
 {
 	void	*ret;

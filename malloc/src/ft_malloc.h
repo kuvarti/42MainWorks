@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 16:38:56 by aeryilma          #+#    #+#             */
-/*   Updated: 2024/03/15 17:12:38 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/18 16:14:24 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,8 @@ void	free(void *ptr);
 void	*malloc(size_t size);
 void	*realloc(void *ptr, size_t size);
 
-typedef enum e_zoneSize
-{
-	TINY = 128,
-	SMALL = 1024,
-	LARGE = 1024 * 1024
-}	t_zoneSize;
+# define TINY (getpagesize() * 4)
+# define SMALL (getpagesize() * 32)
 
 typedef struct s_allocatedZone
 {
