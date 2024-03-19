@@ -6,67 +6,67 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 22:18:27 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/15 22:19:45 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:45:20 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_get_line(char *kalan)
+char	*ft_get_line(char *remainingChars)
 {
 	int		i;
 	char	*str;
 
 	i = 0;
-	if (!kalan[i])
+	if (!remainingChars[i])
 		return (NULL);
-	while (kalan[i] && kalan[i] != '\n')
+	while (remainingChars[i] && remainingChars[i] != '\n')
 		i++;
 	str = (char *)malloc(sizeof(char) * (i + 2));
 	if (!str)
 		return (NULL);
 	i = 0;
-	while (kalan[i] && kalan[i] != '\n')
+	while (remainingChars[i] && remainingChars[i] != '\n')
 	{
-		str[i] = kalan[i];
+		str[i] = remainingChars[i];
 		i++;
 	}
-	if (kalan[i] == '\n')
+	if (remainingChars[i] == '\n')
 	{
-		str[i] = kalan[i];
+		str[i] = remainingChars[i];
 		i++;
 	}
 	str[i] = '\0';
 	return (str);
 }
 
-char	*ft_new_left_str(char *kalan)
+char	*ft_new_left_str(char *remainingChars)
 {
 	int		i;
 	int		j;
 	char	*str;
 
 	i = 0;
-	while (kalan[i] && kalan[i] != '\n')
+	while (remainingChars[i] && remainingChars[i] != '\n')
 		i++;
-	if (!kalan[i])
+	if (!remainingChars[i])
 	{
-		free(kalan);
+		free(remainingChars);
 		return (NULL);
 	}
-	str = (char *)malloc(sizeof(char) * (ft_gnl_strlen(kalan) - i + 1));
+	str = (char *)malloc(sizeof(char) * (ft_gnl_strlen(remainingChars) - i + 1));
 	if (!str)
 		return (NULL);
 	i++;
 	j = 0;
-	while (kalan[i])
-		str[j++] = kalan[i++];
+	while (remainingChars[i])
+		str[j++] = remainingChars[i++];
 	str[j] = '\0';
-	free(kalan);
+	free(remainingChars);
 	return (str);
 }
 
-char	*ft_read_to_left_str(int fd, char *kalan)
+char	*ft_read_to_left_str(int fd, char *remainingChars)
 {
 	char	*buff;
 	int		rd_bytes;
@@ -75,7 +75,7 @@ char	*ft_read_to_left_str(int fd, char *kalan)
 	if (!buff)
 		return (NULL);
 	rd_bytes = 1;
-	while (!ft_gnl_strchr(kalan, '\n') && rd_bytes != 0)
+	while (!ft_gnl_strchr(remainingChars, '\n') && rd_bytes != 0)
 	{
 		rd_bytes = read(fd, buff, BUFFER_SIZE);
 		if (rd_bytes == -1)
@@ -84,24 +84,24 @@ char	*ft_read_to_left_str(int fd, char *kalan)
 			return (NULL);
 		}
 		buff[rd_bytes] = '\0';
-		kalan = ft_gnl_strjoin(kalan, buff);
+		remainingChars = ft_gnl_strjoin(remainingChars, buff);
 	}
 	free(buff);
-	return (kalan);
+	return (remainingChars);
 }
 
 char	*get_next_line(int fd)
 {
 	char		*str;
-	static char	*kalan;
+	static char	*remainingChars;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	kalan = ft_read_to_left_str(fd, kalan);
-	if (!kalan)
+	remainingChars = ft_read_to_left_str(fd, remainingChars);
+	if (!remainingChars)
 		return (NULL);
-	str = ft_get_line(kalan);
-	kalan = ft_new_left_str(kalan);
+	str = ft_get_line(remainingChars);
+	remainingChars = ft_new_left_str(remainingChars);
 	return (str);
 }
 /*

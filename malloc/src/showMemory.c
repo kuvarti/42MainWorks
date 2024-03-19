@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 13:19:52 by aeryilma          #+#    #+#             */
-/*   Updated: 2024/03/19 15:30:15 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:46:02 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	PrintAllocatedAreas(t_zone *zone)
 {
 	for (size_t i = 0; i < zone->allocatedZoneCount; i++)
 	{
-		ft_printf("%p - %p : %d bytes\n", zone->allocatedZones[i].ptr,
+		ft_printf("%p - %p : %u bytes\n", zone->allocatedZones[i].ptr,
 			zone->allocatedZones[i].ptr + zone->allocatedZones[i].size,
 			zone->allocatedZones[i].size);
 	}
@@ -36,7 +36,6 @@ void	show_alloc_mem() {
 	t_zone	*zone;
 	size_t	i;
 
-	char *dd= malloc(100000000000);
 	zone = g_zones;
 	if (zone == NULL) {
 		ft_printf("No allocated memory\n");

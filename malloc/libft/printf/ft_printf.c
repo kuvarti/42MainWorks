@@ -6,52 +6,52 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:51:03 by aeryilma          #+#    #+#             */
-/*   Updated: 2024/03/19 13:29:44 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:42:04 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	cozbunu(va_list eleman, char f)
+int	resolver(va_list arg, char f)
 {
 	if (f == 'c')
-		return (ft_putchar(va_arg(eleman, int)));
+		return (ft_putchar(va_arg(arg, int)));
 	else if (f == 's')
-		return (ft_putstr(va_arg(eleman, char *)));
+		return (ft_putstr(va_arg(arg, char *)));
 	else if (f == 'd' || f == 'i')
-		return (ft_putnbr(va_arg(eleman, int)));
+		return (ft_putnbr(va_arg(arg, int)));
 	else if (f == 'u')
-		return (ft_putunbr(va_arg(eleman, unsigned int)));
+		return (ft_putunbr(va_arg(arg, unsigned int)));
 	else if (f == 'p')
-		return (ft_putptr(va_arg(eleman, unsigned long), "0123456789abcdef"));
+		return (ft_putptr(va_arg(arg, unsigned long), "0123456789abcdef"));
 	else if (f == 'x')
-		return (ft_puthex(va_arg(eleman, unsigned int), "0123456789abcdef"));
+		return (ft_puthex(va_arg(arg, unsigned int), "0123456789abcdef"));
 	else if (f == 'X')
-		return (ft_puthex(va_arg(eleman, unsigned int), "0123456789ABCDEF"));
+		return (ft_puthex(va_arg(arg, unsigned int), "0123456789ABCDEF"));
 	return (0);
 }
 
 int	ft_printf(const char *ref, ...)
 {
-	int		toplam;
-	va_list	demirbas;
+	int		total;
+	va_list	args;
 
-	toplam = 0;
-	va_start(demirbas, ref);
+	total = 0;
+	va_start(args, ref);
 	while (*ref)
 	{
 		if (*ref == '%')
 		{
 			ref++;
 			if (*ref == '%')
-				toplam += ft_putchar('%');
+				total += ft_putchar('%');
 			else
-				toplam += cozbunu(demirbas, *ref);
+				total += resolver(args, *ref);
 		}
 		else
-			toplam += ft_putchar(*ref);
+			total += ft_putchar(*ref);
 		ref++;
 	}
-	va_end(demirbas);
-	return (toplam);
+	va_end(args);
+	return (total);
 }
