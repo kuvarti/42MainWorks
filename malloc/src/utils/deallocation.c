@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 12:58:20 by aeryilma          #+#    #+#             */
-/*   Updated: 2024/03/19 13:31:31 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:27:05 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	Deallocate(t_zone *zone, size_t index)
 		zone->used -= zone->allocatedZones[index].size;
 		zone->allocatedZones[index].ptr = NULL;
 		zone->allocatedZones[index].size = 0;
+		zone->allocatedZoneCount--;
 		while (index < zone->allocatedZoneCount - 1)
 		{
 			zone->allocatedZones[index] = zone->allocatedZones[index + 1];

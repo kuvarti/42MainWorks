@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:49:12 by aeryilma          #+#    #+#             */
-/*   Updated: 2024/03/18 17:54:50 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:35:37 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,31 @@ void	InitZone(t_zone *zone, size_t size)
 	zone->next = NULL;
 }
 
-/****
- * AllocateZone
- *
- * Allocates a new zone, initialize it and adds it to the dobulelist of zones.
- * And returns back.
- *
- * Zone size is calculated by the OS's page size.
- *
- * @param gZone: The list of zones to add the new zone to it
- * @param size: The size of the zone to allocate.
- ****/
-t_zone	*AllocateZone(t_zone *gZone, size_t size)
+t_zone	*AppendAndSortZone(t_zone *zone)
 {
-	t_zone	*zone, *cup;
+	t_zone	*tmp;
+
+	tmp = g_zones;
+	if (tmp == NULL){
+		g_zones = zone;
+		return (zone);
+	}
+	while (1) {
+		if (tmp->size > zone->size) {
+			AppendZoneFront(tmp, zone);
+			return (zone);
+		}
+		tmp = tmp->next;
+		if (tmp == g_zones || tmp == NULL) {
+			AppendZoneBack(g_zones, zone);
+			return (zone);
+		}
+	}
+}
+
+t_zone	*AllocateZone(size_t size)
+{
+	t_zone	*zone, *cup, *gZone;
 
 	if (size < TINY)
 		size = TINY;
@@ -42,49 +53,22 @@ t_zone	*AllocateZone(t_zone *gZone, size_t size)
 	zone = (t_zone *)ALLOCATE(sizeof(t_zone));
 	zone->ptr = ALLOCATE(size);
 	InitZone(zone, size);
-	if (gZone == NULL) {
-		gZone = zone;
-	} else {
-		zone->next = gZone->next;
-		if (zone->next == NULL)
-			zone->next = gZone;
-		gZone->next = zone;
-		zone->prev = gZone;
-		zone->next->prev = zone;
-	}
-	return (zone);
+	return (AppendAndSortZone(zone));
 }
 
-/****
- * FirstCall
- *
- * Runs only once, when there is no zone, creates a new zone and allocates and returns back.
- *
- * @param size: The size of the zone to allocate.
- ****/
 void	*FirstCall(size_t size)
 {
 	t_zone	*zone;
 	void	*ret;
 
-	zone = AllocateZone(g_zones, size);
+	zone = AllocateZone(size);
 	ret = FindSpaceInZone(zone, size);
-	g_zones = zone;
 	if (ret != NULL) {
 		return (ret);
 	}
 	return (NULL);
 }
 
-/****
- * AllocateManager
- *
- * Manage allocations, if there is no zone, create a new zone and allocate and return back.
- * If there is a zone, check if there is enough space in the zone, if not, create a new zone and allocate and return back.
- * If there is enough space in the zone, allocate and return back.
- *
- * @param neededSize: The size of the space to allocate.
- ****/
 void	*AllocateManager(size_t neededSize)
 {
 	void	*ret;
@@ -105,7 +89,7 @@ void	*AllocateManager(size_t neededSize)
 					return (ret);
 				}
 			} else {
-				tmp = AllocateZone(tmp, neededSize);
+				tmp = AllocateZone(neededSize);
 				ret = FindSpaceInZone(tmp, neededSize);
 				if (ret != NULL) {
 					return (ret);

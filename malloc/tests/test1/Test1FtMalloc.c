@@ -1,33 +1,21 @@
-#include "../src/ft_malloc.h"
+#include "ft_malloc.h"
 // #include "stdlib.h"
 #include <string.h>
 #include <stdio.h>
 
-typedef struct {
-	int a;
-	int b;
-} myStruct;
 
 int main() {
 	char **ptr = (char **)malloc(10);
 
 	for (int i = 0; i < 10; i++) {
-		ptr[i] = (char *)malloc(20);
+		ptr[i] = malloc(20);
+		strcpy(ptr[i], "Hello World!");
 	}
 
-	strcpy(ptr[0], "Hello World!");
-	strcpy(ptr[1], "Hello World!");
-	strcpy(ptr[2], "Hello World!");
-	strcpy(ptr[3], "Hello World!");
-	strcpy(ptr[4], "Hello World!");
-	strcpy(ptr[5], "Hello World!");
-	strcpy(ptr[6], "Hello World!");
-	strcpy(ptr[7], "Hello World!");
-	strcpy(ptr[8], "Hello World!");
-	strcpy(ptr[9], "Hello World!");
-
-	ptr[1][25] = 'A';
+	// ptr[1][25] = 'A';
 
 	printf("ptr: %s, %p\n", ptr[1], ptr[1]);
+
+	show_alloc_mem();
 	return 0;
 }

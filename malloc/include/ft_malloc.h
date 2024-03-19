@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 16:38:56 by aeryilma          #+#    #+#             */
-/*   Updated: 2024/03/19 13:32:30 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/19 14:40:19 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 void	free(void *ptr);
 void	*malloc(size_t size);
 void	*realloc(void *ptr, size_t size);
+void	show_alloc_mem();
 
 # define TINY (getpagesize() * 4)
 # define SMALL (getpagesize() * 32)
@@ -55,6 +56,9 @@ extern t_zone	*g_zones;
 void	*AllocateManager(size_t neededSize);
 void	*FindSpaceInZone(t_zone *zone, size_t size);
 void	DeallocateManager(void *ptr);
+
+void	AppendZoneFront(t_zone *Node, t_zone *NewZone);
+void	AppendZoneBack(t_zone *Node, t_zone *NewZone);
 
 
 #endif

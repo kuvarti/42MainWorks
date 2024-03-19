@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 18:29:07 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/15 22:20:54 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:29:31 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdarg.h>
 
 int		ft_isalpha(int c);
 int		ft_islower(int c);
@@ -60,6 +61,15 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+// PRINTF
+int		ft_printf(const char *ref, ...);
+int		ft_putptr(unsigned long hex, char *base);
+int		ft_puthex(unsigned int hex, char *base);
+int		ft_putunbr(unsigned int n);
+int		ft_putstr(char const *s);
+int		ft_putchar(char c);
+int		ft_putnbr(int n);
 
 // GET_NEXT_LINE
 char	*get_next_line(int fd);

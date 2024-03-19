@@ -2,10 +2,10 @@ ifeq ($(HOSTTYPE),)
 	HOSTTYPE := $(shell uname -m)_$(shell uname -s)
 endif
 
-INCLUDE= -I ./src
+INCLUDE= -I ./include -I ./libft
 CC= gcc -g
 
-TESTFLS= $(shell find tests/test2 -name "*.c") $(shell find src -name "*.c")
+TESTFLS= tests/test1/Test1FtMalloc.c $(shell find src -name "*.c")
 TESTOBJ= $(TESTFLS:.c=.o)
 LIBFT= libft/libft.a
 

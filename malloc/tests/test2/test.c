@@ -33,7 +33,6 @@ int main() {
 
 	// _free((void **)ptr);
 	printf("ptr: %s, %p\n", ptr[1], ptr[1]);
-
 	printf("ptr: %s, %p\n", ptr[5], ptr[5]);
 	free(&ptr[5][3]);
 }
