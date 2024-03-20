@@ -1,14 +1,12 @@
 #include "ft_malloc.h"
-// #include "stdlib.h"
 #include <string.h>
 #include <stdio.h>
 
-
 int main() {
-	char **ptr = (char **)malloc(10);
+	char **ptr = (char **)malloc(sizeof(char *) * 10);
 
 	for (int i = 0; i < 10; i++) {
-		ptr[i] = malloc(20);
+		ptr[i] = (char *)malloc(20);
 		strcpy(ptr[i], "Hello World!");
 	}
 

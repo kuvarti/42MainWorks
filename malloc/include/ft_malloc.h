@@ -16,9 +16,7 @@
 # include <sys/mman.h>
 # include <sys/types.h>
 # include <unistd.h>
-# include <stdlib.h>
-
-# include "libft.h"
+// # include <stdlib.h>
 
 // Mandatory functions
 void	free(void *ptr);

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_malloc.h"
+#include "libft.h"
 
 void	PrintZoneName(t_zone *zone)
 {

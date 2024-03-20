@@ -24,7 +24,7 @@
       "name": "(lldb) Başlat",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/malloc/testt",
+      "program": "${workspaceFolder}/malloc/tests/testMain",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}/malloc",
@@ -38,7 +38,7 @@
       "request": "launch",
       "args": [],
       "cwd": "${workspaceFolder}/malloc",
-      "program": "${workspaceFolder}/malloc/testt"
+      "program": "${workspaceFolder}/malloc/tests/testMain"
     }
   ]
 }

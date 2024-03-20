@@ -3,7 +3,7 @@ ifeq ($(HOSTTYPE),)
 endif
 
 INCLUDE= -I ./include -I ./libft
-CC= gcc -g
+CC= gcc -g -fPIC -shared
 
 MALLOCSRC = $(shell find src -name "*.c")
 MALLOCDIR = $(sort $(dir $(MALLOCSRC)))
@@ -19,14 +19,11 @@ $(OUTPREFIX)%.o: %.c
 	@$(CC) $(INCLUDE) -c $< -o $@
 
 all: $(HOSTTYPE)
-	@ln -sf libft_malloc_$(HOSTTYPE).so libft_malloc.so
-
-test: $(HOSTTYPE)
-	@make -f tests/Makefile
+	@ln -sf libft_malloc_$(HOSTTYPE).so lib/libft_malloc.so
 
 $(HOSTTYPE): $(LIBFT) outfolder $(MALLOCOBJ)
 	@mkdir -p lib
-	@$(CC) -shared -fPIC $(INCLUDE) $(MALLOCOBJ) $(LIBFT) -o lib/libft_malloc_$(HOSTTYPE).so
+	@$(CC) $(INCLUDE) $(MALLOCOBJ) $(LIBFT) -o lib/libft_malloc_$(HOSTTYPE).so
 	@if [ ! -f "libft_malloc.so" ]; then \
 		echo "libft_malloc_$(HOSTTYPE).so created."; \
 		echo "Done."; \

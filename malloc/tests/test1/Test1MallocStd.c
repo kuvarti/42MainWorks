@@ -3,7 +3,7 @@
 #include <string.h>
 
 int main() {
-	char **ptr = (char **)malloc(10);
+	char **ptr = (char **)malloc(sizeof(char *) * 10);
 
 	for (int i = 0; i < 10; i++) {
 		ptr[i] = (char *)malloc(20);
