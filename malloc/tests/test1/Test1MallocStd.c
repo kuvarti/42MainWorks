@@ -10,8 +10,6 @@ int main() {
 		strcpy(ptr[i], "Hello World!");
 	}
 
-	// ptr[1][25] = 'A';
-
 	printf("ptr: %s, %p\n", ptr[1], ptr[1]);
 	return 0;
 }
