@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 12:58:20 by aeryilma          #+#    #+#             */
-/*   Updated: 2024/03/19 15:27:05 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/26 14:23:22 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,11 @@ void	Deallocate(t_zone *zone, size_t index)
 }
 
 void	DeallocateManager(void *ptr) {
+	t_FindZoneAndIndex	find;
 	t_zone	*zone;
 	size_t	i;
 
-	if (g_zones == NULL)
-		return ;
-	zone = g_zones;
-	while (zone)
-	{
-		i = 0;
-		while (i < zone->allocatedZoneCount)
-		{
-			if (zone->allocatedZones[i].ptr == ptr)
-				Deallocate(zone, i);
-			i++;
-		}
-		zone = zone->next;
-		if (zone == g_zones || zone == NULL)
-			break ;
-	}
+	find = FindZoneAndIndex(ptr);
+	if (find.zone != NULL)
+		Deallocate(find.zone, find.index);
 }

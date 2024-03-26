@@ -6,12 +6,11 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 16:41:03 by aeryilma          #+#    #+#             */
-/*   Updated: 2024/03/18 16:19:07 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/26 14:08:05 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_malloc.h"
-#include <stdio.h>
 
 t_zone	*g_zones = NULL;
 
