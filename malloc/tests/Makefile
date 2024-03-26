@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-g -I../include
-LDFLAGS=-L../lib -lft_malloc
+LDFLAGS= ../libft_malloc #-L../lib -lft_malloc
 
 FTS= $(shell find . -name '*Ft.c')
 FTPROGS= $(FTS:%Ft.c=%Ft)

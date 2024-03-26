@@ -24,6 +24,7 @@ all: $(HOSTTYPE)
 $(HOSTTYPE): $(LIBFT) outfolder $(MALLOCOBJ)
 	@mkdir -p lib
 	@$(CC) $(INCLUDE) $(MALLOCOBJ) $(LIBFT) -o lib/libft_malloc_$(HOSTTYPE).so
+	gcc $(MALLOCOBJ) $(LIBFT) -c -o libft_malloc.a
 	@if [ ! -f "libft_malloc.so" ]; then \
 		echo "libft_malloc_$(HOSTTYPE).so created."; \
 		echo "Done."; \

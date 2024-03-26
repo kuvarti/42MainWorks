@@ -6,7 +6,7 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 16:38:56 by aeryilma          #+#    #+#             */
-/*   Updated: 2024/03/19 14:40:19 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/22 13:55:10 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 // Mandatory functions
 void	free(void *ptr);
 void	*malloc(size_t size);
-void	*realloc(void *ptr, size_t size);
+//void	*realloc(void *ptr, size_t size);
 void	show_alloc_mem();
 
 # define TINY (getpagesize() * 4)
