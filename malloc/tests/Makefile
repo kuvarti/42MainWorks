@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-g -I../include
-LDFLAGS= ../libft_malloc #-L../lib -lft_malloc
+LDFLAGS= -L../lib -lft_malloc
 
 FTS= $(shell find . -name '*Ft.c')
 FTPROGS= $(FTS:%Ft.c=%Ft)
@@ -20,6 +20,7 @@ $(STDPROGS): %Std: %Std.c
 
 clean:
 	rm -f $(FTPROGS) $(STDPROGS)
+	find . -name "*.dSYM" -delete
 
 deneme:
 	$(CC) $(CFLAGS) test1/Test1MallocFt.c $(LDFLAGS)
