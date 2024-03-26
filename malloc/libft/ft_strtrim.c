@@ -6,11 +6,12 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 11:11:41 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/02/18 12:17:24 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:42:59 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strtrim(char const *s1, char const *set)
 {

@@ -6,11 +6,12 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:27:21 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/02/18 14:08:16 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:41:37 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 t_list	*ft_lstnew(void *content)
 {

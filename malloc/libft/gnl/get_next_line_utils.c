@@ -6,11 +6,12 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 22:19:30 by aeryilma          #+#    #+#             */
-/*   Updated: 2023/01/15 22:19:44 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:43:27 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 size_t	ft_gnl_strlen(const char *s)
 {

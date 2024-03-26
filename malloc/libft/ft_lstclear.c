@@ -6,11 +6,12 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 10:23:27 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/03 17:56:25 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:41:19 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {

@@ -6,11 +6,12 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 13:21:57 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/02/18 11:22:09 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:42:49 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

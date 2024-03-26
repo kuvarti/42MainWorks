@@ -6,11 +6,12 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 22:18:27 by aeryilma          #+#    #+#             */
-/*   Updated: 2024/03/19 15:45:20 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:43:20 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 char	*ft_get_line(char *remainingChars)
 {

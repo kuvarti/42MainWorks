@@ -6,11 +6,12 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 14:10:48 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/02/17 23:42:35 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:41:59 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static void	ft_allocate(char **tab, char const *s, char sep)
 {

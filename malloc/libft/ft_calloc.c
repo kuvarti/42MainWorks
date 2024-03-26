@@ -6,11 +6,12 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 19:48:47 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/02/17 11:20:03 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:40:51 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {

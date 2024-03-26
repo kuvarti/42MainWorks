@@ -6,17 +6,14 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 18:29:07 by aeryilma          #+#    #+#             */
-/*   Updated: 2024/03/19 13:29:31 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:45:04 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <string.h>
 # include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
 
 int		ft_isalpha(int c);
 int		ft_islower(int c);

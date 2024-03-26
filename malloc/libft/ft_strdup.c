@@ -6,11 +6,12 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 17:17:21 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/02/17 20:05:37 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:42:03 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strdup(const char *s)
 {

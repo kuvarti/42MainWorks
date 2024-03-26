@@ -6,11 +6,12 @@
 /*   By: aeryilma <aeryilma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 11:53:21 by aeryilma          #+#    #+#             */
-/*   Updated: 2022/08/03 17:55:03 by aeryilma         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:41:01 by aeryilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static int	ft_arraylen(int n)
 {
