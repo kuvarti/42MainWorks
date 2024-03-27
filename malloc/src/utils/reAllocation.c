@@ -22,6 +22,7 @@ void	*ReAllocateManager(void *ptr, size_t size)
 		return (NULL);
 	if (find.allocatedZone->ptr + size < find.zone->allocatedZones[find.index + 1].ptr) {
 		find.allocatedZone->size = size;
+		ft_printf("if geldi\n");
 		return (find.allocatedZone->ptr);
 	}
 	else
@@ -29,7 +30,7 @@ void	*ReAllocateManager(void *ptr, size_t size)
 		void *ret;
 		ret = AllocateManager(size);
 		ft_memcpy(ret, ptr, find.allocatedZone->size);
-		DeallocateManager(find.zone);
+		DeallocateManager(find.allocatedZone->ptr);
 		return (ret);
 	}
 }

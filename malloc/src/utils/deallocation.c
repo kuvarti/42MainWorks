@@ -21,6 +21,13 @@ void	Deallocate(t_zone *zone, size_t index)
 			zone->prev->next = zone->next;
 			zone->next->prev = zone->prev;
 		}
+		zone->ptr = 0;
+		zone->size = 0;
+		zone->allocatedZoneCount = 0;
+		zone->used -= zone->allocatedZones[index].size;
+		zone->allocatedZones[index].ptr = NULL;
+		zone->allocatedZones[index].size = 0;
+		zone = NULL;
 		munmap(zone->ptr, zone->size);
 	}
 	else
@@ -37,6 +44,7 @@ void	Deallocate(t_zone *zone, size_t index)
 	}
 }
 
+#include "libft.h"
 void	DeallocateManager(void *ptr) {
 	t_FindZoneAndIndex	find;
 	t_zone	*zone;

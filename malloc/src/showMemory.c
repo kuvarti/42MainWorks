@@ -25,11 +25,14 @@ void	PrintZoneName(t_zone *zone)
 
 void	PrintAllocatedAreas(t_zone *zone)
 {
-	for (size_t i = 0; i < zone->allocatedZoneCount; i++)
+	for (size_t i = 0; i < zone->allocatedZoneCount;)
 	{
-		ft_printf("%p - %p : %u bytes\n", zone->allocatedZones[i].ptr,
-			zone->allocatedZones[i].ptr + zone->allocatedZones[i].size,
-			zone->allocatedZones[i].size);
+		if (zone->allocatedZones[i].ptr != NULL) {
+			ft_printf("%p - %p : %u bytes\n", zone->allocatedZones[i].ptr,
+				zone->allocatedZones[i].ptr + zone->allocatedZones[i].size,
+				zone->allocatedZones[i].size);
+			i++;
+		}
 	}
 }
 
@@ -38,7 +41,7 @@ void	show_alloc_mem() {
 	size_t	i;
 
 	zone = g_zones;
-	if (zone == NULL) {
+	if (zone == NULL || zone->ptr == NULL) {
 		ft_printf("No allocated memory\n");
 	} else {
 		while (zone) {
