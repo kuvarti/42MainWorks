@@ -12,7 +12,7 @@
 
 CC = gcc
 NAME = libft.a
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fPIC -shared
 FILES = $(shell find . -name '*.c')
 OBJ = $(FILES:%.c=%.o)
 

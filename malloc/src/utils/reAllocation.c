@@ -17,7 +17,6 @@ void	*ReAllocateManager(void *ptr, size_t size)
 {
 	t_FindZoneAndIndex	find;
 
-	write(1, "realloc\n", 8);
 	find = FindZoneAndIndex(ptr);
 	if (find.zone == NULL)
 		return (NULL);

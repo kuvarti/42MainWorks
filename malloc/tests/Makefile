@@ -11,16 +11,11 @@ STDPROGS= $(STDS:%Std.c=%Std)
 all: $(FTPROGS) $(STDPROGS)
 
 $(FTPROGS): %Ft: %Ft.c
-	@pwd
-	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
+	@$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
 
 $(STDPROGS): %Std: %Std.c
-	@pwd
-	$(CC) $(CFLAGS) $< -o $@
+	@$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	rm -f $(FTPROGS) $(STDPROGS)
-	find . -name "*.dSYM" -delete
-
-deneme:
-	$(CC) $(CFLAGS) test1/Test1MallocFt.c $(LDFLAGS)
+	@rm -f $(FTPROGS) $(STDPROGS)
+	@find . -name "*.dSYM" -delete
